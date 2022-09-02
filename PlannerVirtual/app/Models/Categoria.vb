@@ -3,6 +3,7 @@
 Public Class Categoria
     Private _nome As String
     Private _cor As Color
+    'TODO ADD ICategoriaDAO
 
     Public Property nome() As String
         Get
@@ -25,6 +26,10 @@ Public Class Categoria
     Public Sub New(ByVal nome As String, ByVal cor As Color)
         _nome = nome
         _cor = cor
+    End Sub
+
+    Sub salvar()
+        
     End Sub
 
 End Class
