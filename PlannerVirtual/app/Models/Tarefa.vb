@@ -1,11 +1,13 @@
 ﻿Imports Microsoft.VisualBasic
 
 Public Class Tarefa
+    Private _id As String
     Private _descricao As String
     Private _horarioInicio As Date
-    Private _horarioFim As Date
+    Private _duracao As Integer
     Private _estado As EstadoAtividade
     Private _categoria As Categoria
+    'TODO ADD ITarefaDAO
 
     Public Property descricao() As String
         Get
@@ -25,12 +27,12 @@ Public Class Tarefa
         End Set
     End Property
 
-    Public Property horarioFim() As Date
+    Public Property duracao() As Integer
         Get
-            Return _horarioFim
+            Return _duracao
         End Get
-        Set(ByVal value As Date)
-            _horarioFim = value
+        Set(ByVal value As Integer )
+            _duracao = value
         End Set
     End Property
 
@@ -52,10 +54,10 @@ Public Class Tarefa
         End Set
     End Property
 
-    Public Sub New(ByVal descricao As String, ByVal horarioInicio Date, ByVal horarioFim As Date)
+    Public Sub New(ByVal descricao As String, ByVal horarioInicio As Date, ByVal duracao As Integer)
         _descricao = descricao
         _horarioInicio = horarioInicio
-        _horarioFim = _horarioFim
+        _duracao = duracao
         _estado = EstadoAtividade.aExecutar
     End Sub
 
