@@ -65,6 +65,14 @@ Public Class Tarefa
         _estado = est
     End Sub
 
+    Sub salvar()
+
+    End Sub
+
+    Sub concluir()
+        _estado = EstadoAtividade.executada
+    End Sub
+
 End Class
 
 Public Enum EstadoAtividade
