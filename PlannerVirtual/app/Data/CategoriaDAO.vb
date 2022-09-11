@@ -5,18 +5,40 @@ Imports System.Diagnostics.Eventing
 Public Class CategoriaDAO
     Implements ICategoriaDAO
 
+    'Constantes estaticas
+    Public Shared instancia As CategoriaDAO
+    Public Shared iniciado As Boolean
+
+    Private Sub New()
+        'construtor privado de forma a desabilitar outro a criar um objeto
+    End Sub
+    Friend Shared Function getSingletonObject() As CategoriaDAO
+        If iniciado = False Then
+            instancia = New CategoriaDAO()
+            iniciado = True
+            Return instancia
+        Else
+            Return instancia
+        End If
+    End Function
+
+
     Private sConnectionString As String = "Data Source= C:\Users\Mr Robot\source\repos\alexlsilva7\PlannerVirtual\PlannerVirtual\database.db; Version=3; New=True; Compress=True;"
 
     Public Sub inserir(categoria As Categoria) Implements ICategoriaDAO.inserir
-
-        Using cn = New SQLiteConnection(sConnectionString)
-            cn.Open()
-            Using objCommand As SQLiteCommand = cn.CreateCommand()
-                objCommand.CommandText = "INSERT INTO Categorias (nome , cor) VALUES ('" & categoria.nome & "', " & Color.Red.ToArgb & ")"
-                objCommand.ExecuteNonQuery()
+        Try
+            consultar(categoria.nome)
+            Throw New CategoriaExistenteException
+        Catch ex As CategoriaNaoEncontradaException
+            Using cn = New SQLiteConnection(sConnectionString)
+                cn.Open()
+                Using objCommand As SQLiteCommand = cn.CreateCommand()
+                    objCommand.CommandText = "INSERT INTO Categorias (nome , cor) VALUES ('" & categoria.nome & "', " & Color.Red.ToArgb & ")"
+                    objCommand.ExecuteNonQuery()
+                End Using
+                cn.Close()
             End Using
-            cn.Close()
-        End Using
+        End Try
     End Sub
 
     Public Sub deletar(nome As String) Implements ICategoriaDAO.deletar
