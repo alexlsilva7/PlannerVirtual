@@ -3,7 +3,16 @@ Imports System.Reflection
 Imports System.Resources.ResXFileRef
 
 Public Class Form1
-    Private categoriaDAO As ICategoriaDAO = New CategoriaDAO
+    Private _categoriaDAO As ICategoriaDAO
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        initState()
+        carregaDados()
+    End Sub
+
+    Private Sub initState()
+        _categoriaDAO = CategoriaDAO.getSingletonObject
+    End Sub
 
     Public categoriaSelecionadaId As Integer = -1
 
@@ -20,7 +29,7 @@ Public Class Form1
 
     Private Sub carregaDados()
         'Busca os dados
-        Dim lista As List(Of Categoria) = categoriaDAO.listar()
+        Dim lista As List(Of Categoria) = _categoriaDAO.listar()
         Try
             dgvCategorias.DataSource = ConverterListParaDataTable(lista)
         Catch ex As Exception
@@ -61,22 +70,22 @@ Public Class Form1
         Dim novaCategoria As Categoria = New Categoria(nome, cor)
 
         Try
-            categoriaDAO.inserir(novaCategoria)
+            _categoriaDAO.inserir(novaCategoria)
             txtNomeCategoria.ResetText()
             carregaDados()
+        Catch ex As CategoriaExistenteException
+            MsgBox("Categoria já existente!")
         Catch ex As Exception
             MsgBox("Erro ao adicionar categoria: " & ex.ToString)
         End Try
     End Sub
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        carregaDados()
-    End Sub
+
 
     Private Sub btnDeletarPrimeiro_Click(sender As Object, e As EventArgs) Handles btnDeletarPrimeiro.Click
         Try
-            Dim lista = categoriaDAO.listar()
-            categoriaDAO.deletar(lista.First.nome)
+            Dim lista = _categoriaDAO.listar()
+            _categoriaDAO.deletar(lista.First.nome)
             carregaDados()
         Catch ex As Exception
             MsgBox("Erro ao deletar categoria: " & ex.ToString)
@@ -86,7 +95,7 @@ Public Class Form1
     Private Sub btnConsultar_Click(sender As Object, e As EventArgs) Handles btnConsultar.Click
         Dim nome As String = txtNomeConsultar.Text
         Try
-            Dim categoria = categoriaDAO.consultar(nome)
+            Dim categoria = _categoriaDAO.consultar(nome)
             MsgBox("Categoria - Nome: " & categoria.nome & " | Cor(ARGB): " & categoria.cor.ToArgb)
         Catch naoEncontradoException As CategoriaNaoEncontradaException
             MsgBox("Categoria não encontrada!")

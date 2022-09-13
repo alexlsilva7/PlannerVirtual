@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="app\Data\CategoriaDAO.vb" />
+    <Compile Include="app\Data\Exceptions\CategoriaExistenteException.vb" />
     <Compile Include="app\Data\Exceptions\CategoriaNaoEncontradaException.vb" />
     <Compile Include="app\Data\Interfaces\ICategoriaDAO.vb" />
     <Compile Include="app\Models\Categoria.vb" />
