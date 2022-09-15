@@ -3,7 +3,8 @@
 Public Class Categoria
     Private _nome As String
     Private _cor As Color
-    'TODO ADD ICategoriaDAO
+    Private _categoriaDAO As ICategoriaDAO
+
 
     Public Property nome() As String
         Get
@@ -26,10 +27,15 @@ Public Class Categoria
     Public Sub New(ByVal nome As String, ByVal cor As Color)
         _nome = nome
         _cor = cor
+        _categoriaDAO = CategoriaDAO.getSingletonObject
     End Sub
 
     Sub salvar()
-        
+        Try
+            _categoriaDAO.inserir(Me)
+        Catch ex As CategoriaExistenteException
+            Throw ex
+        End Try
     End Sub
 
 End Class
