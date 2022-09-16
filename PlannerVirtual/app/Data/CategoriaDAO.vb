@@ -23,7 +23,7 @@ Public Class CategoriaDAO
     End Function
 
 
-    Private sConnectionString As String = "Data Source= C:\Users\Mr Robot\source\repos\alexlsilva7\PlannerVirtual\PlannerVirtual\database.db; Version=3; New=True; Compress=True;"
+    Private sConnectionString As String = "Data Source= C:\Users\danie\OneDrive\Área de Trabalho\PlannerVirtual\PlannerVirtual\database.db; Version=3; New=True; Compress=True;"
 
     Public Sub inserir(categoria As Categoria) Implements ICategoriaDAO.inserir
         Try
