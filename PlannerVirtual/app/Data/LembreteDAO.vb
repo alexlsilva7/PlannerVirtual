@@ -1,20 +1,20 @@
-﻿Imports System.Data.Common
+Imports System.Data.Common
 Imports System.Data.SQLite
 Imports System.Diagnostics.Eventing
 
-Public Class CategoriaDAO
-    Implements ICategoriaDAO
+Public Class LembreteDAO
+    Implements ILembreteDAO
 
     'Constantes estaticas
-    Public Shared instancia As CategoriaDAO
+    Public Shared instancia As LembreteDAO
     Public Shared iniciado As Boolean
 
     Private Sub New()
         'construtor privado de forma a desabilitar outro a criar um objeto
     End Sub
-    Friend Shared Function getSingletonObject() As CategoriaDAO
+    Friend Shared Function getSingletonObject() As LembreteDAO
         If iniciado = False Then
-            instancia = New CategoriaDAO()
+            instancia = New LembreteDAO()
             iniciado = True
             Return instancia
         Else
@@ -23,11 +23,11 @@ Public Class CategoriaDAO
     End Function
 
 
-    Private sConnectionString As String = "Data Source= C:\Users\danie\OneDrive\Área de Trabalho\PlannerVirtual\PlannerVirtual\database.db; Version=3; New=True; Compress=True;"
+    Private sConnectionString As String = "Data Source= C:\Users\danie\OneDrive\�rea de Trabalho\PlannerVirtual\PlannerVirtual\database.db; Version=3; New=True; Compress=True;"
 
-    Public Sub inserir(categoria As Categoria) Implements ICategoriaDAO.inserir
+    Public Sub inserir(lembrete As Lembrete) Implements ILembreteDAO.inserir
         Try
-            consultar(categoria.nome)
+            consultar(lembrete.nome)
             Throw New CategoriaExistenteException
         Catch ex As CategoriaNaoEncontradaException
             Using cn = New SQLiteConnection(sConnectionString)
@@ -41,7 +41,7 @@ Public Class CategoriaDAO
         End Try
     End Sub
 
-    Public Sub deletar(nome As String) Implements ICategoriaDAO.deletar
+    Public Sub deletar(nome As String) Implements ILembreteDAO.deletar
         Using cn = New SQLiteConnection(sConnectionString)
             cn.Open()
             Using objCommand As SQLiteCommand = cn.CreateCommand()
@@ -52,9 +52,9 @@ Public Class CategoriaDAO
         End Using
     End Sub
 
-    Public Function listar() As List(Of Categoria) Implements ICategoriaDAO.listar
+    Public Function listar() As List(Of Lembrete) Implements ILembreteDAO.listar
 
-        Dim listaCategorias As List(Of Categoria) = New List(Of Categoria)
+        Dim listaCategorias As List(Of Lembrete) = New List(Of Lembrete)
 
         Using cn = New SQLiteConnection(sConnectionString)
             cn.Open()
@@ -64,8 +64,8 @@ Public Class CategoriaDAO
                 Using dr = cmd.ExecuteReader()
                     If dr.HasRows Then
                         While dr.Read()
-                            Dim categoria As Categoria = New Categoria(dr("nome"), Color.FromArgb((dr("cor"))))
-                            listaCategorias.Add(categoria)
+                            Dim lembrete As Lembrete = New Lembrete(dr("nome"), Color.FromArgb((dr("cor"))))
+                            listaLembretes.Add(lembrete)
                         End While
 
                     End If
@@ -78,7 +78,7 @@ Public Class CategoriaDAO
         Return listaCategorias
     End Function
 
-    Public Function consultar(nome As String) As Categoria Implements ICategoriaDAO.consultar
+    Public Function consultar(nome As String) As Categoria Implements ILembreteDAO.consultar
         Using cn = New SQLiteConnection(sConnectionString)
             cn.Open()
             Dim sql = "SELECT nome,cor FROM Categorias WHERE nome = '" & nome & "'"
@@ -87,9 +87,9 @@ Public Class CategoriaDAO
                 Using dr = cmd.ExecuteReader()
                     If dr.HasRows Then
                         dr.Read()
-                        Dim categoria As Categoria = New Categoria(dr("nome"), Color.FromArgb((dr("cor"))))
+                        Dim lembrete As Lembrete = New Lembrete(dr("nome"), Color.FromArgb((dr("cor"))))
                         cn.Close()
-                        Return categoria
+                        Return lembrete
                     Else
                         cn.Close()
                         Throw New CategoriaNaoEncontradaException
