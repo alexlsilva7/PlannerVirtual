@@ -4,11 +4,14 @@ Imports System.Resources.ResXFileRef
 
 Public Class FormCategoria
 
+    Private corSelecionada As Color = Color.Red
+
     Public result As String = "RESULT FORM CATEGORIA"
 
     Private _categoriaDAO As ICategoriaDAO
 
     Private Sub FormCategoria_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        panelCor.BackColor = Color.Red
         initState()
         carregaDados()
     End Sub
@@ -20,13 +23,31 @@ Public Class FormCategoria
     Public categoriaSelecionadaId As Integer = -1
 
     'Atualizar id da categoria selecionada no DataGridView
-    Private Sub dgvCategorias_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCategorias.CellContentClick
-        'ARRUMAR - NÂO ESTA FUNCIONANDO
-        If dgvCategorias.SelectedRows.Count > 0 Then
-            Dim linhaAtual As DataGridViewRow = dgvCategorias.SelectedRows(0)
-            categoriaSelecionadaId = Convert.ToInt32(linhaAtual.Cells(0).Value)
-            lblIdSelecionado.Text = categoriaSelecionadaId.ToString
-            MsgBox("linha selecionada: " & categoriaSelecionadaId)
+
+    Private Sub dgvCategorias_CurrentCellChanged(sender As Object, e As EventArgs) Handles dgvCategorias.CurrentCellChanged
+
+        If Me.dgvCategorias.CurrentCellAddress.X < 0 Or Me.dgvCategorias.CurrentCellAddress.Y < 0 Then
+            Exit Sub
+            ' The Windows Me.I_DataGridView object will have already deselected the current cell and selected the 
+            ' new cell as per user navigation using mouse or cursor keys.  We just need to store the current
+            ' co-ordinates for the currently selected cell.
+
+        End If
+
+        Dim linhaAtual As Int32 = dgvCategorias.CurrentCell.RowIndex
+        categoriaSelecionadaId = linhaAtual
+        lblIdSelecionado.Text = "categoriaSelecionadaID: " + categoriaSelecionadaId.ToString
+
+    End Sub
+
+    Private Sub dgvCategorias_RowPrePaint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewRowPrePaintEventArgs) Handles dgvCategorias.RowPrePaint
+
+        If e.RowIndex >= 0 Then
+            Dim categoriaDao As CategoriaDAO = CategoriaDAO.getSingletonObject
+            Dim categoriaLista = categoriaDao.listar()
+            Dim categoriaItem = categoriaLista.ElementAt(e.RowIndex)
+
+            Me.dgvCategorias.Rows(e.RowIndex).Cells(1).Style.BackColor = categoriaItem.cor
         End If
     End Sub
 
@@ -68,19 +89,24 @@ Public Class FormCategoria
 
     Private Sub btnAdicionar_Click(sender As Object, e As EventArgs) Handles btnAdicionar.Click
         Dim nome As String = txtNomeCategoria.Text
-        Dim cor As Color = Color.Red
+        Dim cor As Color = corSelecionada
 
         Dim novaCategoria As Categoria = New Categoria(nome, cor)
+        If nome <> "" Then
+            Try
+                _categoriaDAO.inserir(novaCategoria)
+                txtNomeCategoria.ResetText()
+                carregaDados()
+            Catch ex As CategoriaExistenteException
+                MsgBox("Categoria já existente!")
+            Catch ex As Exception
+                MsgBox("Erro ao adicionar categoria: " & ex.ToString)
+            End Try
+        Else
+            MsgBox("Digite um nome para a categoria para poder salvar!")
+        End If
 
-        Try
-            _categoriaDAO.inserir(novaCategoria)
-            txtNomeCategoria.ResetText()
-            carregaDados()
-        Catch ex As CategoriaExistenteException
-            MsgBox("Categoria já existente!")
-        Catch ex As Exception
-            MsgBox("Erro ao adicionar categoria: " & ex.ToString)
-        End Try
+
     End Sub
 
 
@@ -108,7 +134,7 @@ Public Class FormCategoria
     End Sub
 
     Private Sub frmProgramma_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
-        If MessageBox.Show("Are you sur to close this application?", "Close", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+        If MessageBox.Show("Tem certeza que deseja sair da tela de categorias?", "Close", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
         Else
             e.Cancel = True
         End If
@@ -116,5 +142,12 @@ Public Class FormCategoria
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Me.Close()
+    End Sub
+
+    Private Sub btnAlterarCor_Click(sender As Object, e As EventArgs) Handles btnAlterarCor.Click
+        If ColorDialog1.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
+            corSelecionada = ColorDialog1.Color
+            panelCor.BackColor = ColorDialog1.Color
+        End If
     End Sub
 End Class
