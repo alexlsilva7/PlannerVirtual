@@ -30,3 +30,4 @@ C:\Users\danie\OneDrive\Área de Trabalho\PlannerVirtual\PlannerVirtual\obj\Debu
 C:\Users\danie\OneDrive\Área de Trabalho\PlannerVirtual\PlannerVirtual\obj\Debug\PlannerVirtual.exe
 C:\Users\danie\OneDrive\Área de Trabalho\PlannerVirtual\PlannerVirtual\obj\Debug\PlannerVirtual.xml
 C:\Users\danie\OneDrive\Área de Trabalho\PlannerVirtual\PlannerVirtual\obj\Debug\PlannerVirtual.pdb
+C:\Users\Mr Robot\Source\Repos\alexlsilva7\PlannerVirtual\PlannerVirtual\obj\Debug\PlannerVirtual.FormCategoria.resources
