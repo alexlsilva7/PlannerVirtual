@@ -86,6 +86,12 @@
     <Compile Include="app\Data\Interfaces\ICategoriaDAO.vb" />
     <Compile Include="app\Models\Categoria.vb" />
     <Compile Include="app\Models\Tarefa.vb" />
+    <Compile Include="app\View\Dialog\FormSelecionarCategoria.Designer.vb">
+      <DependentUpon>FormSelecionarCategoria.vb</DependentUpon>
+    </Compile>
+    <Compile Include="app\View\Dialog\FormSelecionarCategoria.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="app\View\FormCategoria.Designer.vb">
       <DependentUpon>FormCategoria.vb</DependentUpon>
     </Compile>
@@ -116,6 +122,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="app\View\Dialog\FormSelecionarCategoria.resx">
+      <DependentUpon>FormSelecionarCategoria.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="app\View\FormCategoria.resx">
       <DependentUpon>FormCategoria.vb</DependentUpon>
     </EmbeddedResource>
