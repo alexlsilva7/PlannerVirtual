@@ -82,7 +82,12 @@
     <Compile Include="app\Data\CategoriaDAO.vb" />
     <Compile Include="app\Data\Exceptions\CategoriaExistenteException.vb" />
     <Compile Include="app\Data\Exceptions\CategoriaNaoEncontradaException.vb" />
+    <Compile Include="app\Data\Exceptions\TarefaExistenteException.vb" />
+    <Compile Include="app\Data\Exceptions\TarefaNaoEncontradaException.vb" />
     <Compile Include="app\Data\Interfaces\ICategoriaDAO.vb" />
+    <Compile Include="app\Data\Interfaces\ITarefaDAO.vb" />
+    <Compile Include="app\Data\TarefaDAO.vb" />
+    <Compile Include="app\Helpers\DataHelpers.vb" />
     <Compile Include="app\Models\Categoria.vb" />
     <Compile Include="app\Models\Tarefa.vb" />
     <Compile Include="Form1.vb">

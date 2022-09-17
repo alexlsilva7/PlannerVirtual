@@ -7,7 +7,7 @@ Public Class Tarefa
     Private _duracao As Integer
     Private _estado As EstadoAtividade
     Private _categoria As Categoria
-    'TODO ADD ITarefaDAO
+    Private _TarefaDAO As ITarefaDAO
 
     Public Property descricao() As String
         Get
@@ -31,7 +31,7 @@ Public Class Tarefa
         Get
             Return _duracao
         End Get
-        Set(ByVal value As Integer )
+        Set(ByVal value As Integer)
             _duracao = value
         End Set
     End Property
@@ -54,11 +54,13 @@ Public Class Tarefa
         End Set
     End Property
 
-    Public Sub New(ByVal descricao As String, ByVal horarioInicio As Date, ByVal duracao As Integer)
+    Public Sub New(ByVal id As Integer, ByVal descricao As String, ByVal horarioInicio As Date, ByVal duracao As Integer, ByVal estado As EstadoAtividade)
         _descricao = descricao
         _horarioInicio = horarioInicio
         _duracao = duracao
         _estado = EstadoAtividade.aExecutar
+        _TarefaDAO = TarefaDAO.getSingletonObject
+
     End Sub
 
     Sub alterarEstado(est As EstadoAtividade)
@@ -66,7 +68,11 @@ Public Class Tarefa
     End Sub
 
     Sub salvar()
-
+        Try
+            _TarefaDAO.inserir(Me)
+        Catch ex As TarefaExistenteException
+            Throw ex
+        End Try
     End Sub
 
     Sub concluir()
