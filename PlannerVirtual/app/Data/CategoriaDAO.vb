@@ -23,14 +23,13 @@ Public Class CategoriaDAO
     End Function
 
 
-    Private sConnectionString As String = "Data Source= C:\Users\danie\OneDrive\Área de Trabalho\PlannerVirtual\PlannerVirtual\database.db; Version=3; New=True; Compress=True;"
 
     Public Sub inserir(categoria As Categoria) Implements ICategoriaDAO.inserir
         Try
             consultar(categoria.nome)
             Throw New CategoriaExistenteException
         Catch ex As CategoriaNaoEncontradaException
-            Using cn = New SQLiteConnection(sConnectionString)
+            Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
                 cn.Open()
                 Using objCommand As SQLiteCommand = cn.CreateCommand()
                     objCommand.CommandText = "INSERT INTO Categorias (nome , cor) VALUES ('" & categoria.nome & "', " & Color.Red.ToArgb & ")"
@@ -42,7 +41,7 @@ Public Class CategoriaDAO
     End Sub
 
     Public Sub deletar(nome As String) Implements ICategoriaDAO.deletar
-        Using cn = New SQLiteConnection(sConnectionString)
+        Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
             Using objCommand As SQLiteCommand = cn.CreateCommand()
                 objCommand.CommandText = "DELETE FROM Categorias WHERE nome = '" & nome & "'"
@@ -56,7 +55,7 @@ Public Class CategoriaDAO
 
         Dim listaCategorias As List(Of Categoria) = New List(Of Categoria)
 
-        Using cn = New SQLiteConnection(sConnectionString)
+        Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
             Dim sql = "SELECT nome,cor FROM Categorias ORDER BY nome"
 
@@ -79,7 +78,7 @@ Public Class CategoriaDAO
     End Function
 
     Public Function consultar(nome As String) As Categoria Implements ICategoriaDAO.consultar
-        Using cn = New SQLiteConnection(sConnectionString)
+        Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
             Dim sql = "SELECT nome,cor FROM Categorias WHERE nome = '" & nome & "'"
 

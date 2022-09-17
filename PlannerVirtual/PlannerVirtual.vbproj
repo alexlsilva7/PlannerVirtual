@@ -80,11 +80,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="app\Data\CategoriaDAO.vb" />
+    <Compile Include="app\Data\DatabaseConfiguration.vb" />
     <Compile Include="app\Data\Exceptions\CategoriaExistenteException.vb" />
     <Compile Include="app\Data\Exceptions\CategoriaNaoEncontradaException.vb" />
     <Compile Include="app\Data\Interfaces\ICategoriaDAO.vb" />
     <Compile Include="app\Models\Categoria.vb" />
     <Compile Include="app\Models\Tarefa.vb" />
+    <Compile Include="app\View\FormCategoria.Designer.vb">
+      <DependentUpon>FormCategoria.vb</DependentUpon>
+    </Compile>
+    <Compile Include="app\View\FormCategoria.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +116,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="app\View\FormCategoria.resx">
+      <DependentUpon>FormCategoria.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
@@ -133,9 +143,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="app\View\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.116.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.116.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
