@@ -23,6 +23,7 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.btnTelaCategorias = New System.Windows.Forms.Button()
+        Me.btnSelecionarCategoriaDialog = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnTelaCategorias
@@ -34,11 +35,21 @@ Partial Class Form1
         Me.btnTelaCategorias.Text = "Tela de Categorias"
         Me.btnTelaCategorias.UseVisualStyleBackColor = True
         '
+        'btnSelecionarCategoriaDialog
+        '
+        Me.btnSelecionarCategoriaDialog.Location = New System.Drawing.Point(12, 103)
+        Me.btnSelecionarCategoriaDialog.Name = "btnSelecionarCategoriaDialog"
+        Me.btnSelecionarCategoriaDialog.Size = New System.Drawing.Size(105, 38)
+        Me.btnSelecionarCategoriaDialog.TabIndex = 1
+        Me.btnSelecionarCategoriaDialog.Text = "Selecionar Categoria Dialog"
+        Me.btnSelecionarCategoriaDialog.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.btnSelecionarCategoriaDialog)
         Me.Controls.Add(Me.btnTelaCategorias)
         Me.Name = "Form1"
         Me.Text = "Form1"
@@ -47,4 +58,5 @@ Partial Class Form1
     End Sub
 
     Friend WithEvents btnTelaCategorias As Button
+    Friend WithEvents btnSelecionarCategoriaDialog As Button
 End Class

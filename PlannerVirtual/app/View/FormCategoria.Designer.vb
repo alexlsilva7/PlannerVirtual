@@ -35,6 +35,10 @@ Partial Class FormCategoria
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.btnClose = New System.Windows.Forms.Button()
+        Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
+        Me.panelCor = New System.Windows.Forms.Panel()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.btnAlterarCor = New System.Windows.Forms.Button()
         CType(Me.dgvCategorias, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -61,7 +65,7 @@ Partial Class FormCategoria
         '
         'btnAdicionar
         '
-        Me.btnAdicionar.Location = New System.Drawing.Point(353, 350)
+        Me.btnAdicionar.Location = New System.Drawing.Point(353, 379)
         Me.btnAdicionar.Name = "btnAdicionar"
         Me.btnAdicionar.Size = New System.Drawing.Size(141, 23)
         Me.btnAdicionar.TabIndex = 2
@@ -87,7 +91,7 @@ Partial Class FormCategoria
         'lblIdSelecionado
         '
         Me.lblIdSelecionado.AutoSize = True
-        Me.lblIdSelecionado.Location = New System.Drawing.Point(24, 425)
+        Me.lblIdSelecionado.Location = New System.Drawing.Point(23, 420)
         Me.lblIdSelecionado.Name = "lblIdSelecionado"
         Me.lblIdSelecionado.Size = New System.Drawing.Size(81, 13)
         Me.lblIdSelecionado.TabIndex = 5
@@ -95,9 +99,9 @@ Partial Class FormCategoria
         '
         'btnDeletarPrimeiro
         '
-        Me.btnDeletarPrimeiro.Location = New System.Drawing.Point(153, 415)
+        Me.btnDeletarPrimeiro.Location = New System.Drawing.Point(178, 415)
         Me.btnDeletarPrimeiro.Name = "btnDeletarPrimeiro"
-        Me.btnDeletarPrimeiro.Size = New System.Drawing.Size(142, 23)
+        Me.btnDeletarPrimeiro.Size = New System.Drawing.Size(117, 23)
         Me.btnDeletarPrimeiro.TabIndex = 6
         Me.btnDeletarPrimeiro.Text = "Deletar o primeiro"
         Me.btnDeletarPrimeiro.UseVisualStyleBackColor = True
@@ -156,11 +160,40 @@ Partial Class FormCategoria
         Me.btnClose.Text = "FECHAR TELA"
         Me.btnClose.UseVisualStyleBackColor = True
         '
+        'panelCor
+        '
+        Me.panelCor.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.panelCor.Location = New System.Drawing.Point(382, 350)
+        Me.panelCor.Name = "panelCor"
+        Me.panelCor.Size = New System.Drawing.Size(30, 23)
+        Me.panelCor.TabIndex = 13
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(350, 355)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(26, 13)
+        Me.Label6.TabIndex = 14
+        Me.Label6.Text = "Cor:"
+        '
+        'btnAlterarCor
+        '
+        Me.btnAlterarCor.Location = New System.Drawing.Point(419, 351)
+        Me.btnAlterarCor.Name = "btnAlterarCor"
+        Me.btnAlterarCor.Size = New System.Drawing.Size(75, 23)
+        Me.btnAlterarCor.TabIndex = 15
+        Me.btnAlterarCor.Text = "Alterar"
+        Me.btnAlterarCor.UseVisualStyleBackColor = True
+        '
         'FormCategoria
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.btnAlterarCor)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.panelCor)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -195,4 +228,8 @@ Partial Class FormCategoria
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents btnClose As Button
+    Friend WithEvents ColorDialog1 As ColorDialog
+    Friend WithEvents panelCor As Panel
+    Friend WithEvents Label6 As Label
+    Friend WithEvents btnAlterarCor As Button
 End Class

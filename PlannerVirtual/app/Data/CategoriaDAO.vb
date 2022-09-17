@@ -32,7 +32,7 @@ Public Class CategoriaDAO
             Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
                 cn.Open()
                 Using objCommand As SQLiteCommand = cn.CreateCommand()
-                    objCommand.CommandText = "INSERT INTO Categorias (nome , cor) VALUES ('" & categoria.nome & "', " & Color.Red.ToArgb & ")"
+                    objCommand.CommandText = "INSERT INTO Categorias (nome , cor) VALUES ('" & categoria.nome & "', " & categoria.cor.ToArgb & ")"
                     objCommand.ExecuteNonQuery()
                 End Using
                 cn.Close()

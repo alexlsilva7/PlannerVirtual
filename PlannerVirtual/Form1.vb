@@ -22,4 +22,15 @@ Public Class Form1
         MsgBox("result: " + formCategoria.result)
 
     End Sub
+
+    Private Sub btnSelecionarCategoriaDialog_Click(sender As Object, e As EventArgs) Handles btnSelecionarCategoriaDialog.Click
+        Dim formSelecionarCategoria As FormSelecionarCategoria = New FormSelecionarCategoria()
+        formSelecionarCategoria.ShowDialog()
+        Dim resultado = formSelecionarCategoria.result
+        If IsNothing(resultado) Then
+            MsgBox("Resultado do dialog: NOTHING")
+        Else
+            MsgBox("Resultado do dialog: Categoria: " + resultado.nome)
+        End If
+    End Sub
 End Class
