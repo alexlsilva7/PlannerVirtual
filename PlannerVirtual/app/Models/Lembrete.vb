@@ -4,40 +4,48 @@ Public Class Lembrete
     Private _descricao As String
     Private _tipoLembrete As TipoLembrete
     Private _data As Date
-    'TODO ADD ILembreteDAO
+    Private _LembreteDAO As ILembreteDAO
 
-    Public Sub New(ByVal descricao As String, ByVal horarioInicio As Date, ByVal data As Integer)
+    Public Sub New(ByVal descricao As String, ByVal data As Date, ByVal tipoLembrete As TipoLembrete)
         _descricao = descricao
         _data = data
+        _tipoLembrete = tipoLembrete
+        _LembreteDAO = LembreteDAO.getSingletonObject
     End Sub
 
-    Public Function Getdescricao() As System.String
-        Return _descricao
-    End Function
+    Public Property descricao() As String
+        Get
+            Return _descricao
+        End Get
+        Set(ByVal value As String)
+            _descricao = value
+        End Set
+    End Property
 
+    Public Property tipoLembrete() As TipoLembrete
+        Get
+            Return _tipoLembrete
+        End Get
+        Set(ByVal value As TipoLembrete)
+            _tipoLembrete = value
+        End Set
+    End Property
 
-    Public Sub Setdescricao(value As System.String)
-        _descricao = value
-    End Sub
-
-    Public Function GettipoLembrete() As TipoLembrete
-        Return _tipoLembrete
-    End Function
-
-    Public Sub SettipoLembrete(value As TipoLembrete)
-        _tipoLembrete = value
-    End Sub
-
-    Public Function Getdata() As System.DateTime
-        Return _data
-    End Function
-
-    Public Sub Setdata(value As System.DateTime)
-        _data = value
-    End Sub
+    Public Property data() As Date
+        Get
+            Return _data
+        End Get
+        Set(ByVal value As Date)
+            _data = value
+        End Set
+    End Property
 
     Sub salvar()
-
+        Try
+            _LembreteDAO.inserir(Me)
+        Catch ex As TarefaExistenteException
+            Throw ex
+        End Try
     End Sub
 
 End Class

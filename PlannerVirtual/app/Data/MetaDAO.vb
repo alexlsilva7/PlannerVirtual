@@ -1,20 +1,20 @@
-﻿Imports System.Data.Common
+Imports System.Data.Common
 Imports System.Data.SQLite
 Imports System.Diagnostics.Eventing
 
-Public Class CategoriaDAO
-    Implements ICategoriaDAO
+Public Class MetaDAO
+    Implements IMetaDAO
 
     'Constantes estaticas
-    Public Shared instancia As CategoriaDAO
+    Public Shared instancia As MetaDAO
     Public Shared iniciado As Boolean
 
     Private Sub New()
         'construtor privado de forma a desabilitar outro a criar um objeto
     End Sub
-    Friend Shared Function getSingletonObject() As CategoriaDAO
+    Friend Shared Function getSingletonObject() As MetaDAO
         If iniciado = False Then
-            instancia = New CategoriaDAO()
+            instancia = New MetaDAO()
             iniciado = True
             Return instancia
         Else
@@ -22,15 +22,15 @@ Public Class CategoriaDAO
         End If
     End Function
 
-    Public Sub inserir(categoria As Categoria) Implements ICategoriaDAO.inserir
+    Public Sub inserir(meta As Meta) Implements IMetaDAO.inserir
         Try
-            consultar(categoria.nome)
-            Throw New CategoriaExistenteException
-        Catch ex As CategoriaNaoEncontradaException
+            consultar(meta.descricao)
+            Throw New MetaExistenteException
+        Catch ex As MetaNaoEncontradaException
             Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
                 cn.Open()
                 Using objCommand As SQLiteCommand = cn.CreateCommand()
-                    objCommand.CommandText = "INSERT INTO Categorias (nome , cor) VALUES ('" & categoria.nome & "', " & categoria.cor.ToArgb & ")"
+                    objCommand.CommandText = "INSERT INTO Metas (descricao , tipo , estado , data) VALUES ('" & meta.descricao & "','" & meta.tipo & "','" & meta.estado & "','" & meta.data & "')"
                     objCommand.ExecuteNonQuery()
                 End Using
                 cn.Close()
@@ -38,31 +38,31 @@ Public Class CategoriaDAO
         End Try
     End Sub
 
-    Public Sub deletar(nome As String) Implements ICategoriaDAO.deletar
+    Public Sub deletar(descricao As String) Implements IMetaDAO.deletar
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
             Using objCommand As SQLiteCommand = cn.CreateCommand()
-                objCommand.CommandText = "DELETE FROM Categorias WHERE nome = '" & nome & "'"
+                objCommand.CommandText = "DELETE FROM Metas WHERE nome = '" & descricao & "'"
                 objCommand.ExecuteNonQuery()
             End Using
             cn.Close()
         End Using
     End Sub
 
-    Public Function listar() As List(Of Categoria) Implements ICategoriaDAO.listar
+    Public Function listar() As List(Of Meta) Implements IMetaDAO.listar
 
-        Dim listaCategorias As List(Of Categoria) = New List(Of Categoria)
+        Dim listaMetas As List(Of Meta) = New List(Of Meta)
 
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
-            Dim sql = "SELECT nome,cor FROM Categorias ORDER BY nome"
+            Dim sql = "SELECT descricao,cor FROM Metas ORDER BY descricao"
 
             Using cmd = New SQLiteCommand(sql, cn)
                 Using dr = cmd.ExecuteReader()
                     If dr.HasRows Then
                         While dr.Read()
-                            Dim categoria As Categoria = New Categoria(dr("nome"), Color.FromArgb((dr("cor"))))
-                            listaCategorias.Add(categoria)
+                            Dim meta As Meta = New Meta(dr("descricao"), dr("tipo"), dr("data"), dr("estado"))
+                            listaMetas.Add(meta)
                         End While
 
                     End If
@@ -72,24 +72,24 @@ Public Class CategoriaDAO
             cn.Close()
         End Using
 
-        Return listaCategorias
+        Return listaMetas
     End Function
 
-    Public Function consultar(nome As String) As Categoria Implements ICategoriaDAO.consultar
+    Public Function consultar(descricao As String) As Meta Implements IMetaDAO.consultar
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
-            Dim sql = "SELECT nome,cor FROM Categorias WHERE nome = '" & nome & "'"
+            Dim sql = "SELECT nome,cor FROM Metas WHERE descricao = '" & descricao & "'"
 
             Using cmd = New SQLiteCommand(sql, cn)
                 Using dr = cmd.ExecuteReader()
                     If dr.HasRows Then
                         dr.Read()
-                        Dim categoria As Categoria = New Categoria(dr("nome"), Color.FromArgb((dr("cor"))))
+                        Dim meta As Meta = New Meta(dr("descricao"), dr("tipo"), dr("data"), dr("estado"))
                         cn.Close()
-                        Return categoria
+                        Return meta
                     Else
                         cn.Close()
-                        Throw New CategoriaNaoEncontradaException
+                        Throw New MetaNaoEncontradaException
                     End If
                 End Using
             End Using

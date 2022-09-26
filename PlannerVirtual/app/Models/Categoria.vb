@@ -29,7 +29,7 @@ Public Class Categoria
         _cor = cor
         _categoriaDAO = CategoriaDAO.getSingletonObject
     End Sub
-
+    
     Sub salvar()
         Try
             _categoriaDAO.inserir(Me)
