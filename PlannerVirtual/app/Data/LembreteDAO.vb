@@ -2,19 +2,19 @@ Imports System.Data.Common
 Imports System.Data.SQLite
 Imports System.Diagnostics.Eventing
 
-Public Class TarefaDAO
-    Implements ITarefaDAO
+Public Class LembreteDAO
+    Implements ILembreteDAO
 
     'Constantes estaticas
-    Public Shared instancia As TarefaDAO
+    Public Shared instancia As LembreteDAO
     Public Shared iniciado As Boolean
 
     Private Sub New()
         'construtor privado de forma a desabilitar outro a criar um objeto
     End Sub
-    Friend Shared Function getSingletonObject() As TarefaDAO
+    Friend Shared Function getSingletonObject() As LembreteDAO
         If iniciado = False Then
-            instancia = New TarefaDAO()
+            instancia = New LembreteDAO()
             iniciado = True
             Return instancia
         Else
@@ -22,15 +22,16 @@ Public Class TarefaDAO
         End If
     End Function
 
-    Public Sub inserir(tarefa As Tarefa) Implements ITarefaDAO.inserir
+
+    Public Sub inserir(lembrete As Lembrete) Implements ILembreteDAO.inserir
         Try
-            consultar(tarefa.descricao)
-            Throw New TarefaExistenteException
-        Catch ex As TarefaNaoEncontradaException
+            consultar(lembrete.descricao)
+            Throw New LembreteExistenteException
+        Catch ex As LembreteNaoEncontradaException
             Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
                 cn.Open()
                 Using objCommand As SQLiteCommand = cn.CreateCommand()
-                    objCommand.CommandText = "INSERT INTO Tarefas (descricao , horarioInicio , duracao , estado) VALUES ('" & tarefa.descricao & "','" & tarefa.horarioInicio & "','" & tarefa.duracao & "','" & tarefa.estado & "')"
+                    objCommand.CommandText = "INSERT INTO Lembretes (descricao, tipoLembrete, data) VALUES ('" & lembrete.descricao & "', '" & lembrete.tipoLembrete & "', '" & lembrete.data & "')"
                     objCommand.ExecuteNonQuery()
                 End Using
                 cn.Close()
@@ -38,31 +39,31 @@ Public Class TarefaDAO
         End Try
     End Sub
 
-    Public Sub deletar(descricao As String) Implements ITarefaDAO.deletar
+    Public Sub deletar(nome As String) Implements ILembreteDAO.deletar
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
             Using objCommand As SQLiteCommand = cn.CreateCommand()
-                objCommand.CommandText = "DELETE FROM Tarefas WHERE descricao = '" & descricao & "'"
+                objCommand.CommandText = "DELETE FROM Lembretes WHERE nome = '" & nome & "'"
                 objCommand.ExecuteNonQuery()
             End Using
             cn.Close()
         End Using
     End Sub
 
-    Public Function listar() As List(Of Tarefa) Implements ITarefaDAO.listar
+    Public Function listar() As List(Of Lembrete) Implements ILembreteDAO.listar
 
-        Dim listaTarefas As List(Of Tarefa) = New List(Of Tarefa)
+        Dim listaLembretes As List(Of Lembrete) = New List(Of Lembrete)
 
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
-            Dim sql = "SELECT descricao,categoria,horarioInicio,duracao,estado FROM Tarefas ORDER BY descricao"
+            Dim sql = "descricao, tipoLembrete, data FROM Lembretes ORDER BY nome"
 
             Using cmd = New SQLiteCommand(sql, cn)
                 Using dr = cmd.ExecuteReader()
                     If dr.HasRows Then
                         While dr.Read()
-                            Dim tarefa As Tarefa = New Tarefa(dr("descricao"), dr("categoria"), dr("horarioInicio"), dr("duracao"), dr("estado"))
-                            listaTarefas.Add(tarefa)
+                            Dim lembrete As Lembrete = New Lembrete(dr("descricao"), dr("tipoLembrete"), dr("data"))
+                            listaLembretes.Add(lembrete)
                         End While
 
                     End If
@@ -72,24 +73,24 @@ Public Class TarefaDAO
             cn.Close()
         End Using
 
-        Return listaTarefas
+        Return listaLembretes
     End Function
 
-    Public Function consultar(descricao As String) As Tarefa Implements ITarefaDAO.consultar
+    Public Function consultar(descricao As String) As Lembrete Implements ILembreteDAO.consultar
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
-            Dim sql = "SELECT descricao,categoria,horarioInicio,duracao,estado FROM Tarefas WHERE descricao = '" & descricao & "'"
+            Dim sql = "SELECT descricao, tipoLembrete, data FROM Lembretes WHERE descricao = '" & descricao & "'"
 
             Using cmd = New SQLiteCommand(sql, cn)
                 Using dr = cmd.ExecuteReader()
                     If dr.HasRows Then
                         dr.Read()
-                        Dim tarefa As Tarefa = New Tarefa(dr("descricao"), dr("categoria"), dr("horarioInicio"), dr("duracao"), dr("estado"))
+                        Dim lembrete As Lembrete = New Lembrete(dr("descricao"), dr("tipoLembrete"), dr("data"))
                         cn.Close()
-                        Return tarefa
+                        Return lembrete
                     Else
                         cn.Close()
-                        Throw New TarefaNaoEncontradaException
+                        Throw New LembreteNaoEncontradaException
                     End If
                 End Using
             End Using

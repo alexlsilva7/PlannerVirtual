@@ -6,24 +6,24 @@ Public Class Meta
     Private _tipo As TipoMeta
     Private _estado As EstadoMeta
     Private _data As Date
-    'TODO ADD IMetaDAO
+    Private _MetaDAO As IMetaDAO
 
-    Public Sub New(ByVal descricao As String, ByVal data As Date, ByVal tipo As TipoMeta)
+    Public Sub New(ByVal descricao As String, ByVal data As Date, ByVal tipo As TipoMeta, ByVal estado As EstadoMeta)
         _descricao = descricao
         _data = data
         _tipo = tipo
         _estado = EstadoMeta.naoCumprida
+        _MetaDAO = MetaDAO.getSingletonObject
     End Sub
 
-
-    Public Function Getdescricao() As System.String
-        Return _descricao
-    End Function
-
-
-    Public Sub Setdescricao(value As System.String)
-        _descricao = value
-    End Sub
+    Public Property descricao() As String
+        Get
+            Return _descricao
+        End Get
+        Set(ByVal value As String)
+            _descricao = value
+        End Set
+    End Property
 
     Public Property estado() As EstadoMeta
         Get
@@ -52,20 +52,25 @@ Public Class Meta
         End Set
     End Property
 
-    Public Function Getdata() As System.DateTime
-        Return _data
-    End Function
-
-    Public Sub Setdata(value As System.DateTime)
-        _data = value
-    End Sub
+    Public Property data() As Date
+        Get
+            Return _data
+        End Get
+        Set(ByVal value As Date)
+            _data = value
+        End Set
+    End Property
 
     Sub alterarEstado(est As EstadoMeta)
         _estado = est
     End Sub
 
     Sub salvar()
-
+        Try
+            _MetaDAO.inserir(Me)
+        Catch ex As MetaExistenteException
+            Throw ex
+        End Try
     End Sub
 
     Sub concluir()

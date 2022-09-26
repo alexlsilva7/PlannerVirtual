@@ -22,8 +22,6 @@ Public Class CategoriaDAO
         End If
     End Function
 
-
-
     Public Sub inserir(categoria As Categoria) Implements ICategoriaDAO.inserir
         Try
             consultar(categoria.nome)
