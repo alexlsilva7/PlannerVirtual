@@ -31,3 +31,11 @@ C:\Users\danie\OneDrive\Área de Trabalho\PlannerVirtual\PlannerVirtual\obj\Debu
 C:\Users\danie\OneDrive\Área de Trabalho\PlannerVirtual\PlannerVirtual\obj\Debug\PlannerVirtual.xml
 C:\Users\danie\OneDrive\Área de Trabalho\PlannerVirtual\PlannerVirtual\obj\Debug\PlannerVirtual.pdb
 C:\Users\Mr Robot\Source\Repos\alexlsilva7\PlannerVirtual\PlannerVirtual\obj\Debug\PlannerVirtual.FormCategoria.resources
+C:\Users\Mr Robot\Desktop\PlannerVirtual\PlannerVirtual\obj\Debug\PlannerVirtual.vbproj.AssemblyReference.cache
+C:\Users\Mr Robot\Desktop\PlannerVirtual\PlannerVirtual\obj\Debug\PlannerVirtual.vbproj.SuggestedBindingRedirects.cache
+C:\Users\Mr Robot\Desktop\PlannerVirtual\PlannerVirtual\obj\Debug\PlannerVirtual.FormSelecionarCategoria.resources
+C:\Users\Mr Robot\Desktop\PlannerVirtual\PlannerVirtual\obj\Debug\PlannerVirtual.FormCategoria.resources
+C:\Users\Mr Robot\Desktop\PlannerVirtual\PlannerVirtual\obj\Debug\PlannerVirtual.Form1.resources
+C:\Users\Mr Robot\Desktop\PlannerVirtual\PlannerVirtual\obj\Debug\PlannerVirtual.Resources.resources
+C:\Users\Mr Robot\Desktop\PlannerVirtual\PlannerVirtual\obj\Debug\PlannerVirtual.vbproj.GenerateResource.cache
+C:\Users\Mr Robot\Desktop\PlannerVirtual\PlannerVirtual\obj\Debug\PlannerVirtual.vbproj.CoreCompileInputs.cache

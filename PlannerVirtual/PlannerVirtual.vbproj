@@ -83,13 +83,21 @@
     <Compile Include="app\Data\DatabaseConfiguration.vb" />
     <Compile Include="app\Data\Exceptions\CategoriaExistenteException.vb" />
     <Compile Include="app\Data\Exceptions\CategoriaNaoEncontradaException.vb" />
+    <Compile Include="app\Data\Exceptions\LembreteExistenteException.vb" />
+    <Compile Include="app\Data\Exceptions\LembreteNaoEncontradaException.vb" />
+    <Compile Include="app\Data\Exceptions\MetaExistenteException.vb" />
+    <Compile Include="app\Data\Exceptions\MetaNaoEncontradaException.vb" />
     <Compile Include="app\Data\Exceptions\TarefaExistenteException.vb" />
     <Compile Include="app\Data\Exceptions\TarefaNaoEncontradaException.vb" />
     <Compile Include="app\Data\Interfaces\ICategoriaDAO.vb" />
     <Compile Include="app\Data\Interfaces\ITarefaDAO.vb" />
+    <Compile Include="app\Data\LembreteDAO.vb" />
+    <Compile Include="app\Data\MetaDAO.vb" />
     <Compile Include="app\Data\TarefaDAO.vb" />
     <Compile Include="app\Helpers\DataHelpers.vb" />
     <Compile Include="app\Models\Categoria.vb" />
+    <Compile Include="app\Models\Lembrete.vb" />
+    <Compile Include="app\Models\Meta.vb" />
     <Compile Include="app\Models\Tarefa.vb" />
     <Compile Include="app\View\Dialog\FormSelecionarCategoria.Designer.vb">
       <DependentUpon>FormSelecionarCategoria.vb</DependentUpon>
