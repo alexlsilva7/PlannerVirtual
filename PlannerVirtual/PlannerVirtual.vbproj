@@ -90,7 +90,9 @@
     <Compile Include="app\Data\Exceptions\TarefaExistenteException.vb" />
     <Compile Include="app\Data\Exceptions\TarefaNaoEncontradaException.vb" />
     <Compile Include="app\Data\Interfaces\ICategoriaDAO.vb" />
+    <Compile Include="app\Data\Interfaces\ILembreteDAO.vb" />
     <Compile Include="app\Data\Interfaces\ITarefaDAO.vb" />
+    <Compile Include="app\Data\Interfaces\lMetaDAO.vb" />
     <Compile Include="app\Data\LembreteDAO.vb" />
     <Compile Include="app\Data\MetaDAO.vb" />
     <Compile Include="app\Data\TarefaDAO.vb" />
