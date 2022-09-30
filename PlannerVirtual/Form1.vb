@@ -33,4 +33,9 @@ Public Class Form1
             MsgBox("Resultado do dialog: Categoria: " + resultado.nome)
         End If
     End Sub
+
+    Private Sub btnTelaLembretes_Click(sender As Object, e As EventArgs) Handles btnTelaLembretes.Click
+        Dim formLembrete As New FormLembrete
+        Dim result = formLembrete.ShowDialog()
+    End Sub
 End Class
