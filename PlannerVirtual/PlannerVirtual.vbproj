@@ -113,6 +113,12 @@
     <Compile Include="app\View\FormCategoria.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="app\View\FormLembrete.Designer.vb">
+      <DependentUpon>FormLembrete.vb</DependentUpon>
+    </Compile>
+    <Compile Include="app\View\FormLembrete.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="app\View\FormCategoria.resx">
       <DependentUpon>FormCategoria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="app\View\FormLembrete.resx">
+      <DependentUpon>FormLembrete.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
