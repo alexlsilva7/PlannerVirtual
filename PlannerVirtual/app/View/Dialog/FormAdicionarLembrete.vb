@@ -21,6 +21,8 @@
         If lembrete IsNot Nothing Then
             txtDescricao.Text = lembrete.descricao
             DatePicker.Value = lembrete.data
+
+            btnAdicionarLembrete.Text = "Atualizar"
         End If
     End Sub
 
