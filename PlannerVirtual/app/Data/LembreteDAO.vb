@@ -56,13 +56,13 @@ Public Class LembreteDAO
 
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
-            Dim sql = "descricao, tipoLembrete, data FROM Lembretes ORDER BY nome"
+            Dim sql = "SELECT id, descricao, tipoLembrete, data FROM Lembretes ORDER BY id"
 
             Using cmd = New SQLiteCommand(sql, cn)
                 Using dr = cmd.ExecuteReader()
                     If dr.HasRows Then
                         While dr.Read()
-                            Dim lembrete As Lembrete = New Lembrete(dr("descricao"), dr("tipoLembrete"), dr("data"))
+                            Dim lembrete As Lembrete = New Lembrete(dr("descricao"), dr("tipoLembrete"), dr("data"), dr("id"))
                             listaLembretes.Add(lembrete)
                         End While
 
