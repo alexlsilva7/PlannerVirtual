@@ -101,6 +101,12 @@
     <Compile Include="app\Models\Lembrete.vb" />
     <Compile Include="app\Models\Meta.vb" />
     <Compile Include="app\Models\Tarefa.vb" />
+    <Compile Include="app\View\Dialog\FormAdicionarLembrete.Designer.vb">
+      <DependentUpon>FormAdicionarLembrete.vb</DependentUpon>
+    </Compile>
+    <Compile Include="app\View\Dialog\FormAdicionarLembrete.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="app\View\Dialog\FormSelecionarCategoria.Designer.vb">
       <DependentUpon>FormSelecionarCategoria.vb</DependentUpon>
     </Compile>
@@ -143,6 +149,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="app\View\Dialog\FormAdicionarLembrete.resx">
+      <DependentUpon>FormAdicionarLembrete.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="app\View\Dialog\FormSelecionarCategoria.resx">
       <DependentUpon>FormSelecionarCategoria.vb</DependentUpon>
     </EmbeddedResource>
