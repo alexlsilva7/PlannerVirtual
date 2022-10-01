@@ -12,7 +12,7 @@
         'limpar listview
         listViewLigacoes.Items.Clear()
         'Busca os dados
-        Dim lista As List(Of Lembrete) = _lembreteDAO.listar(TipoLembrete.ligacoesImportantes)
+        Dim lista As List(Of Lembrete) = _lembreteDAO.getLembretesByTipo(TipoLembrete.ligacoesImportantes)
         'Preencher o listview
         Try
             For Each lembrete As Lembrete In lista
@@ -28,7 +28,7 @@
         'limpar listview
         listViewReunioes.Items.Clear()
         'Busca os dados
-        Dim lista As List(Of Lembrete) = _lembreteDAO.listar(TipoLembrete.reunioes)
+        Dim lista As List(Of Lembrete) = _lembreteDAO.getLembretesByTipo(TipoLembrete.reunioes)
         'Preencher o listview
         Try
             For Each lembrete As Lembrete In lista
@@ -44,7 +44,7 @@
         'limpar listview
         listViewCompras.Items.Clear()
         'Busca os dados
-        Dim lista As List(Of Lembrete) = _lembreteDAO.listar(TipoLembrete.compras)
+        Dim lista As List(Of Lembrete) = _lembreteDAO.getLembretesByTipo(TipoLembrete.compras)
         'Preencher o listview
         Try
             For Each lembrete As Lembrete In lista
