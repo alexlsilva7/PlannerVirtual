@@ -39,11 +39,11 @@ Public Class LembreteDAO
         End Try
     End Sub
 
-    Public Sub deletar(nome As String) Implements ILembreteDAO.deletar
+    Public Sub deletar(id As Integer) Implements ILembreteDAO.deletar
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
             Using objCommand As SQLiteCommand = cn.CreateCommand()
-                objCommand.CommandText = "DELETE FROM Lembretes WHERE nome = '" & nome & "'"
+                objCommand.CommandText = "DELETE FROM Lembretes WHERE id = '" & id & "'"
                 objCommand.ExecuteNonQuery()
             End Using
             cn.Close()
