@@ -1,17 +1,27 @@
 Imports Microsoft.VisualBasic
 
 Public Class Lembrete
+    Private _id As Integer
     Private _descricao As String
     Private _tipoLembrete As TipoLembrete
     Private _data As Date
     Private _LembreteDAO As ILembreteDAO
 
-    Public Sub New(ByVal descricao As String, ByVal data As Date, ByVal tipoLembrete As TipoLembrete)
+    Public Sub New(ByVal descricao As String, ByVal data As Date, ByVal tipoLembrete As TipoLembrete, Optional ByVal id As Integer = -1)
+        If (id <> -1) Then
+            _id = id
+        End If
         _descricao = descricao
         _data = data
         _tipoLembrete = tipoLembrete
         _LembreteDAO = LembreteDAO.getSingletonObject
     End Sub
+
+    Public ReadOnly Property id() As Integer
+        Get
+            Return _id
+        End Get
+    End Property
 
     Public Property descricao() As String
         Get
