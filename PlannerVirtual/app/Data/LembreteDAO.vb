@@ -112,4 +112,30 @@ Public Class LembreteDAO
         End Using
     End Sub
 
+    Public Function getAllLembretes() As List(Of Lembrete) Implements ILembreteDAO.getAllLembretes
+        Dim listaLembretes As List(Of Lembrete) = New List(Of Lembrete)
+
+        Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
+            cn.Open()
+            Dim sql = "SELECT id, descricao, tipoLembrete, data FROM Lembretes ORDER BY id"
+
+            Using cmd = New SQLiteCommand(sql, cn)
+                Using dr = cmd.ExecuteReader()
+                    If dr.HasRows Then
+                        While dr.Read()
+                            Dim data = DataHelpers.stringToData(dr("data"))
+                            Dim tipo As TipoLembrete = dr("tipoLembrete")
+                            Dim lembrete As Lembrete = New Lembrete(dr("descricao"), data, tipo, dr("id"))
+                            listaLembretes.Add(lembrete)
+                        End While
+
+                    End If
+                End Using
+            End Using
+
+            cn.Close()
+        End Using
+
+        Return listaLembretes
+    End Function
 End Class
