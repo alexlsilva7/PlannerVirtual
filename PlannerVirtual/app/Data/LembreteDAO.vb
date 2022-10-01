@@ -79,13 +79,13 @@ Public Class LembreteDAO
     Public Function consultar(descricao As String) As Lembrete Implements ILembreteDAO.consultar
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
-            Dim sql = "SELECT descricao, tipoLembrete, data FROM Lembretes WHERE descricao = '" & descricao & "'"
+            Dim sql = "SELECT id, descricao, tipoLembrete, data FROM Lembretes WHERE descricao = '" & descricao & "'"
 
             Using cmd = New SQLiteCommand(sql, cn)
                 Using dr = cmd.ExecuteReader()
                     If dr.HasRows Then
                         dr.Read()
-                        Dim lembrete As Lembrete = New Lembrete(dr("descricao"), dr("tipoLembrete"), dr("data"))
+                        Dim lembrete As Lembrete = New Lembrete(dr("descricao"), dr("tipoLembrete"), dr("data"), dr("id"))
                         cn.Close()
                         Return lembrete
                     Else
