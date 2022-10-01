@@ -50,20 +50,20 @@ Public Class LembreteDAO
         End Using
     End Sub
 
-    Public Function listar() As List(Of Lembrete) Implements ILembreteDAO.listar
+    Public Function listar(tipoLembrete As TipoLembrete) As List(Of Lembrete) Implements ILembreteDAO.listar
 
         Dim listaLembretes As List(Of Lembrete) = New List(Of Lembrete)
 
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
-            Dim sql = "SELECT id, descricao, tipoLembrete, data FROM Lembretes ORDER BY id"
+            Dim sql = "SELECT id, descricao, tipoLembrete, data FROM Lembretes WHERE tipoLembrete = '" & tipoLembrete & "' ORDER BY id"
 
             Using cmd = New SQLiteCommand(sql, cn)
                 Using dr = cmd.ExecuteReader()
                     If dr.HasRows Then
                         While dr.Read()
                             Dim data = DataHelpers.stringToData(dr("data"))
-                            Dim tipoLembrete As TipoLembrete = dr("tipoLembrete")
+                            Dim tipo As TipoLembrete = dr("tipoLembrete")
                             Dim lembrete As Lembrete = New Lembrete(dr("descricao"), data, tipoLembrete, dr("id"))
                             listaLembretes.Add(lembrete)
                         End While
