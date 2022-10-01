@@ -39,11 +39,11 @@ Public Class LembreteDAO
         End Try
     End Sub
 
-    Public Sub deletar(nome As String) Implements ILembreteDAO.deletar
+    Public Sub deletar(id As Integer) Implements ILembreteDAO.deletar
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
             Using objCommand As SQLiteCommand = cn.CreateCommand()
-                objCommand.CommandText = "DELETE FROM Lembretes WHERE nome = '" & nome & "'"
+                objCommand.CommandText = "DELETE FROM Lembretes WHERE id = '" & id & "'"
                 objCommand.ExecuteNonQuery()
             End Using
             cn.Close()
@@ -56,13 +56,15 @@ Public Class LembreteDAO
 
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
-            Dim sql = "descricao, tipoLembrete, data FROM Lembretes ORDER BY nome"
+            Dim sql = "SELECT id, descricao, tipoLembrete, data FROM Lembretes ORDER BY id"
 
             Using cmd = New SQLiteCommand(sql, cn)
                 Using dr = cmd.ExecuteReader()
                     If dr.HasRows Then
                         While dr.Read()
-                            Dim lembrete As Lembrete = New Lembrete(dr("descricao"), dr("tipoLembrete"), dr("data"))
+                            Dim data = DataHelpers.stringToData(dr("data"))
+                            Dim tipoLembrete As TipoLembrete = dr("tipoLembrete")
+                            Dim lembrete As Lembrete = New Lembrete(dr("descricao"), data, tipoLembrete, dr("id"))
                             listaLembretes.Add(lembrete)
                         End While
 
@@ -79,13 +81,13 @@ Public Class LembreteDAO
     Public Function consultar(descricao As String) As Lembrete Implements ILembreteDAO.consultar
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
-            Dim sql = "SELECT descricao, tipoLembrete, data FROM Lembretes WHERE descricao = '" & descricao & "'"
+            Dim sql = "SELECT id, descricao, tipoLembrete, data FROM Lembretes WHERE descricao = '" & descricao & "'"
 
             Using cmd = New SQLiteCommand(sql, cn)
                 Using dr = cmd.ExecuteReader()
                     If dr.HasRows Then
                         dr.Read()
-                        Dim lembrete As Lembrete = New Lembrete(dr("descricao"), dr("tipoLembrete"), dr("data"))
+                        Dim lembrete As Lembrete = New Lembrete(dr("descricao"), dr("tipoLembrete"), dr("data"), dr("id"))
                         cn.Close()
                         Return lembrete
                     Else

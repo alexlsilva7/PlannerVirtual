@@ -23,18 +23,22 @@ Partial Class FormLembrete
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.dgvLigacoesImportantes = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.dgvReunioes = New System.Windows.Forms.DataGridView()
-        Me.dgvCompras = New System.Windows.Forms.DataGridView()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btnAddLigacaoImportate = New System.Windows.Forms.Button()
         Me.btnAddReuniao = New System.Windows.Forms.Button()
         Me.btnAddCompra = New System.Windows.Forms.Button()
-        CType(Me.dgvLigacoesImportantes, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dgvReunioes, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dgvCompras, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.listViewLigacoes = New System.Windows.Forms.ListView()
+        Me.Id = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Descricao = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ListView1 = New System.Windows.Forms.ListView()
+        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ListView2 = New System.Windows.Forms.ListView()
+        Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Data = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.SuspendLayout()
         '
         'Label1
@@ -47,17 +51,6 @@ Partial Class FormLembrete
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Lembretes"
         '
-        'dgvLigacoesImportantes
-        '
-        Me.dgvLigacoesImportantes.AllowUserToAddRows = False
-        Me.dgvLigacoesImportantes.AllowUserToDeleteRows = False
-        Me.dgvLigacoesImportantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvLigacoesImportantes.Location = New System.Drawing.Point(26, 99)
-        Me.dgvLigacoesImportantes.Name = "dgvLigacoesImportantes"
-        Me.dgvLigacoesImportantes.ReadOnly = True
-        Me.dgvLigacoesImportantes.Size = New System.Drawing.Size(188, 313)
-        Me.dgvLigacoesImportantes.TabIndex = 2
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -68,33 +61,11 @@ Partial Class FormLembrete
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Ligações importantes"
         '
-        'dgvReunioes
-        '
-        Me.dgvReunioes.AllowUserToAddRows = False
-        Me.dgvReunioes.AllowUserToDeleteRows = False
-        Me.dgvReunioes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvReunioes.Location = New System.Drawing.Point(278, 99)
-        Me.dgvReunioes.Name = "dgvReunioes"
-        Me.dgvReunioes.ReadOnly = True
-        Me.dgvReunioes.Size = New System.Drawing.Size(188, 313)
-        Me.dgvReunioes.TabIndex = 5
-        '
-        'dgvCompras
-        '
-        Me.dgvCompras.AllowUserToAddRows = False
-        Me.dgvCompras.AllowUserToDeleteRows = False
-        Me.dgvCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvCompras.Location = New System.Drawing.Point(533, 99)
-        Me.dgvCompras.Name = "dgvCompras"
-        Me.dgvCompras.ReadOnly = True
-        Me.dgvCompras.Size = New System.Drawing.Size(188, 313)
-        Me.dgvCompras.TabIndex = 6
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(275, 66)
+        Me.Label3.Location = New System.Drawing.Point(303, 66)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(71, 18)
         Me.Label3.TabIndex = 7
@@ -114,14 +85,14 @@ Partial Class FormLembrete
         '
         Me.btnAddLigacaoImportate.Location = New System.Drawing.Point(26, 418)
         Me.btnAddLigacaoImportate.Name = "btnAddLigacaoImportate"
-        Me.btnAddLigacaoImportate.Size = New System.Drawing.Size(188, 23)
+        Me.btnAddLigacaoImportate.Size = New System.Drawing.Size(260, 23)
         Me.btnAddLigacaoImportate.TabIndex = 9
         Me.btnAddLigacaoImportate.Text = "Adicionar Lembrete "
         Me.btnAddLigacaoImportate.UseVisualStyleBackColor = True
         '
         'btnAddReuniao
         '
-        Me.btnAddReuniao.Location = New System.Drawing.Point(278, 418)
+        Me.btnAddReuniao.Location = New System.Drawing.Point(306, 418)
         Me.btnAddReuniao.Name = "btnAddReuniao"
         Me.btnAddReuniao.Size = New System.Drawing.Size(188, 23)
         Me.btnAddReuniao.TabIndex = 10
@@ -137,39 +108,113 @@ Partial Class FormLembrete
         Me.btnAddCompra.Text = "Adicionar Lembrete"
         Me.btnAddCompra.UseVisualStyleBackColor = True
         '
+        'listViewLigacoes
+        '
+        Me.listViewLigacoes.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Id, Me.Descricao, Me.Data})
+        Me.listViewLigacoes.FullRowSelect = True
+        Me.listViewLigacoes.HideSelection = False
+        Me.listViewLigacoes.Location = New System.Drawing.Point(26, 99)
+        Me.listViewLigacoes.MultiSelect = False
+        Me.listViewLigacoes.Name = "listViewLigacoes"
+        Me.listViewLigacoes.Size = New System.Drawing.Size(260, 313)
+        Me.listViewLigacoes.TabIndex = 12
+        Me.listViewLigacoes.UseCompatibleStateImageBehavior = False
+        Me.listViewLigacoes.View = System.Windows.Forms.View.Details
+        '
+        'Id
+        '
+        Me.Id.Text = "Id"
+        Me.Id.Width = 25
+        '
+        'Descricao
+        '
+        Me.Descricao.Text = "Descrição"
+        Me.Descricao.Width = 159
+        '
+        'ListView1
+        '
+        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2})
+        Me.ListView1.HideSelection = False
+        Me.ListView1.Location = New System.Drawing.Point(306, 99)
+        Me.ListView1.Name = "ListView1"
+        Me.ListView1.Size = New System.Drawing.Size(188, 313)
+        Me.ListView1.TabIndex = 13
+        Me.ListView1.UseCompatibleStateImageBehavior = False
+        Me.ListView1.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader1
+        '
+        Me.ColumnHeader1.Text = "Id"
+        Me.ColumnHeader1.Width = 25
+        '
+        'ColumnHeader2
+        '
+        Me.ColumnHeader2.Text = "Descrição"
+        Me.ColumnHeader2.Width = 159
+        '
+        'ListView2
+        '
+        Me.ListView2.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader3, Me.ColumnHeader4})
+        Me.ListView2.HideSelection = False
+        Me.ListView2.Location = New System.Drawing.Point(533, 99)
+        Me.ListView2.Name = "ListView2"
+        Me.ListView2.Size = New System.Drawing.Size(188, 313)
+        Me.ListView2.TabIndex = 14
+        Me.ListView2.UseCompatibleStateImageBehavior = False
+        Me.ListView2.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader3
+        '
+        Me.ColumnHeader3.Text = "Id"
+        Me.ColumnHeader3.Width = 25
+        '
+        'ColumnHeader4
+        '
+        Me.ColumnHeader4.Text = "Descrição"
+        Me.ColumnHeader4.Width = 159
+        '
+        'Data
+        '
+        Me.Data.Text = "Data"
+        Me.Data.Width = 72
+        '
         'FormLembrete
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(750, 470)
+        Me.ClientSize = New System.Drawing.Size(738, 470)
+        Me.Controls.Add(Me.ListView2)
+        Me.Controls.Add(Me.ListView1)
+        Me.Controls.Add(Me.listViewLigacoes)
         Me.Controls.Add(Me.btnAddCompra)
         Me.Controls.Add(Me.btnAddReuniao)
         Me.Controls.Add(Me.btnAddLigacaoImportate)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.dgvCompras)
-        Me.Controls.Add(Me.dgvReunioes)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.dgvLigacoesImportantes)
         Me.Name = "FormLembrete"
         Me.Text = "FormLembrete"
-        CType(Me.dgvLigacoesImportantes, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dgvReunioes, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dgvCompras, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents Label1 As Label
-    Friend WithEvents dgvLigacoesImportantes As DataGridView
     Friend WithEvents Label2 As Label
-    Friend WithEvents dgvReunioes As DataGridView
-    Friend WithEvents dgvCompras As DataGridView
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents btnAddLigacaoImportate As Button
     Friend WithEvents btnAddReuniao As Button
     Friend WithEvents btnAddCompra As Button
+    Friend WithEvents listViewLigacoes As ListView
+    Friend WithEvents Id As ColumnHeader
+    Friend WithEvents Descricao As ColumnHeader
+    Friend WithEvents ListView1 As ListView
+    Friend WithEvents ColumnHeader1 As ColumnHeader
+    Friend WithEvents ColumnHeader2 As ColumnHeader
+    Friend WithEvents ListView2 As ListView
+    Friend WithEvents ColumnHeader3 As ColumnHeader
+    Friend WithEvents ColumnHeader4 As ColumnHeader
+    Friend WithEvents Data As ColumnHeader
 End Class
