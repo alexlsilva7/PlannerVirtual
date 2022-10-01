@@ -56,13 +56,6 @@
         End Try
     End Sub
 
-    Private Sub btnAddLigacaoImportate_Click(sender As Object, e As EventArgs)
-        Dim formAdicionarLembrete As New FormAdicionarLembrete
-        formAdicionarLembrete.tipoLembrete = TipoLembrete.ligacoesImportantes
-        formAdicionarLembrete.ShowDialog()
-        carregaDadosLigacoes()
-    End Sub
-
     Private Sub btnAddReuniao_Click(sender As Object, e As EventArgs) Handles btnAddReuniao.Click
         Dim formAdicionarLembrete As New FormAdicionarLembrete
         formAdicionarLembrete.tipoLembrete = TipoLembrete.reunioes
@@ -77,5 +70,12 @@
         formAdicionarLembrete.tipoLembrete = TipoLembrete.compras
         formAdicionarLembrete.ShowDialog()
         carregaDadosCompras()
+    End Sub
+
+    Private Sub btnAddLigacaoImportate_Click(sender As Object, e As EventArgs) Handles btnAddLigacaoImportate.Click
+        Dim formAdicionarLembrete As New FormAdicionarLembrete
+        formAdicionarLembrete.tipoLembrete = TipoLembrete.ligacoesImportantes
+        formAdicionarLembrete.ShowDialog()
+        carregaDadosLigacoes()
     End Sub
 End Class
