@@ -39,3 +39,6 @@ C:\Users\Mr Robot\Desktop\PlannerVirtual\PlannerVirtual\obj\Debug\PlannerVirtual
 C:\Users\Mr Robot\Desktop\PlannerVirtual\PlannerVirtual\obj\Debug\PlannerVirtual.Resources.resources
 C:\Users\Mr Robot\Desktop\PlannerVirtual\PlannerVirtual\obj\Debug\PlannerVirtual.vbproj.GenerateResource.cache
 C:\Users\Mr Robot\Desktop\PlannerVirtual\PlannerVirtual\obj\Debug\PlannerVirtual.vbproj.CoreCompileInputs.cache
+C:\Users\Mr Robot\Source\Repos\alexlsilva7\PlannerVirtual\PlannerVirtual\obj\Debug\PlannerVirtual.FormSelecionarCategoria.resources
+C:\Users\Mr Robot\Source\Repos\alexlsilva7\PlannerVirtual\PlannerVirtual\obj\Debug\PlannerVirtual.FormLembrete.resources
+C:\Users\Mr Robot\source\repos\alexlsilva7\PlannerVirtual\PlannerVirtual\obj\Debug\PlannerVirtual.FormAdicionarLembrete.resources
