@@ -104,6 +104,7 @@ Partial Class FormLembrete
         '
         'listViewLigacoes
         '
+        Me.listViewLigacoes.Activation = System.Windows.Forms.ItemActivation.TwoClick
         Me.listViewLigacoes.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Id, Me.Descricao, Me.Data})
         Me.listViewLigacoes.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.listViewLigacoes.FullRowSelect = True

@@ -78,16 +78,18 @@ Public Class LembreteDAO
         Return listaLembretes
     End Function
 
-    Public Function consultar(descricao As String) As Lembrete Implements ILembreteDAO.consultar
+    Public Function consultar(id As Integer) As Lembrete Implements ILembreteDAO.consultar
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
-            Dim sql = "SELECT id, descricao, tipoLembrete, data FROM Lembretes WHERE descricao = '" & descricao & "'"
+            Dim sql = "SELECT id, descricao, tipoLembrete, data FROM Lembretes WHERE id = '" & id & "'"
 
             Using cmd = New SQLiteCommand(sql, cn)
                 Using dr = cmd.ExecuteReader()
                     If dr.HasRows Then
                         dr.Read()
-                        Dim lembrete As Lembrete = New Lembrete(dr("descricao"), dr("tipoLembrete"), dr("data"), dr("id"))
+                        Dim data = DataHelpers.stringToData(dr("data"))
+                        Dim tipo As TipoLembrete = dr("tipoLembrete")
+                        Dim lembrete As Lembrete = New Lembrete(dr("descricao"), data, tipo, dr("id"))
                         cn.Close()
                         Return lembrete
                     Else
@@ -98,5 +100,16 @@ Public Class LembreteDAO
             End Using
         End Using
     End Function
+
+    Public Sub atualizar(lembrete As Lembrete) Implements ILembreteDAO.atualizar
+        Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
+            cn.Open()
+            Using objCommand As SQLiteCommand = cn.CreateCommand()
+                objCommand.CommandText = "UPDATE Lembretes SET descricao = '" & lembrete.descricao & "', tipoLembrete = '" & lembrete.tipoLembrete & "', data = '" & lembrete.data & "' WHERE id = '" & lembrete.id & "'"
+                objCommand.ExecuteNonQuery()
+            End Using
+            cn.Close()
+        End Using
+    End Sub
 
 End Class

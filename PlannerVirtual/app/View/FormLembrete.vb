@@ -78,4 +78,34 @@
         formAdicionarLembrete.ShowDialog()
         carregaDadosLigacoes()
     End Sub
+
+    Private Sub listViewLigacoes_DoubleClick(sender As Object, e As EventArgs) Handles listViewLigacoes.DoubleClick
+        If listViewLigacoes.SelectedItems.Count > 0 Then
+            Dim formAdicionarLembrete = New FormAdicionarLembrete
+            formAdicionarLembrete.tipoLembrete = TipoLembrete.ligacoesImportantes
+            formAdicionarLembrete.lembrete = _lembreteDAO.consultar(listViewLigacoes.SelectedItems(0).SubItems(0).Text)
+            formAdicionarLembrete.ShowDialog()
+            carregaDadosLigacoes()
+        End If
+    End Sub
+
+    Private Sub listViewReunioes_DoubleClick(sender As Object, e As EventArgs) Handles listViewReunioes.DoubleClick
+        If listViewReunioes.SelectedItems.Count > 0 Then
+            Dim formAdicionarLembrete = New FormAdicionarLembrete
+            formAdicionarLembrete.tipoLembrete = TipoLembrete.reunioes
+            formAdicionarLembrete.lembrete = _lembreteDAO.consultar(listViewReunioes.SelectedItems(0).SubItems(0).Text)
+            formAdicionarLembrete.ShowDialog()
+            carregaDadosReunioes()
+        End If
+    End Sub
+
+    Private Sub listViewCompras_DoubleClick(sender As Object, e As EventArgs) Handles listViewCompras.DoubleClick
+        If listViewCompras.SelectedItems.Count > 0 Then
+            Dim formAdicionarLembrete = New FormAdicionarLembrete
+            formAdicionarLembrete.tipoLembrete = TipoLembrete.compras
+            formAdicionarLembrete.lembrete = _lembreteDAO.consultar(listViewCompras.SelectedItems(0).SubItems(0).Text)
+            formAdicionarLembrete.ShowDialog()
+            carregaDadosCompras()
+        End If
+    End Sub
 End Class
