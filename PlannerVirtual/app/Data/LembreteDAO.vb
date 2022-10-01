@@ -62,7 +62,9 @@ Public Class LembreteDAO
                 Using dr = cmd.ExecuteReader()
                     If dr.HasRows Then
                         While dr.Read()
-                            Dim lembrete As Lembrete = New Lembrete(dr("descricao"), dr("tipoLembrete"), dr("data"), dr("id"))
+                            Dim data = DataHelpers.stringToData(dr("data"))
+                            Dim tipoLembrete As TipoLembrete = dr("tipoLembrete")
+                            Dim lembrete As Lembrete = New Lembrete(dr("descricao"), data, tipoLembrete, dr("id"))
                             listaLembretes.Add(lembrete)
                         End While
 
