@@ -50,7 +50,7 @@ Public Class LembreteDAO
         End Using
     End Sub
 
-    Public Function listar(tipoLembrete As TipoLembrete) As List(Of Lembrete) Implements ILembreteDAO.listar
+    Public Function getLembretesByTipo(tipoLembrete As TipoLembrete) As List(Of Lembrete) Implements ILembreteDAO.getLembretesByTipo
 
         Dim listaLembretes As List(Of Lembrete) = New List(Of Lembrete)
 
