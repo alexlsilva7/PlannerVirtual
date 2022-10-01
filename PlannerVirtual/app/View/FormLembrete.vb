@@ -88,4 +88,14 @@
             carregaDadosLigacoes()
         End If
     End Sub
+
+    Private Sub listViewReunioes_DoubleClick(sender As Object, e As EventArgs) Handles listViewReunioes.DoubleClick
+        If listViewReunioes.SelectedItems.Count > 0 Then
+            Dim formAdicionarLembrete = New FormAdicionarLembrete
+            formAdicionarLembrete.tipoLembrete = TipoLembrete.reunioes
+            formAdicionarLembrete.lembrete = _lembreteDAO.consultar(listViewReunioes.SelectedItems(0).SubItems(0).Text)
+            formAdicionarLembrete.ShowDialog()
+            carregaDadosReunioes()
+        End If
+    End Sub
 End Class
