@@ -1,11 +1,26 @@
 ﻿Public Class FormLembrete
     Private _lembreteDAO As ILembreteDAO
+    Dim dataInicioSemana As Date
+    Dim dataFimSemana As Date
 
     Private Sub FormLembrete_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        inicializarSemana()
         _lembreteDAO = LembreteDAO.getSingletonObject
+        carregarTodosLembretes()
+    End Sub
+
+    Private Sub carregarTodosLembretes()
         carregaDadosLigacoes()
         carregaDadosReunioes()
         carregaDadosCompras()
+    End Sub
+
+    Private Sub inicializarSemana()
+        Dim diaDaSemana = CInt(DateTime.Today.DayOfWeek)
+        dataInicioSemana = DateTime.Today.AddDays(-1 * diaDaSemana)
+        dataFimSemana = DateTime.Today.AddDays(7 - diaDaSemana).AddSeconds(-1)
+
+        lblSemana.Text = dataInicioSemana.ToString("dd/MM/yyyy") & " - " & dataFimSemana.ToString("dd/MM/yyyy")
     End Sub
 
     Private Sub carregaDadosLigacoes()
@@ -13,9 +28,17 @@
         listViewLigacoes.Items.Clear()
         'Busca os dados
         Dim lista As List(Of Lembrete) = _lembreteDAO.getLembretesByTipo(TipoLembrete.ligacoesImportantes)
+
+        'Pega os lembretes da semana
+        Dim listaSemana = lista.FindAll(
+                Function(lembrete)
+                    Return lembrete.data >= dataInicioSemana And lembrete.data <= dataFimSemana
+                End Function
+            )
+
         'Preencher o listview
         Try
-            For Each lembrete As Lembrete In lista
+            For Each lembrete As Lembrete In listaSemana
                 Dim item = New ListViewItem({lembrete.id.ToString, lembrete.descricao, lembrete.data})
                 listViewLigacoes.Items.Add(item)
             Next
@@ -29,9 +52,17 @@
         listViewReunioes.Items.Clear()
         'Busca os dados
         Dim lista As List(Of Lembrete) = _lembreteDAO.getLembretesByTipo(TipoLembrete.reunioes)
+
+        'Pega os lembretes da semana
+        Dim listaSemana = lista.FindAll(
+                Function(lembrete)
+                    Return lembrete.data >= dataInicioSemana And lembrete.data <= dataFimSemana
+                End Function
+            )
+
         'Preencher o listview
         Try
-            For Each lembrete As Lembrete In lista
+            For Each lembrete As Lembrete In listaSemana
                 Dim item = New ListViewItem({lembrete.id.ToString, lembrete.descricao, lembrete.data})
                 listViewReunioes.Items.Add(item)
             Next
@@ -45,9 +76,17 @@
         listViewCompras.Items.Clear()
         'Busca os dados
         Dim lista As List(Of Lembrete) = _lembreteDAO.getLembretesByTipo(TipoLembrete.compras)
+
+        'Pega os lembretes da semana
+        Dim listaSemana = lista.FindAll(
+                Function(lembrete)
+                    Return lembrete.data >= dataInicioSemana And lembrete.data <= dataFimSemana
+                End Function
+            )
+
         'Preencher o listview
         Try
-            For Each lembrete As Lembrete In lista
+            For Each lembrete As Lembrete In listaSemana
                 Dim item = New ListViewItem({lembrete.id.ToString, lembrete.descricao, lembrete.data})
                 listViewCompras.Items.Add(item)
             Next
@@ -107,5 +146,24 @@
             formAdicionarLembrete.ShowDialog()
             carregaDadosCompras()
         End If
+    End Sub
+
+    Private Sub btnVoltarSemana_Click(sender As Object, e As EventArgs) Handles btnVoltarSemana.Click
+        dataInicioSemana = dataInicioSemana.AddDays(-7)
+        dataFimSemana = dataFimSemana.AddDays(-7)
+        lblSemana.Text = dataInicioSemana.ToString("dd/MM/yyyy") & " - " & dataFimSemana.ToString("dd/MM/yyyy")
+        carregarTodosLembretes()
+    End Sub
+
+    Private Sub btnAvancarSemana_Click(sender As Object, e As EventArgs) Handles btnAvancarSemana.Click
+        dataInicioSemana = dataInicioSemana.AddDays(7)
+        dataFimSemana = dataFimSemana.AddDays(7)
+        lblSemana.Text = dataInicioSemana.ToString("dd/MM/yyyy") & " - " & dataFimSemana.ToString("dd/MM/yyyy")
+        carregarTodosLembretes()
+    End Sub
+
+    Private Sub btnIrSemanaAtual_Click(sender As Object, e As EventArgs) Handles btnIrSemanaAtual.Click
+        inicializarSemana()
+        carregarTodosLembretes()
     End Sub
 End Class
