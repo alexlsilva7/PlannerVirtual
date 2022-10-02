@@ -53,7 +53,7 @@ Public Class CategoriaDAO
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
             Using objCommand As SQLiteCommand = cn.CreateCommand()
-                objCommand.CommandText = "UPDATE Categorias SET nome = '" & categoria.nome & "', cor = " & categoria.cor.ToArgb & " WHERE nome = '" & categoria.nome & "'"
+                objCommand.CommandText = "UPDATE Categorias SET nome = '" & categoria.nome & "', cor = " & categoria.cor.ToArgb & " WHERE nome = '" & nomeAnterior & "'"
                 objCommand.ExecuteNonQuery()
             End Using
             cn.Close()
