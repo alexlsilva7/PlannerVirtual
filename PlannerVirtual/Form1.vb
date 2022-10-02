@@ -38,14 +38,4 @@ Public Class Form1
         Dim formLembrete As New FormLembrete
         Dim result = formLembrete.ShowDialog()
     End Sub
-
-    Private Sub btnHome_Click(sender As Object, e As EventArgs) Handles btnHome.Click
-        Dim formHome As New FormHome
-        Dim result = formHome.ShowDialog()
-    End Sub
-
-    Private Sub btnSemanal_Click(sender As Object, e As EventArgs) Handles btnSemanal.Click
-        Dim formExibicaoSemanal As New FormExibicaoSemanal
-        Dim result = formExibicaoSemanal.ShowDialog()
-    End Sub
 End Class
