@@ -49,6 +49,17 @@ Public Class CategoriaDAO
         End Using
     End Sub
 
+    Public Sub atualizar(categoria As Categoria) Implements ICategoriaDAO.atualizar
+        Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
+            cn.Open()
+            Using objCommand As SQLiteCommand = cn.CreateCommand()
+                objCommand.CommandText = "UPDATE Categorias SET nome = '" & categoria.nome & "', cor = " & categoria.cor.ToArgb & " WHERE nome = '" & categoria.nome & "'"
+                objCommand.ExecuteNonQuery()
+            End Using
+            cn.Close()
+        End Using
+    End Sub
+
     Public Function listar() As List(Of Categoria) Implements ICategoriaDAO.listar
 
         Dim listaCategorias As List(Of Categoria) = New List(Of Categoria)
