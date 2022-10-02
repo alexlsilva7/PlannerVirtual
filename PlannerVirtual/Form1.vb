@@ -38,4 +38,9 @@ Public Class Form1
         Dim formLembrete As New FormLembrete
         Dim result = formLembrete.ShowDialog()
     End Sub
+
+    Private Sub btnTelaTarefas_Click_Click(sender As Object, e As EventArgs) Handles btnTelaTarefas_Click.Click
+        Dim formTarefa As New FormTarefa
+        Dim result = formTarefa.ShowDialog()
+    End Sub
 End Class

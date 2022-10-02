@@ -1,13 +1,19 @@
 ﻿Imports Microsoft.VisualBasic
 
 Public Class Tarefa
-    Private _id As String
+    Private _id As Integer
     Private _descricao As String
-    Private _horarioInicio As Date
+    Private _horarioInicio As String
     Private _duracao As Integer
     Private _estado As EstadoAtividade
     Private _categoria As Categoria
     Private _TarefaDAO As ITarefaDAO
+
+    Public ReadOnly Property id() As Integer
+        Get
+            Return _id
+        End Get
+    End Property
 
     Public Property descricao() As String
         Get
@@ -54,11 +60,14 @@ Public Class Tarefa
         End Set
     End Property
 
-    Public Sub New(ByVal id As Integer, ByVal descricao As String, ByVal horarioInicio As Date, ByVal duracao As Integer, ByVal estado As EstadoAtividade)
+    Public Sub New(ByVal descricao As String, ByVal horarioInicio As String, ByVal duracao As Integer, ByVal estado As EstadoAtividade, Optional ByVal id As Integer = -1)
+        If (id <> -1) Then
+            _id = id
+        End If
         _descricao = descricao
         _horarioInicio = horarioInicio
         _duracao = duracao
-        _estado = EstadoAtividade.aExecutar
+        _estado = estado
         _TarefaDAO = TarefaDAO.getSingletonObject
 
     End Sub

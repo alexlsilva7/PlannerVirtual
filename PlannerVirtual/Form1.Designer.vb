@@ -25,40 +25,51 @@ Partial Class Form1
         Me.btnTelaCategorias = New System.Windows.Forms.Button()
         Me.btnSelecionarCategoriaDialog = New System.Windows.Forms.Button()
         Me.btnTelaLembretes = New System.Windows.Forms.Button()
+        Me.btnTelaTarefas_Click = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnTelaCategorias
         '
-        Me.btnTelaCategorias.Location = New System.Drawing.Point(12, 12)
+        Me.btnTelaCategorias.Location = New System.Drawing.Point(29, 25)
         Me.btnTelaCategorias.Name = "btnTelaCategorias"
-        Me.btnTelaCategorias.Size = New System.Drawing.Size(105, 85)
+        Me.btnTelaCategorias.Size = New System.Drawing.Size(217, 85)
         Me.btnTelaCategorias.TabIndex = 0
         Me.btnTelaCategorias.Text = "Tela de Categorias"
         Me.btnTelaCategorias.UseVisualStyleBackColor = True
         '
         'btnSelecionarCategoriaDialog
         '
-        Me.btnSelecionarCategoriaDialog.Location = New System.Drawing.Point(12, 103)
+        Me.btnSelecionarCategoriaDialog.Location = New System.Drawing.Point(278, 133)
         Me.btnSelecionarCategoriaDialog.Name = "btnSelecionarCategoriaDialog"
-        Me.btnSelecionarCategoriaDialog.Size = New System.Drawing.Size(105, 38)
+        Me.btnSelecionarCategoriaDialog.Size = New System.Drawing.Size(213, 95)
         Me.btnSelecionarCategoriaDialog.TabIndex = 1
         Me.btnSelecionarCategoriaDialog.Text = "Selecionar Categoria Dialog"
         Me.btnSelecionarCategoriaDialog.UseVisualStyleBackColor = True
         '
         'btnTelaLembretes
         '
-        Me.btnTelaLembretes.Location = New System.Drawing.Point(137, 12)
+        Me.btnTelaLembretes.Location = New System.Drawing.Point(278, 25)
         Me.btnTelaLembretes.Name = "btnTelaLembretes"
-        Me.btnTelaLembretes.Size = New System.Drawing.Size(105, 85)
+        Me.btnTelaLembretes.Size = New System.Drawing.Size(213, 85)
         Me.btnTelaLembretes.TabIndex = 2
         Me.btnTelaLembretes.Text = "Tela de Lembretes"
         Me.btnTelaLembretes.UseVisualStyleBackColor = True
+        '
+        'btnTelaTarefas_Click
+        '
+        Me.btnTelaTarefas_Click.Location = New System.Drawing.Point(523, 25)
+        Me.btnTelaTarefas_Click.Name = "btnTelaTarefas_Click"
+        Me.btnTelaTarefas_Click.Size = New System.Drawing.Size(238, 85)
+        Me.btnTelaTarefas_Click.TabIndex = 3
+        Me.btnTelaTarefas_Click.Text = "Tela de Tarefas"
+        Me.btnTelaTarefas_Click.UseVisualStyleBackColor = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.btnTelaTarefas_Click)
         Me.Controls.Add(Me.btnTelaLembretes)
         Me.Controls.Add(Me.btnSelecionarCategoriaDialog)
         Me.Controls.Add(Me.btnTelaCategorias)
@@ -71,4 +82,5 @@ Partial Class Form1
     Friend WithEvents btnTelaCategorias As Button
     Friend WithEvents btnSelecionarCategoriaDialog As Button
     Friend WithEvents btnTelaLembretes As Button
+    Friend WithEvents btnTelaTarefas_Click As Button
 End Class
