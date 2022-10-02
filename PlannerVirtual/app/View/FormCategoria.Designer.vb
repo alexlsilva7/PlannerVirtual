@@ -22,214 +22,114 @@ Partial Class FormCategoria
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.dgvCategorias = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.btnAdicionar = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.txtNomeCategoria = New System.Windows.Forms.TextBox()
-        Me.lblIdSelecionado = New System.Windows.Forms.Label()
-        Me.btnDeletarPrimeiro = New System.Windows.Forms.Button()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtNomeConsultar = New System.Windows.Forms.TextBox()
-        Me.btnConsultar = New System.Windows.Forms.Button()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.btnClose = New System.Windows.Forms.Button()
-        Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
-        Me.panelCor = New System.Windows.Forms.Panel()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.btnAlterarCor = New System.Windows.Forms.Button()
-        CType(Me.dgvCategorias, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.listviewCategorias = New System.Windows.Forms.ListView()
+        Me.Nome = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Cor = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.btnNovaCategoria = New FontAwesome.Sharp.IconButton()
+        Me.btnConsultarCategoria = New FontAwesome.Sharp.IconButton()
+        Me.btnEditar = New System.Windows.Forms.Button()
+        Me.btnApagar = New System.Windows.Forms.Button()
         Me.SuspendLayout()
-        '
-        'dgvCategorias
-        '
-        Me.dgvCategorias.AllowUserToAddRows = False
-        Me.dgvCategorias.AllowUserToDeleteRows = False
-        Me.dgvCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvCategorias.Location = New System.Drawing.Point(24, 48)
-        Me.dgvCategorias.Name = "dgvCategorias"
-        Me.dgvCategorias.ReadOnly = True
-        Me.dgvCategorias.Size = New System.Drawing.Size(271, 347)
-        Me.dgvCategorias.TabIndex = 0
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(21, 14)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label1.Location = New System.Drawing.Point(20, 13)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(83, 16)
+        Me.Label1.Size = New System.Drawing.Size(96, 20)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Categorias"
         '
-        'btnAdicionar
+        'listviewCategorias
         '
-        Me.btnAdicionar.Location = New System.Drawing.Point(353, 379)
-        Me.btnAdicionar.Name = "btnAdicionar"
-        Me.btnAdicionar.Size = New System.Drawing.Size(141, 23)
-        Me.btnAdicionar.TabIndex = 2
-        Me.btnAdicionar.Text = "Adicionar"
-        Me.btnAdicionar.UseVisualStyleBackColor = True
+        Me.listviewCategorias.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Nome, Me.Cor})
+        Me.listviewCategorias.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.listviewCategorias.FullRowSelect = True
+        Me.listviewCategorias.HideSelection = False
+        Me.listviewCategorias.Location = New System.Drawing.Point(24, 47)
+        Me.listviewCategorias.Name = "listviewCategorias"
+        Me.listviewCategorias.Size = New System.Drawing.Size(242, 304)
+        Me.listviewCategorias.TabIndex = 16
+        Me.listviewCategorias.UseCompatibleStateImageBehavior = False
+        Me.listviewCategorias.View = System.Windows.Forms.View.Details
         '
-        'Label2
+        'Nome
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(350, 327)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(38, 13)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "Nome:"
+        Me.Nome.Text = "Nome"
+        Me.Nome.Width = 140
         '
-        'txtNomeCategoria
+        'Cor
         '
-        Me.txtNomeCategoria.Location = New System.Drawing.Point(394, 324)
-        Me.txtNomeCategoria.Name = "txtNomeCategoria"
-        Me.txtNomeCategoria.Size = New System.Drawing.Size(100, 20)
-        Me.txtNomeCategoria.TabIndex = 4
+        Me.Cor.Text = "Cor"
+        Me.Cor.Width = 98
         '
-        'lblIdSelecionado
+        'btnNovaCategoria
         '
-        Me.lblIdSelecionado.AutoSize = True
-        Me.lblIdSelecionado.Location = New System.Drawing.Point(23, 420)
-        Me.lblIdSelecionado.Name = "lblIdSelecionado"
-        Me.lblIdSelecionado.Size = New System.Drawing.Size(81, 13)
-        Me.lblIdSelecionado.TabIndex = 5
-        Me.lblIdSelecionado.Text = "ID selecionado:"
+        Me.btnNovaCategoria.IconChar = FontAwesome.Sharp.IconChar.Plus
+        Me.btnNovaCategoria.IconColor = System.Drawing.Color.DarkSlateBlue
+        Me.btnNovaCategoria.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnNovaCategoria.IconSize = 30
+        Me.btnNovaCategoria.Location = New System.Drawing.Point(222, 8)
+        Me.btnNovaCategoria.Name = "btnNovaCategoria"
+        Me.btnNovaCategoria.Size = New System.Drawing.Size(44, 33)
+        Me.btnNovaCategoria.TabIndex = 17
+        Me.btnNovaCategoria.UseVisualStyleBackColor = True
         '
-        'btnDeletarPrimeiro
+        'btnConsultarCategoria
         '
-        Me.btnDeletarPrimeiro.Location = New System.Drawing.Point(178, 415)
-        Me.btnDeletarPrimeiro.Name = "btnDeletarPrimeiro"
-        Me.btnDeletarPrimeiro.Size = New System.Drawing.Size(117, 23)
-        Me.btnDeletarPrimeiro.TabIndex = 6
-        Me.btnDeletarPrimeiro.Text = "Deletar o primeiro"
-        Me.btnDeletarPrimeiro.UseVisualStyleBackColor = True
+        Me.btnConsultarCategoria.IconChar = FontAwesome.Sharp.IconChar.Search
+        Me.btnConsultarCategoria.IconColor = System.Drawing.Color.DarkSlateBlue
+        Me.btnConsultarCategoria.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnConsultarCategoria.IconSize = 30
+        Me.btnConsultarCategoria.Location = New System.Drawing.Point(172, 8)
+        Me.btnConsultarCategoria.Name = "btnConsultarCategoria"
+        Me.btnConsultarCategoria.Size = New System.Drawing.Size(44, 33)
+        Me.btnConsultarCategoria.TabIndex = 18
+        Me.btnConsultarCategoria.UseVisualStyleBackColor = True
         '
-        'Label3
+        'btnEditar
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(390, 290)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(60, 20)
-        Me.Label3.TabIndex = 7
-        Me.Label3.Text = "Inserir"
+        Me.btnEditar.Location = New System.Drawing.Point(152, 357)
+        Me.btnEditar.Name = "btnEditar"
+        Me.btnEditar.Size = New System.Drawing.Size(114, 23)
+        Me.btnEditar.TabIndex = 24
+        Me.btnEditar.Text = "Editar"
+        Me.btnEditar.UseVisualStyleBackColor = True
         '
-        'txtNomeConsultar
+        'btnApagar
         '
-        Me.txtNomeConsultar.Location = New System.Drawing.Point(639, 327)
-        Me.txtNomeConsultar.Name = "txtNomeConsultar"
-        Me.txtNomeConsultar.Size = New System.Drawing.Size(100, 20)
-        Me.txtNomeConsultar.TabIndex = 8
-        '
-        'btnConsultar
-        '
-        Me.btnConsultar.Location = New System.Drawing.Point(586, 350)
-        Me.btnConsultar.Name = "btnConsultar"
-        Me.btnConsultar.Size = New System.Drawing.Size(153, 23)
-        Me.btnConsultar.TabIndex = 9
-        Me.btnConsultar.Text = "Consultar"
-        Me.btnConsultar.UseVisualStyleBackColor = True
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(583, 330)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(38, 13)
-        Me.Label4.TabIndex = 10
-        Me.Label4.Text = "Nome:"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(582, 290)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(168, 20)
-        Me.Label5.TabIndex = 11
-        Me.Label5.Text = "Consultar por Nome"
-        '
-        'btnClose
-        '
-        Me.btnClose.Location = New System.Drawing.Point(702, 32)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(75, 65)
-        Me.btnClose.TabIndex = 12
-        Me.btnClose.Text = "FECHAR TELA"
-        Me.btnClose.UseVisualStyleBackColor = True
-        '
-        'panelCor
-        '
-        Me.panelCor.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.panelCor.Location = New System.Drawing.Point(382, 350)
-        Me.panelCor.Name = "panelCor"
-        Me.panelCor.Size = New System.Drawing.Size(30, 23)
-        Me.panelCor.TabIndex = 13
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(350, 355)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(26, 13)
-        Me.Label6.TabIndex = 14
-        Me.Label6.Text = "Cor:"
-        '
-        'btnAlterarCor
-        '
-        Me.btnAlterarCor.Location = New System.Drawing.Point(419, 351)
-        Me.btnAlterarCor.Name = "btnAlterarCor"
-        Me.btnAlterarCor.Size = New System.Drawing.Size(75, 23)
-        Me.btnAlterarCor.TabIndex = 15
-        Me.btnAlterarCor.Text = "Alterar"
-        Me.btnAlterarCor.UseVisualStyleBackColor = True
+        Me.btnApagar.Location = New System.Drawing.Point(24, 357)
+        Me.btnApagar.Name = "btnApagar"
+        Me.btnApagar.Size = New System.Drawing.Size(114, 23)
+        Me.btnApagar.TabIndex = 23
+        Me.btnApagar.Text = "Apagar"
+        Me.btnApagar.UseVisualStyleBackColor = True
         '
         'FormCategoria
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.btnAlterarCor)
-        Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.panelCor)
-        Me.Controls.Add(Me.btnClose)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.btnConsultar)
-        Me.Controls.Add(Me.txtNomeConsultar)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.btnDeletarPrimeiro)
-        Me.Controls.Add(Me.lblIdSelecionado)
-        Me.Controls.Add(Me.txtNomeCategoria)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.btnAdicionar)
+        Me.ClientSize = New System.Drawing.Size(289, 395)
+        Me.Controls.Add(Me.btnEditar)
+        Me.Controls.Add(Me.btnApagar)
+        Me.Controls.Add(Me.btnConsultarCategoria)
+        Me.Controls.Add(Me.btnNovaCategoria)
+        Me.Controls.Add(Me.listviewCategorias)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.dgvCategorias)
         Me.Name = "FormCategoria"
-        Me.Text = "Form1"
-        CType(Me.dgvCategorias, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents dgvCategorias As DataGridView
     Friend WithEvents Label1 As Label
-    Friend WithEvents btnAdicionar As Button
-    Friend WithEvents Label2 As Label
-    Friend WithEvents txtNomeCategoria As TextBox
-    Friend WithEvents lblIdSelecionado As Label
-    Friend WithEvents btnDeletarPrimeiro As Button
-    Friend WithEvents Label3 As Label
-    Friend WithEvents txtNomeConsultar As TextBox
-    Friend WithEvents btnConsultar As Button
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label5 As Label
-    Friend WithEvents btnClose As Button
-    Friend WithEvents ColorDialog1 As ColorDialog
-    Friend WithEvents panelCor As Panel
-    Friend WithEvents Label6 As Label
-    Friend WithEvents btnAlterarCor As Button
+    Friend WithEvents listviewCategorias As ListView
+    Friend WithEvents Nome As ColumnHeader
+    Friend WithEvents Cor As ColumnHeader
+    Friend WithEvents btnNovaCategoria As FontAwesome.Sharp.IconButton
+    Friend WithEvents btnConsultarCategoria As FontAwesome.Sharp.IconButton
+    Friend WithEvents btnEditar As Button
+    Friend WithEvents btnApagar As Button
 End Class
