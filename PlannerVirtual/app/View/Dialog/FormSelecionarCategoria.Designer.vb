@@ -22,58 +22,63 @@ Partial Class FormSelecionarCategoria
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.dgvCategorias = New System.Windows.Forms.DataGridView()
         Me.btnSelecionarCategoria = New System.Windows.Forms.Label()
-        Me.btnSelecionar = New System.Windows.Forms.Button()
-        CType(Me.dgvCategorias, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.listviewCategorias = New System.Windows.Forms.ListView()
+        Me.Nome = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Cor = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.SuspendLayout()
-        '
-        'dgvCategorias
-        '
-        Me.dgvCategorias.AllowUserToAddRows = False
-        Me.dgvCategorias.AllowUserToDeleteRows = False
-        Me.dgvCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvCategorias.Location = New System.Drawing.Point(-2, 29)
-        Me.dgvCategorias.Name = "dgvCategorias"
-        Me.dgvCategorias.ReadOnly = True
-        Me.dgvCategorias.Size = New System.Drawing.Size(246, 325)
-        Me.dgvCategorias.TabIndex = 1
         '
         'btnSelecionarCategoria
         '
         Me.btnSelecionarCategoria.AutoSize = True
+        Me.btnSelecionarCategoria.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSelecionarCategoria.ForeColor = System.Drawing.SystemColors.ControlDarkDark
         Me.btnSelecionarCategoria.Location = New System.Drawing.Point(26, 10)
         Me.btnSelecionarCategoria.Name = "btnSelecionarCategoria"
-        Me.btnSelecionarCategoria.Size = New System.Drawing.Size(127, 13)
+        Me.btnSelecionarCategoria.Size = New System.Drawing.Size(184, 16)
         Me.btnSelecionarCategoria.TabIndex = 2
         Me.btnSelecionarCategoria.Text = "Selecione uma categoria:"
         '
-        'btnSelecionar
+        'listviewCategorias
         '
-        Me.btnSelecionar.Location = New System.Drawing.Point(-2, 360)
-        Me.btnSelecionar.Name = "btnSelecionar"
-        Me.btnSelecionar.Size = New System.Drawing.Size(246, 23)
-        Me.btnSelecionar.TabIndex = 3
-        Me.btnSelecionar.Text = "Selecionar"
-        Me.btnSelecionar.UseVisualStyleBackColor = True
+        Me.listviewCategorias.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Nome, Me.Cor})
+        Me.listviewCategorias.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.listviewCategorias.FullRowSelect = True
+        Me.listviewCategorias.HideSelection = False
+        Me.listviewCategorias.Location = New System.Drawing.Point(-2, 38)
+        Me.listviewCategorias.MultiSelect = False
+        Me.listviewCategorias.Name = "listviewCategorias"
+        Me.listviewCategorias.Size = New System.Drawing.Size(242, 263)
+        Me.listviewCategorias.TabIndex = 4
+        Me.listviewCategorias.UseCompatibleStateImageBehavior = False
+        Me.listviewCategorias.View = System.Windows.Forms.View.Details
+        '
+        'Nome
+        '
+        Me.Nome.Text = "Nome"
+        Me.Nome.Width = 140
+        '
+        'Cor
+        '
+        Me.Cor.Text = "Cor"
+        Me.Cor.Width = 98
         '
         'FormSelecionarCategoria
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(240, 382)
-        Me.Controls.Add(Me.btnSelecionar)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(236, 298)
+        Me.Controls.Add(Me.listviewCategorias)
         Me.Controls.Add(Me.btnSelecionarCategoria)
-        Me.Controls.Add(Me.dgvCategorias)
         Me.Name = "FormSelecionarCategoria"
         Me.Text = "SelecionarCategoria"
-        CType(Me.dgvCategorias, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents dgvCategorias As DataGridView
     Friend WithEvents btnSelecionarCategoria As Label
-    Friend WithEvents btnSelecionar As Button
+    Friend WithEvents listviewCategorias As ListView
+    Friend WithEvents Nome As ColumnHeader
+    Friend WithEvents Cor As ColumnHeader
 End Class
