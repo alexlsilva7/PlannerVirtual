@@ -10,20 +10,24 @@
 
     Private Sub initState()
         _lembreteDAO = LembreteDAO.getSingletonObject
-        If (tipoLembrete = TipoLembrete.ligacoesImportantes) Then
-            lblTipoLembrete.Text = "Ligação Importante"
-        ElseIf (tipoLembrete = TipoLembrete.reunioes) Then
-            lblTipoLembrete.Text = "Reunião"
-        ElseIf (tipoLembrete = TipoLembrete.compras) Then
-            lblTipoLembrete.Text = "Compras"
-        End If
-
+        'Muda se for para editar o lembrete
         If lembrete IsNot Nothing Then
             txtDescricao.Text = lembrete.descricao
             DatePicker.Value = lembrete.data
 
             btnAdicionarLembrete.Text = "Atualizar"
+            lblTitulo.Text = "Editar - "
         End If
+
+        'Seta o tipo de lembrete
+        If (tipoLembrete = TipoLembrete.ligacoesImportantes) Then
+            lblTitulo.Text += "Ligação Importante"
+        ElseIf (tipoLembrete = TipoLembrete.reunioes) Then
+            lblTitulo.Text += "Reunião"
+        ElseIf (tipoLembrete = TipoLembrete.compras) Then
+            lblTitulo.Text += "Compras"
+        End If
+
     End Sub
 
     Private Sub btnAdicionarLembrete_Click(sender As Object, e As EventArgs) Handles btnAdicionarLembrete.Click

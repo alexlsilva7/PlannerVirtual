@@ -25,13 +25,13 @@ Public Class LembreteDAO
 
     Public Sub inserir(lembrete As Lembrete) Implements ILembreteDAO.inserir
         Try
-            consultar(lembrete.descricao)
+            consultar(lembrete.id)
             Throw New LembreteExistenteException
         Catch ex As LembreteNaoEncontradaException
             Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
                 cn.Open()
                 Using objCommand As SQLiteCommand = cn.CreateCommand()
-                    objCommand.CommandText = "INSERT INTO Lembretes (descricao, tipoLembrete, data) VALUES ('" & lembrete.descricao & "', '" & lembrete.tipoLembrete & "', '" & lembrete.data & "')"
+                    objCommand.CommandText = "INSERT INTO Lembretes (descricao, tipoLembrete, data) VALUES ('" & lembrete.descricao & "', '" & lembrete.tipoLembrete & "', '" & DataHelpers.dataToString(lembrete.data) & "')"
                     objCommand.ExecuteNonQuery()
                 End Using
                 cn.Close()
@@ -50,7 +50,7 @@ Public Class LembreteDAO
         End Using
     End Sub
 
-    Public Function listar(tipoLembrete As TipoLembrete) As List(Of Lembrete) Implements ILembreteDAO.listar
+    Public Function getLembretesByTipo(tipoLembrete As TipoLembrete) As List(Of Lembrete) Implements ILembreteDAO.getLembretesByTipo
 
         Dim listaLembretes As List(Of Lembrete) = New List(Of Lembrete)
 
@@ -112,4 +112,30 @@ Public Class LembreteDAO
         End Using
     End Sub
 
+    Public Function getAllLembretes() As List(Of Lembrete) Implements ILembreteDAO.getAllLembretes
+        Dim listaLembretes As List(Of Lembrete) = New List(Of Lembrete)
+
+        Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
+            cn.Open()
+            Dim sql = "SELECT id, descricao, tipoLembrete, data FROM Lembretes ORDER BY id"
+
+            Using cmd = New SQLiteCommand(sql, cn)
+                Using dr = cmd.ExecuteReader()
+                    If dr.HasRows Then
+                        While dr.Read()
+                            Dim data = DataHelpers.stringToData(dr("data"))
+                            Dim tipo As TipoLembrete = dr("tipoLembrete")
+                            Dim lembrete As Lembrete = New Lembrete(dr("descricao"), data, tipo, dr("id"))
+                            listaLembretes.Add(lembrete)
+                        End While
+
+                    End If
+                End Using
+            End Using
+
+            cn.Close()
+        End Using
+
+        Return listaLembretes
+    End Function
 End Class

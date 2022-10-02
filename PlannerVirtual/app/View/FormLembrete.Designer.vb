@@ -41,6 +41,17 @@ Partial Class FormLembrete
         Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.btnAddLigacaoImportate = New System.Windows.Forms.Button()
+        Me.btnVoltarSemana = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.lblSemana = New System.Windows.Forms.Label()
+        Me.btnAvancarSemana = New System.Windows.Forms.Button()
+        Me.btnIrSemanaAtual = New System.Windows.Forms.Button()
+        Me.btnApagarLigacao = New System.Windows.Forms.Button()
+        Me.btnEditarLigacao = New System.Windows.Forms.Button()
+        Me.btnEditarReuniao = New System.Windows.Forms.Button()
+        Me.btnApagarReuniao = New System.Windows.Forms.Button()
+        Me.btnEditarCompra = New System.Windows.Forms.Button()
+        Me.btnApagarCompra = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -201,12 +212,125 @@ Partial Class FormLembrete
         Me.btnAddLigacaoImportate.Text = "Adicionar Lembrete"
         Me.btnAddLigacaoImportate.UseVisualStyleBackColor = False
         '
+        'btnVoltarSemana
+        '
+        Me.btnVoltarSemana.Location = New System.Drawing.Point(588, 28)
+        Me.btnVoltarSemana.Name = "btnVoltarSemana"
+        Me.btnVoltarSemana.Size = New System.Drawing.Size(35, 23)
+        Me.btnVoltarSemana.TabIndex = 16
+        Me.btnVoltarSemana.Text = "<"
+        Me.btnVoltarSemana.UseVisualStyleBackColor = True
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.SystemColors.ControlDark
+        Me.Label5.Location = New System.Drawing.Point(685, 9)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(75, 20)
+        Me.Label5.TabIndex = 17
+        Me.Label5.Text = "Semana"
+        '
+        'lblSemana
+        '
+        Me.lblSemana.AutoSize = True
+        Me.lblSemana.Location = New System.Drawing.Point(650, 36)
+        Me.lblSemana.Name = "lblSemana"
+        Me.lblSemana.Size = New System.Drawing.Size(46, 13)
+        Me.lblSemana.TabIndex = 18
+        Me.lblSemana.Text = "Semana"
+        Me.lblSemana.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'btnAvancarSemana
+        '
+        Me.btnAvancarSemana.Location = New System.Drawing.Point(814, 28)
+        Me.btnAvancarSemana.Name = "btnAvancarSemana"
+        Me.btnAvancarSemana.Size = New System.Drawing.Size(35, 23)
+        Me.btnAvancarSemana.TabIndex = 19
+        Me.btnAvancarSemana.Text = ">"
+        Me.btnAvancarSemana.UseVisualStyleBackColor = True
+        '
+        'btnIrSemanaAtual
+        '
+        Me.btnIrSemanaAtual.Location = New System.Drawing.Point(517, 28)
+        Me.btnIrSemanaAtual.Name = "btnIrSemanaAtual"
+        Me.btnIrSemanaAtual.Size = New System.Drawing.Size(65, 23)
+        Me.btnIrSemanaAtual.TabIndex = 20
+        Me.btnIrSemanaAtual.Text = "Atual"
+        Me.btnIrSemanaAtual.UseVisualStyleBackColor = True
+        '
+        'btnApagarLigacao
+        '
+        Me.btnApagarLigacao.Location = New System.Drawing.Point(26, 447)
+        Me.btnApagarLigacao.Name = "btnApagarLigacao"
+        Me.btnApagarLigacao.Size = New System.Drawing.Size(125, 23)
+        Me.btnApagarLigacao.TabIndex = 21
+        Me.btnApagarLigacao.Text = "Apagar"
+        Me.btnApagarLigacao.UseVisualStyleBackColor = True
+        '
+        'btnEditarLigacao
+        '
+        Me.btnEditarLigacao.Location = New System.Drawing.Point(161, 447)
+        Me.btnEditarLigacao.Name = "btnEditarLigacao"
+        Me.btnEditarLigacao.Size = New System.Drawing.Size(125, 23)
+        Me.btnEditarLigacao.TabIndex = 22
+        Me.btnEditarLigacao.Text = "Editar"
+        Me.btnEditarLigacao.UseVisualStyleBackColor = True
+        '
+        'btnEditarReuniao
+        '
+        Me.btnEditarReuniao.Location = New System.Drawing.Point(441, 447)
+        Me.btnEditarReuniao.Name = "btnEditarReuniao"
+        Me.btnEditarReuniao.Size = New System.Drawing.Size(125, 23)
+        Me.btnEditarReuniao.TabIndex = 24
+        Me.btnEditarReuniao.Text = "Editar"
+        Me.btnEditarReuniao.UseVisualStyleBackColor = True
+        '
+        'btnApagarReuniao
+        '
+        Me.btnApagarReuniao.Location = New System.Drawing.Point(306, 447)
+        Me.btnApagarReuniao.Name = "btnApagarReuniao"
+        Me.btnApagarReuniao.Size = New System.Drawing.Size(125, 23)
+        Me.btnApagarReuniao.TabIndex = 23
+        Me.btnApagarReuniao.Text = "Apagar"
+        Me.btnApagarReuniao.UseVisualStyleBackColor = True
+        '
+        'btnEditarCompra
+        '
+        Me.btnEditarCompra.Location = New System.Drawing.Point(724, 447)
+        Me.btnEditarCompra.Name = "btnEditarCompra"
+        Me.btnEditarCompra.Size = New System.Drawing.Size(125, 23)
+        Me.btnEditarCompra.TabIndex = 26
+        Me.btnEditarCompra.Text = "Editar"
+        Me.btnEditarCompra.UseVisualStyleBackColor = True
+        '
+        'btnApagarCompra
+        '
+        Me.btnApagarCompra.Location = New System.Drawing.Point(589, 447)
+        Me.btnApagarCompra.Name = "btnApagarCompra"
+        Me.btnApagarCompra.Size = New System.Drawing.Size(125, 23)
+        Me.btnApagarCompra.TabIndex = 25
+        Me.btnApagarCompra.Text = "Apagar"
+        Me.btnApagarCompra.UseVisualStyleBackColor = True
+        '
         'FormLembrete
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(872, 476)
+        Me.Controls.Add(Me.btnEditarCompra)
+        Me.Controls.Add(Me.btnApagarCompra)
+        Me.Controls.Add(Me.btnEditarReuniao)
+        Me.Controls.Add(Me.btnApagarReuniao)
+        Me.Controls.Add(Me.btnEditarLigacao)
+        Me.Controls.Add(Me.btnApagarLigacao)
+        Me.Controls.Add(Me.btnIrSemanaAtual)
+        Me.Controls.Add(Me.btnAvancarSemana)
+        Me.Controls.Add(Me.lblSemana)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.btnVoltarSemana)
         Me.Controls.Add(Me.btnAddLigacaoImportate)
         Me.Controls.Add(Me.listViewCompras)
         Me.Controls.Add(Me.listViewReunioes)
@@ -243,4 +367,15 @@ Partial Class FormLembrete
     Friend WithEvents ColumnHeader5 As ColumnHeader
     Friend WithEvents ColumnHeader6 As ColumnHeader
     Friend WithEvents btnAddLigacaoImportate As Button
+    Friend WithEvents btnVoltarSemana As Button
+    Friend WithEvents Label5 As Label
+    Friend WithEvents lblSemana As Label
+    Friend WithEvents btnAvancarSemana As Button
+    Friend WithEvents btnIrSemanaAtual As Button
+    Friend WithEvents btnApagarLigacao As Button
+    Friend WithEvents btnEditarLigacao As Button
+    Friend WithEvents btnEditarReuniao As Button
+    Friend WithEvents btnApagarReuniao As Button
+    Friend WithEvents btnEditarCompra As Button
+    Friend WithEvents btnApagarCompra As Button
 End Class
