@@ -30,7 +30,7 @@ Public Class MetaDAO
             Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
                 cn.Open()
                 Using objCommand As SQLiteCommand = cn.CreateCommand()
-                    objCommand.CommandText = "INSERT INTO Metas (descricao , tipo , estado , data) VALUES ('" & meta.descricao & "','" & meta.tipo & "','" & meta.estado & "','" & meta.data & "')"
+                    objCommand.CommandText = "INSERT INTO Metas (descricao , tipoMeta , estadoMeta , data) VALUES ('" & meta.descricao & "','" & meta.tipo & "','" & meta.estado & "','" & meta.data & "')"
                     objCommand.ExecuteNonQuery()
                 End Using
                 cn.Close()
@@ -55,13 +55,13 @@ Public Class MetaDAO
 
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
-            Dim sql = "SELECT descricao,cor FROM Metas ORDER BY descricao"
+            Dim sql = "SELECT descricao, tipoMeta, estadoMeta, data FROM Metas ORDER BY descricao"
 
             Using cmd = New SQLiteCommand(sql, cn)
                 Using dr = cmd.ExecuteReader()
                     If dr.HasRows Then
                         While dr.Read()
-                            Dim meta As Meta = New Meta(dr("descricao"), dr("tipo"), dr("data"), dr("estado"))
+                            Dim meta As Meta = New Meta(dr("descricao"), dr("data"), dr("tipoMeta"), dr("estadoMeta"))
                             listaMetas.Add(meta)
                         End While
 
@@ -84,7 +84,7 @@ Public Class MetaDAO
                 Using dr = cmd.ExecuteReader()
                     If dr.HasRows Then
                         dr.Read()
-                        Dim meta As Meta = New Meta(dr("descricao"), dr("tipo"), dr("data"), dr("estado"))
+                        Dim meta As Meta = New Meta(dr("descricao"), dr("data"), dr("tipoMeta"), dr("estadoMeta"))
                         cn.Close()
                         Return meta
                     Else
