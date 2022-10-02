@@ -119,33 +119,18 @@
     End Sub
 
     Private Sub listViewLigacoes_DoubleClick(sender As Object, e As EventArgs) Handles listViewLigacoes.DoubleClick
-        If listViewLigacoes.SelectedItems.Count > 0 Then
-            Dim formAdicionarLembrete = New FormAdicionarLembrete
-            formAdicionarLembrete.tipoLembrete = TipoLembrete.ligacoesImportantes
-            formAdicionarLembrete.lembrete = _lembreteDAO.consultar(listViewLigacoes.SelectedItems(0).SubItems(0).Text)
-            formAdicionarLembrete.ShowDialog()
-            carregaDadosLigacoes()
-        End If
+        Dim result = editarLembrete(listViewLigacoes, TipoLembrete.ligacoesImportantes)
+        If result Then carregaDadosLigacoes()
     End Sub
 
     Private Sub listViewReunioes_DoubleClick(sender As Object, e As EventArgs) Handles listViewReunioes.DoubleClick
-        If listViewReunioes.SelectedItems.Count > 0 Then
-            Dim formAdicionarLembrete = New FormAdicionarLembrete
-            formAdicionarLembrete.tipoLembrete = TipoLembrete.reunioes
-            formAdicionarLembrete.lembrete = _lembreteDAO.consultar(listViewReunioes.SelectedItems(0).SubItems(0).Text)
-            formAdicionarLembrete.ShowDialog()
-            carregaDadosReunioes()
-        End If
+        Dim result = editarLembrete(listViewReunioes, TipoLembrete.reunioes)
+        If result Then carregaDadosReunioes()
     End Sub
 
     Private Sub listViewCompras_DoubleClick(sender As Object, e As EventArgs) Handles listViewCompras.DoubleClick
-        If listViewCompras.SelectedItems.Count > 0 Then
-            Dim formAdicionarLembrete = New FormAdicionarLembrete
-            formAdicionarLembrete.tipoLembrete = TipoLembrete.compras
-            formAdicionarLembrete.lembrete = _lembreteDAO.consultar(listViewCompras.SelectedItems(0).SubItems(0).Text)
-            formAdicionarLembrete.ShowDialog()
-            carregaDadosCompras()
-        End If
+        Dim result = editarLembrete(listViewCompras, TipoLembrete.compras)
+        If result Then carregaDadosCompras()
     End Sub
 
     Private Sub btnVoltarSemana_Click(sender As Object, e As EventArgs) Handles btnVoltarSemana.Click
@@ -166,4 +151,64 @@
         inicializarSemana()
         carregarTodosLembretes()
     End Sub
+
+    Private Function editarLembrete(listview As ListView, tipoLembrete As TipoLembrete) As Boolean
+        If listview.SelectedItems.Count > 0 Then
+            Dim formAdicionarLembrete = New FormAdicionarLembrete
+            formAdicionarLembrete.tipoLembrete = tipoLembrete
+            formAdicionarLembrete.lembrete = _lembreteDAO.consultar(listview.SelectedItems(0).SubItems(0).Text)
+            formAdicionarLembrete.ShowDialog()
+            Return True
+        Else
+            MsgBox("Selecione um lembrete para editar")
+        End If
+        Return False
+    End Function
+
+    Private Function apagarLembrete(listview As ListView) As Boolean
+        If listview.SelectedItems.Count > 0 Then
+            Dim descricaoSelecionada = listview.SelectedItems(0).SubItems(1).Text
+            Dim idSelecionao = Integer.Parse(listview.SelectedItems(0).SubItems(0).Text)
+            Dim result As DialogResult = MessageBox.Show("Deseja apagar o lembrete: " & descricaoSelecionada & " ?", "Apagar Lembrete", MessageBoxButtons.YesNo)
+            If result = DialogResult.No Then
+                Return False
+            ElseIf result = DialogResult.Yes Then
+                _lembreteDAO.deletar(idSelecionao)
+                Return True
+            End If
+        Else
+            MsgBox("Selecione um lembrete para apagar")
+        End If
+        Return False
+    End Function
+    'Botões de apagar
+    Private Sub btnApagarLigacao_Click(sender As Object, e As EventArgs) Handles btnApagarLigacao.Click
+        Dim result = apagarLembrete(listViewLigacoes)
+        If result Then carregaDadosLigacoes()
+    End Sub
+    Private Sub btnApagarReuniao_Click(sender As Object, e As EventArgs) Handles btnApagarReuniao.Click
+        Dim result = apagarLembrete(listViewReunioes)
+        If result Then carregaDadosReunioes()
+    End Sub
+
+    Private Sub btnApagarCompra_Click(sender As Object, e As EventArgs) Handles btnApagarCompra.Click
+        Dim result = apagarLembrete(listViewCompras)
+        If result Then carregaDadosCompras()
+    End Sub
+    'Botões de editar
+    Private Sub btnEditarLigacao_Click(sender As Object, e As EventArgs) Handles btnEditarLigacao.Click
+        Dim result = editarLembrete(listViewLigacoes, TipoLembrete.ligacoesImportantes)
+        If result Then carregaDadosLigacoes()
+    End Sub
+
+    Private Sub btnEditarReuniao_Click(sender As Object, e As EventArgs) Handles btnEditarReuniao.Click
+        Dim result = editarLembrete(listViewReunioes, TipoLembrete.reunioes)
+        If result Then carregaDadosReunioes()
+    End Sub
+
+    Private Sub btnEditarCompra_Click(sender As Object, e As EventArgs) Handles btnEditarCompra.Click
+        Dim result = editarLembrete(listViewCompras, TipoLembrete.compras)
+        If result Then carregaDadosCompras()
+    End Sub
+
 End Class
