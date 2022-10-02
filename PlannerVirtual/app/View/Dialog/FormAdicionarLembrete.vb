@@ -63,4 +63,8 @@
             MsgBox("Digite uma descrição para o lembrete para poder salvar!")
         End If
     End Sub
+
+    Private Sub txtDescricao_TextChanged(sender As Object, e As EventArgs) Handles txtDescricao.TextChanged
+
+    End Sub
 End Class
