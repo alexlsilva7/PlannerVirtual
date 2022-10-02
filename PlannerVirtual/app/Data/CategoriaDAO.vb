@@ -49,7 +49,7 @@ Public Class CategoriaDAO
         End Using
     End Sub
 
-    Public Sub atualizar(categoria As Categoria) Implements ICategoriaDAO.atualizar
+    Public Sub atualizar(categoria As Categoria, nomeAnterior As String) Implements ICategoriaDAO.atualizar
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
             Using objCommand As SQLiteCommand = cn.CreateCommand()
