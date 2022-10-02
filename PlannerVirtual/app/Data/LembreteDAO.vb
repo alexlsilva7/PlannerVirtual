@@ -25,7 +25,7 @@ Public Class LembreteDAO
 
     Public Sub inserir(lembrete As Lembrete) Implements ILembreteDAO.inserir
         Try
-            consultar(lembrete.descricao)
+            consultar(lembrete.id)
             Throw New LembreteExistenteException
         Catch ex As LembreteNaoEncontradaException
             Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
