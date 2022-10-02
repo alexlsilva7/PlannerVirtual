@@ -136,6 +136,12 @@
     <Compile Include="app\View\Dialog\FormSelecionarCategoria.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="app\View\FormMeta.Designer.vb">
+      <DependentUpon>FormMeta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="app\View\FormMeta.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="app\View\FormCategoria.Designer.vb">
       <DependentUpon>FormCategoria.vb</DependentUpon>
     </Compile>
@@ -189,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="app\View\FormLembrete.resx">
       <DependentUpon>FormLembrete.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="app\View\FormMeta.resx">
+      <DependentUpon>FormMeta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>

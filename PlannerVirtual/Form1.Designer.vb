@@ -25,6 +25,7 @@ Partial Class Form1
         Me.btnTelaCategorias = New System.Windows.Forms.Button()
         Me.btnSelecionarCategoriaDialog = New System.Windows.Forms.Button()
         Me.btnTelaLembretes = New System.Windows.Forms.Button()
+        Me.btnTelaMetas = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnTelaCategorias
@@ -54,11 +55,21 @@ Partial Class Form1
         Me.btnTelaLembretes.Text = "Tela de Lembretes"
         Me.btnTelaLembretes.UseVisualStyleBackColor = True
         '
+        'btnTelaMetas
+        '
+        Me.btnTelaMetas.Location = New System.Drawing.Point(265, 12)
+        Me.btnTelaMetas.Name = "btnTelaMetas"
+        Me.btnTelaMetas.Size = New System.Drawing.Size(108, 85)
+        Me.btnTelaMetas.TabIndex = 3
+        Me.btnTelaMetas.Text = "Tela de Metas"
+        Me.btnTelaMetas.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.btnTelaMetas)
         Me.Controls.Add(Me.btnTelaLembretes)
         Me.Controls.Add(Me.btnSelecionarCategoriaDialog)
         Me.Controls.Add(Me.btnTelaCategorias)
@@ -71,4 +82,5 @@ Partial Class Form1
     Friend WithEvents btnTelaCategorias As Button
     Friend WithEvents btnSelecionarCategoriaDialog As Button
     Friend WithEvents btnTelaLembretes As Button
+    Friend WithEvents btnTelaMetas As Button
 End Class
