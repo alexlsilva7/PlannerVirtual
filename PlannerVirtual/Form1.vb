@@ -39,8 +39,18 @@ Public Class Form1
         Dim result = formLembrete.ShowDialog()
     End Sub
 
-    Private Sub btnTelaTarefas_Click_Click(sender As Object, e As EventArgs) Handles btnTelaTarefas_Click.Click
+    Private Sub btnTarefas_Click(sender As Object, e As EventArgs) Handles btnTarefas.Click
         Dim formTarefa As New FormTarefa
         Dim result = formTarefa.ShowDialog()
+    End Sub
+
+    Private Sub btnHome_Click(sender As Object, e As EventArgs) Handles btnHome.Click
+        Dim formHome As New FormHome
+        Dim result = formHome.ShowDialog()
+    End Sub
+
+    Private Sub btnSemana_Click(sender As Object, e As EventArgs) Handles btnSemana.Click
+        Dim formSemana As New FormExibicaoSemanal
+        Dim result = formSemana.ShowDialog()
     End Sub
 End Class
