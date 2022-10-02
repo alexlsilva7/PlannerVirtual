@@ -31,7 +31,7 @@ Public Class LembreteDAO
             Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
                 cn.Open()
                 Using objCommand As SQLiteCommand = cn.CreateCommand()
-                    objCommand.CommandText = "INSERT INTO Lembretes (descricao, tipoLembrete, data) VALUES ('" & lembrete.descricao & "', '" & lembrete.tipoLembrete & "', '" & lembrete.data & "')"
+                    objCommand.CommandText = "INSERT INTO Lembretes (descricao, tipoLembrete, data) VALUES ('" & lembrete.descricao & "', '" & lembrete.tipoLembrete & "', '" & DataHelpers.dataToString(lembrete.data) & "')"
                     objCommand.ExecuteNonQuery()
                 End Using
                 cn.Close()
