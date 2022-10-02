@@ -25,6 +25,8 @@ Partial Class Form1
         Me.btnTelaCategorias = New System.Windows.Forms.Button()
         Me.btnSelecionarCategoriaDialog = New System.Windows.Forms.Button()
         Me.btnTelaLembretes = New System.Windows.Forms.Button()
+        Me.btnHome = New System.Windows.Forms.Button()
+        Me.btnSemanal = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnTelaCategorias
@@ -54,11 +56,31 @@ Partial Class Form1
         Me.btnTelaLembretes.Text = "Tela de Lembretes"
         Me.btnTelaLembretes.UseVisualStyleBackColor = True
         '
+        'btnHome
+        '
+        Me.btnHome.Location = New System.Drawing.Point(345, 165)
+        Me.btnHome.Name = "btnHome"
+        Me.btnHome.Size = New System.Drawing.Size(105, 85)
+        Me.btnHome.TabIndex = 3
+        Me.btnHome.Text = "HOME"
+        Me.btnHome.UseVisualStyleBackColor = True
+        '
+        'btnSemanal
+        '
+        Me.btnSemanal.Location = New System.Drawing.Point(470, 165)
+        Me.btnSemanal.Name = "btnSemanal"
+        Me.btnSemanal.Size = New System.Drawing.Size(105, 85)
+        Me.btnSemanal.TabIndex = 4
+        Me.btnSemanal.Text = "Semanal"
+        Me.btnSemanal.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.btnSemanal)
+        Me.Controls.Add(Me.btnHome)
         Me.Controls.Add(Me.btnTelaLembretes)
         Me.Controls.Add(Me.btnSelecionarCategoriaDialog)
         Me.Controls.Add(Me.btnTelaCategorias)
@@ -71,4 +93,6 @@ Partial Class Form1
     Friend WithEvents btnTelaCategorias As Button
     Friend WithEvents btnSelecionarCategoriaDialog As Button
     Friend WithEvents btnTelaLembretes As Button
+    Friend WithEvents btnHome As Button
+    Friend WithEvents btnSemanal As Button
 End Class
