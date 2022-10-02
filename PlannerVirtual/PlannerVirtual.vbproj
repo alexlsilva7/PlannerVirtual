@@ -118,6 +118,18 @@
     <Compile Include="app\View\Dialog\FormAdicionarLembrete.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="app\View\Dialog\FormConsultarCategoria.Designer.vb">
+      <DependentUpon>FormConsultarCategoria.vb</DependentUpon>
+    </Compile>
+    <Compile Include="app\View\Dialog\FormConsultarCategoria.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="app\View\Dialog\FormNovaCategoria.Designer.vb">
+      <DependentUpon>FormNovaCategoria.vb</DependentUpon>
+    </Compile>
+    <Compile Include="app\View\Dialog\FormNovaCategoria.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="app\View\Dialog\FormSelecionarCategoria.Designer.vb">
       <DependentUpon>FormSelecionarCategoria.vb</DependentUpon>
     </Compile>
@@ -162,6 +174,12 @@
   <ItemGroup>
     <EmbeddedResource Include="app\View\Dialog\FormAdicionarLembrete.resx">
       <DependentUpon>FormAdicionarLembrete.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="app\View\Dialog\FormConsultarCategoria.resx">
+      <DependentUpon>FormConsultarCategoria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="app\View\Dialog\FormNovaCategoria.resx">
+      <DependentUpon>FormNovaCategoria.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="app\View\Dialog\FormSelecionarCategoria.resx">
       <DependentUpon>FormSelecionarCategoria.vb</DependentUpon>
