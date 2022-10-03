@@ -60,16 +60,16 @@ Public Class Tarefa
         End Set
     End Property
 
-    Public Sub New(ByVal descricao As String, ByVal horarioInicio As Date, ByVal duracao As Integer, ByVal estado As EstadoAtividade, Optional ByVal id As Integer = -1)
+    Public Sub New(ByVal descricao As String, ByVal horarioInicio As Date, ByVal duracao As Integer, ByVal estado As EstadoAtividade, ByVal cat As Categoria, Optional ByVal id As Integer = -1)
         If (id <> -1) Then
             _id = id
         End If
+        _categoria = cat
         _descricao = descricao
         _horarioInicio = horarioInicio
         _duracao = duracao
         _estado = estado
         _TarefaDAO = TarefaDAO.getSingletonObject
-
     End Sub
 
     Sub alterarEstado(est As EstadoAtividade)
