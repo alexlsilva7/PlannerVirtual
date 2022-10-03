@@ -76,6 +76,13 @@ Public Class TarefaDAO
         Return listaTarefas
     End Function
 
+    Public Function listarEntreDatas(ByVal dataInicial As Date, ByVal dataFinal As Date) As List(Of Tarefa) Implements ITarefaDAO.listarEntreDatas
+        Dim listaTarefas As List(Of Tarefa) = listar()
+
+        Dim listaTarefasFiltradas As List(Of Tarefa) = listaTarefas.FindAll(Function(tarefa As Tarefa) tarefa.horarioInicio >= dataInicial And tarefa.horarioInicio <= dataFinal)
+
+        Return listaTarefasFiltradas
+    End Function
     Public Function getTarefasByEstado(estadoTarefa As EstadoAtividade) As List(Of Tarefa) Implements ITarefaDAO.getTarefasByEstado
 
         Dim listaTarefas As List(Of Tarefa) = New List(Of Tarefa)
