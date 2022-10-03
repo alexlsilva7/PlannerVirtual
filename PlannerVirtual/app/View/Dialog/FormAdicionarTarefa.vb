@@ -21,7 +21,7 @@ Public Class FormAdicionarTarefa
         End If
 
         DateTimePickerData.Format = DateTimePickerFormat.Custom
-        DateTimePickerData.CustomFormat = "MM/dd/yyyy"
+        DateTimePickerData.CustomFormat = "dd/MM/yyyy"
 
         DateTimePickerHora.Format = DateTimePickerFormat.Custom
         DateTimePickerHora.CustomFormat = "HH:mm"

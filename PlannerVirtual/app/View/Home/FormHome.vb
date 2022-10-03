@@ -4,7 +4,10 @@
 
     Private dataAtual As DateTime = DateTime.Today
 
+    Dim _tarefaDAO As TarefaDAO
+
     Private Sub FormHome_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        _tarefaDAO = TarefaDAO.getSingletonObject()
         GerarDias(42)
         MostrarDatas()
     End Sub
@@ -20,7 +23,7 @@
             fl.BorderStyle = BorderStyle.FixedSingle
             fl.Cursor = Cursors.Hand
             fl.AutoScroll = True
-            'AddHandler fl.Click, AddressOf AddNewAppointment
+            AddHandler fl.Click, AddressOf AddNovaTarefa
             flDays.Controls.Add(fl)
             listFlowLayoutDay.Add(fl)
         Next
@@ -33,8 +36,6 @@
         AddLabelDayToFlDay(firstDayAtFlNumber, totalDay)
         AddTarefaToFlDay(firstDayAtFlNumber)
     End Sub
-
-
 
     Private Function GetDiaDaSemanaDoPrimeiroDiaMesAtual() As Integer
         Dim primeiroDiadoMes As DateTime = New Date(dataAtual.Year, dataAtual.Month, 1)
@@ -91,16 +92,36 @@
         Dim dataFinal As DateTime = dataInicial.AddMonths(1).AddDays(-1)
 
         'Pegar tarefas do inicio ao fim
+        Dim listaTarefas As List(Of Tarefa) = _tarefaDAO.listarEntreDatas(dataInicial, dataFinal)
 
-        Dim listaTarefas As List(Of Tarefa)
-
-        'For Each tarefa As Tarefa In listaTarefas
-        '    Dim link As New LinkLabel
-        '    link.Tag = tarefa.id
-        '    link.Name = $"link{tarefa.id}"
-        '    link.Text = tarefa.descricao
-        '    'AddHandler link.Click, AddressOf ShowAppointmentDetail
-        '    listFlowLayoutDay((tarefa.horarioInicio.Day - 1) + (diaInicialNoFlowPanel - 1)).Controls.Add(link)
-        'Next
+        For Each tarefa As Tarefa In listaTarefas
+            Dim link As New LinkLabel
+            link.Tag = tarefa.id
+            link.Name = $"link{tarefa.id}"
+            link.Text = tarefa.descricao
+            AddHandler link.Click, AddressOf ExibirDetalhesTarefa
+            link.LinkColor = tarefa.categoria.cor
+            link.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline
+            listFlowLayoutDay((tarefa.horarioInicio.Day - 1) + (diaInicialNoFlowPanel - 1)).Controls.Add(link)
+        Next
     End Sub
+
+    Private Sub AddNovaTarefa(ByVal sender As Object, e As EventArgs)
+        Dim dia As Integer = CType(sender, FlowLayoutPanel).Tag
+        If dia <> 0 Then
+            'TODO setar data do form
+            Dim form As New FormAdicionarTarefa
+            form.ShowDialog()
+            MostrarDatas()
+        End If
+    End Sub
+
+    Private Sub ExibirDetalhesTarefa(sender As Object, e As EventArgs)
+        Dim id As Integer = CType(sender, LinkLabel).Tag
+        Dim tarefa = _tarefaDAO.consultar(id)
+        'TODO ABRIR TELA PERSONALIZADA DE DELTALHES
+        MsgBox("Tarefa: " & tarefa.descricao)
+        MostrarDatas()
+    End Sub
+
 End Class
