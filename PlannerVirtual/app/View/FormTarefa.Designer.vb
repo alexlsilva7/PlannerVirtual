@@ -95,7 +95,7 @@ Partial Class FormTarefa
         'Categoria
         '
         Me.Categoria.Text = "Categoria"
-        Me.Categoria.Width = 216
+        Me.Categoria.Width = 179
         '
         'btnIrSemanaAtual
         '

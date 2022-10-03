@@ -28,7 +28,22 @@
         'Preencher o listview
         Try
             For Each tarefa As Tarefa In listaSemana
-                Dim item = New ListViewItem({tarefa.id.ToString, tarefa.descricao, tarefa.horarioInicio, tarefa.duracao, tarefa.estado, tarefa.categoria.ToString})
+                Dim duracao As String
+                Select Case tarefa.duracao
+                    Case 30
+                        duracao = "30 min"
+                    Case 60
+                        duracao = "1h"
+                    Case 240
+                        If tarefa.horarioInicio.Hour = 8 Then
+                            duracao = "De manhã (8h às 12h)"
+                        ElseIf tarefa.horarioInicio.Hour = 13 Then
+                            duracao = "De tarde (13h às 17h)"
+                        ElseIf tarefa.horarioInicio.Hour = 18 Then
+                            duracao = "De noite (18h às 22h)"
+                        End If
+                End Select
+                Dim item = New ListViewItem({tarefa.id.ToString, tarefa.descricao, tarefa.horarioInicio, duracao, tarefa.estado.ToString, tarefa.categoria.nome.ToString})
                 listViewTarefas.Items.Add(item)
             Next
         Catch ex As Exception
