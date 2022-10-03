@@ -24,13 +24,13 @@ Public Class TarefaDAO
 
     Public Sub inserir(tarefa As Tarefa) Implements ITarefaDAO.inserir
         Try
-            consultar(tarefa.descricao)
+            consultar(tarefa.id)
             Throw New TarefaExistenteException
         Catch ex As TarefaNaoEncontradaException
             Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
                 cn.Open()
                 Using objCommand As SQLiteCommand = cn.CreateCommand()
-                    objCommand.CommandText = "INSERT INTO Tarefas (descricao , horarioInicio , duracao , estado) VALUES ('" & tarefa.descricao & "','" & tarefa.horarioInicio & "','" & tarefa.duracao & "','" & tarefa.estado & "')"
+                    objCommand.CommandText = "INSERT INTO Tarefas (descricao , horarioInicio , duracao , estado, categoria) VALUES ('" & tarefa.descricao & "','" & tarefa.horarioInicio.ToString("dd-MM-yyyy HH:mm") & "','" & tarefa.duracao & "','" & tarefa.estado & "','" & tarefa.categoria.nome & "')"
                     objCommand.ExecuteNonQuery()
                 End Using
                 cn.Close()
@@ -61,7 +61,8 @@ Public Class TarefaDAO
                 Using dr = cmd.ExecuteReader()
                     If dr.HasRows Then
                         While dr.Read()
-                            Dim tarefa As Tarefa = New Tarefa(dr("descricao"), dr("categoria"), dr("horarioInicio"), dr("duracao"), dr("estado"))
+                            Dim categoria = CategoriaDAO.getSingletonObject().consultar(dr("categoria"))
+                            Dim tarefa As Tarefa = New Tarefa(dr("descricao"), Date.Parse(dr("horarioInicio")), dr("duracao"), dr("estado"), categoria, dr("id"))
                             listaTarefas.Add(tarefa)
                         End While
 
@@ -87,9 +88,8 @@ Public Class TarefaDAO
                 Using dr = cmd.ExecuteReader()
                     If dr.HasRows Then
                         While dr.Read()
-                            Dim horarioInicio = DataHelpers.stringToData(dr("horarioInicio"))
-                            Dim estadoAtividade As EstadoAtividade = dr("estado")
-                            Dim tarefa As Tarefa = New Tarefa(dr("descricao"), dr("categoria"), dr(horarioInicio), dr("duracao"), dr(estadoAtividade))
+                            Dim categoria = CategoriaDAO.getSingletonObject().consultar(dr("categoria"))
+                            Dim tarefa As Tarefa = New Tarefa(dr("descricao"), Date.Parse(dr("horarioInicio")), dr("duracao"), dr("estado"), categoria, dr("id"))
                             listaTarefas.Add(tarefa)
                         End While
 
@@ -102,21 +102,17 @@ Public Class TarefaDAO
         Return listaTarefas
     End Function
 
-    Public Function consultar(descricao As String) As Tarefa Implements ITarefaDAO.consultar
+    Public Function consultar(id As Integer) As Tarefa Implements ITarefaDAO.consultar
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
-            Dim sql = "SELECT id,descricao,categoria,horarioInicio,duracao,estado FROM Tarefas WHERE descricao = '" & descricao & "'"
+            Dim sql = "SELECT id,descricao,categoria,horarioInicio,duracao,estado FROM Tarefas WHERE id = '" & id & "'"
 
             Using cmd = New SQLiteCommand(sql, cn)
                 Using dr = cmd.ExecuteReader()
                     If dr.HasRows Then
                         dr.Read()
-                        Dim id = Integer.Parse(dr("id"))
-                        Dim horarioInicio = DataHelpers.stringToData(dr("horarioInicio"))
-                        Dim estadoAtividade As EstadoAtividade = dr("estado")
-                        Dim categoria = dr("categoria")
-                        Dim duracao = Integer.Parse(dr("duracao"))
-                        Dim tarefa As Tarefa = New Tarefa(dr("descricao"), dr("categoria"), dr(horarioInicio), dr(duracao), dr(estadoAtividade))
+                        Dim categoria = CategoriaDAO.getSingletonObject().consultar(dr("categoria"))
+                        Dim tarefa As Tarefa = New Tarefa(dr("descricao"), Date.Parse(dr("horarioInicio")), dr("duracao"), dr("estado"), categoria, dr("id"))
                         cn.Close()
                         Return tarefa
                     Else
