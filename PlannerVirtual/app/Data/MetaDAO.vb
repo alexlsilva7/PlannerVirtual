@@ -30,11 +30,26 @@ Public Class MetaDAO
             Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
                 cn.Open()
                 Using objCommand As SQLiteCommand = cn.CreateCommand()
-                    objCommand.CommandText = "INSERT INTO Metas (descricao, data , estado, tipo, categoria) VALUES ('" & meta.descricao & "','" & meta.data.ToString("dd-MM-yyyy HH:mm") & "','" & meta.estado & "','" & meta.tipo & "','" & meta.categoria.nome & "')"
+                    objCommand.CommandText = "INSERT INTO Metas (descricao, data , estado, tipo, categoria) VALUES ('" & meta.descricao & "','" & meta.data.ToString("dd-MM-yyyy HH:mm") & "','" & CInt(meta.estado) & "','" & meta.tipo & "','" & meta.categoria.nome & "')"
                     objCommand.ExecuteNonQuery()
                 End Using
                 cn.Close()
             End Using
+        End Try
+    End Sub
+
+    Public Sub atualizar(meta As Meta) Implements IMetaDAO.atualizar
+        Try
+            Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
+                cn.Open()
+                Using objCommand As SQLiteCommand = cn.CreateCommand()
+                    objCommand.CommandText = "UPDATE Metas SET descricao = '" & meta.descricao & "', data = '" & meta.data.ToString("dd-MM-yyyy") & "', estado = '" & meta.estado & "', tipo = '" & meta.tipo & "', categoria = '" & meta.categoria.nome & "' WHERE id = " & meta.id
+                    objCommand.ExecuteNonQuery()
+                End Using
+                cn.Close()
+            End Using
+        Catch ex As MetaNaoEncontradaException
+            Throw New MetaNaoEncontradaException
         End Try
     End Sub
 
@@ -125,8 +140,8 @@ Public Class MetaDAO
                 Using dr = cmd.ExecuteReader()
                     If dr.HasRows Then
                         dr.Read()
-                        Dim categoria = CategoriaDAO.getSingletonObject().consultar(dr("categoria"))
-                        Dim _meta As Meta = New Meta(dr("descricao"), categoria, dr("data"), dr("tipo"), dr("estado"), dr("id").parseInteger)
+                        Dim categoria = CategoriaDAO.getSingletonObject().consultar(dr("categoriaNome"))
+                        Dim _meta As Meta = New Meta(dr("descricao"), categoria, dr("data"), dr("tipo"), dr("estado"), dr("id"))
                         cn.Close()
                         Return _meta
                     Else

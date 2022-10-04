@@ -17,7 +17,7 @@ Public Class Meta
         _data = data
         _tipo = tipo
         _categoria = categoria
-        _estado = EstadoMeta.naoCumprida
+        _estado = estado
         _MetaDAO = MetaDAO.getSingletonObject
     End Sub
 
