@@ -230,7 +230,7 @@ Partial Class FormMeta
         Me.Controls.Add(Me.Metas)
         Me.Controls.Add(Me.listViewSemanais)
         Me.Name = "FormMeta"
-        Me.Text = "Form2"
+        Me.Text = "FormMeta"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
