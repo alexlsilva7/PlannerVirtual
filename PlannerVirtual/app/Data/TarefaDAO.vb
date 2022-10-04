@@ -38,11 +38,11 @@ Public Class TarefaDAO
         End Try
     End Sub
 
-    Public Sub deletar(descricao As String) Implements ITarefaDAO.deletar
+    Public Sub deletar(id As Integer) Implements ITarefaDAO.deletar
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
             Using objCommand As SQLiteCommand = cn.CreateCommand()
-                objCommand.CommandText = "DELETE FROM Tarefas WHERE descricao = '" & descricao & "'"
+                objCommand.CommandText = "DELETE FROM Tarefas WHERE id = '" & id & "'"
                 objCommand.ExecuteNonQuery()
             End Using
             cn.Close()
@@ -131,6 +131,17 @@ Public Class TarefaDAO
         End Using
     End Function
 
+    Public Sub atualizar(tarefa As Tarefa) Implements ITarefaDAO.atualizar
+        Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
+            cn.Open()
+            Using objCommand As SQLiteCommand = cn.CreateCommand()
+                objCommand.CommandText = "UPDATE Tarefas SET descricao = '" & tarefa.descricao & "', categoria = '" & tarefa.categoria.nome & "', horarioInicio = '" & tarefa.horarioInicio & "', duracao = '" & tarefa.duracao & "', estado = '" & tarefa.estado & "' WHERE id = '" & tarefa.id & "'"
+                objCommand.ExecuteNonQuery()
+            End Using
+            cn.Close()
+        End Using
+    End Sub
+
     Public Function getAllTarefas() As List(Of Tarefa) Implements ITarefaDAO.getAllTarefas
         Dim listaTarefas As List(Of Tarefa) = New List(Of Tarefa)
 
@@ -145,7 +156,6 @@ Public Class TarefaDAO
                             Dim id = Integer.Parse(dr("id"))
                             Dim horarioInicio = DataHelpers.stringToData(dr("horarioInicio"))
                             Dim estadoAtividade As EstadoAtividade = dr("estado")
-                            Dim categoria = dr("categoria")
                             Dim duracao = Integer.Parse(dr("duracao"))
                             Dim tarefa As Tarefa = New Tarefa(dr("descricao"), dr("categoria"), dr(horarioInicio), dr(duracao), dr(estadoAtividade))
                             listaTarefas.Add(tarefa)
