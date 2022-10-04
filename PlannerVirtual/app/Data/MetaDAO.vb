@@ -87,18 +87,18 @@ Public Class MetaDAO
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
             Dim sql = "
-                            SELECT descricao, Categorias.nome as categoriaNome, Categorias.cor as categoriaCor, tipo, estado, data
+                            SELECT id, descricao, Categorias.nome as categoriaNome, Categorias.cor as categoriaCor, tipo, estado, data
                             FROM Metas, Categorias
                             WHERE Metas.categoria = Categorias.nome
                             AND tipo = '" & tipo & "'
-                            ORDER BY descricao
+                            ORDER BY id
                         "
             Using cmd = New SQLiteCommand(sql, cn)
                 Using dr = cmd.ExecuteReader()
                     If dr.HasRows Then
                         While dr.Read()
                             Dim categoria As Categoria = New Categoria(dr("categoriaNome"), Color.FromArgb(dr("categoriaCor")))
-                            Dim meta As Meta = New Meta(dr("descricao"), categoria, dr("data"), dr("tipo"), dr("estado"))
+                            Dim meta As Meta = New Meta(dr("descricao"), categoria, dr("data"), dr("tipo"), dr("estado"), dr("id"))
                             listaMetas.Add(meta)
                         End While
                     End If
@@ -115,7 +115,7 @@ Public Class MetaDAO
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
             Dim sql = "
-                            SELECT descricao, Categorias.nome as categoriaNome, Categorias.cor as categoriaCor, tipo, estado, data
+                            SELECT id, descricao, Categorias.nome as categoriaNome, Categorias.cor as categoriaCor, tipo, estado, data
                             FROM Metas, Categorias
                             WHERE Metas.categoria = Categorias.nome
                             AND descricao = '" & descricao & "'
@@ -127,7 +127,7 @@ Public Class MetaDAO
                     If dr.HasRows Then
                         dr.Read()
                         Dim categoria As Categoria = New Categoria(dr("categoriaNome"), Color.FromArgb(dr("categoriaCor")))
-                        Dim meta As Meta = New Meta(dr("descricao"), categoria, dr("data"), dr("tipo"), dr("estado"))
+                        Dim meta As Meta = New Meta(dr("descricao"), categoria, dr("data"), dr("tipo"), dr("estado"), dr("id"))
                         cn.Close()
                         Return Meta
                     Else

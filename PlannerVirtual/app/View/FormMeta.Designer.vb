@@ -41,15 +41,18 @@ Partial Class FormMeta
         Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnAdicionarMeta = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
+        Me.id = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.SuspendLayout()
         '
         'listViewSemanais
         '
-        Me.listViewSemanais.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Descrição, Me.Categoria, Me.Estado, Me.Data})
+        Me.listViewSemanais.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.id, Me.Descrição, Me.Categoria, Me.Estado, Me.Data})
         Me.listViewSemanais.HideSelection = False
         Me.listViewSemanais.Location = New System.Drawing.Point(12, 55)
         Me.listViewSemanais.Name = "listViewSemanais"
@@ -108,7 +111,7 @@ Partial Class FormMeta
         '
         'ListViewMensais
         '
-        Me.ListViewMensais.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader4, Me.ColumnHeader5})
+        Me.ListViewMensais.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader3})
         Me.ListViewMensais.HideSelection = False
         Me.ListViewMensais.Location = New System.Drawing.Point(12, 173)
         Me.ListViewMensais.Name = "ListViewMensais"
@@ -124,16 +127,19 @@ Partial Class FormMeta
         '
         'ColumnHeader2
         '
+        Me.ColumnHeader2.DisplayIndex = 2
         Me.ColumnHeader2.Text = "Categoria"
         Me.ColumnHeader2.Width = 169
         '
         'ColumnHeader4
         '
+        Me.ColumnHeader4.DisplayIndex = 3
         Me.ColumnHeader4.Text = "Estado"
         Me.ColumnHeader4.Width = 120
         '
         'ColumnHeader5
         '
+        Me.ColumnHeader5.DisplayIndex = 4
         Me.ColumnHeader5.Text = "Data"
         Me.ColumnHeader5.Width = 113
         '
@@ -148,7 +154,7 @@ Partial Class FormMeta
         '
         'ListViewAnuais
         '
-        Me.ListViewAnuais.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader6, Me.ColumnHeader7, Me.ColumnHeader9, Me.ColumnHeader10})
+        Me.ListViewAnuais.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader6, Me.ColumnHeader7, Me.ColumnHeader9, Me.ColumnHeader10, Me.ColumnHeader8})
         Me.ListViewAnuais.HideSelection = False
         Me.ListViewAnuais.Location = New System.Drawing.Point(12, 285)
         Me.ListViewAnuais.Name = "ListViewAnuais"
@@ -177,14 +183,14 @@ Partial Class FormMeta
         Me.ColumnHeader10.Text = "Data"
         Me.ColumnHeader10.Width = 113
         '
-        'Button1
+        'btnAdicionarMeta
         '
-        Me.Button1.Location = New System.Drawing.Point(12, 415)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(776, 23)
-        Me.Button1.TabIndex = 7
-        Me.Button1.Text = "Criar"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnAdicionarMeta.Location = New System.Drawing.Point(12, 415)
+        Me.btnAdicionarMeta.Name = "btnAdicionarMeta"
+        Me.btnAdicionarMeta.Size = New System.Drawing.Size(776, 23)
+        Me.btnAdicionarMeta.TabIndex = 7
+        Me.btnAdicionarMeta.Text = "Criar"
+        Me.btnAdicionarMeta.UseVisualStyleBackColor = True
         '
         'Button2
         '
@@ -213,6 +219,20 @@ Partial Class FormMeta
         Me.Button5.Text = "Marcar como cumprido"
         Me.Button5.UseVisualStyleBackColor = True
         '
+        'id
+        '
+        Me.id.Text = "Id"
+        '
+        'ColumnHeader3
+        '
+        Me.ColumnHeader3.DisplayIndex = 0
+        Me.ColumnHeader3.Text = "Id"
+        '
+        'ColumnHeader8
+        '
+        Me.ColumnHeader8.DisplayIndex = 0
+        Me.ColumnHeader8.Text = "Id"
+        '
         'FormMeta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -221,7 +241,7 @@ Partial Class FormMeta
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnAdicionarMeta)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.ListViewAnuais)
         Me.Controls.Add(Me.Label2)
@@ -255,8 +275,11 @@ Partial Class FormMeta
     Friend WithEvents ColumnHeader7 As ColumnHeader
     Friend WithEvents ColumnHeader9 As ColumnHeader
     Friend WithEvents ColumnHeader10 As ColumnHeader
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnAdicionarMeta As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents Button4 As Button
     Friend WithEvents Button5 As Button
+    Friend WithEvents id As ColumnHeader
+    Friend WithEvents ColumnHeader3 As ColumnHeader
+    Friend WithEvents ColumnHeader8 As ColumnHeader
 End Class
