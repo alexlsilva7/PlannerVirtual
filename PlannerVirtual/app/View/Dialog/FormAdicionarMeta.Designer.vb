@@ -142,7 +142,7 @@ Partial Class FormAdicionarMeta
         'ComboBoxEstado
         '
         Me.ComboBoxEstado.FormattingEnabled = True
-        Me.ComboBoxEstado.Items.AddRange(New Object() {"Cumprida", "Parcialmente Cumprido", "Não Cumprido"})
+        Me.ComboBoxEstado.Items.AddRange(New Object() {"Cumprida", "Não Cumprido", "Parcialmente Cumprido"})
         Me.ComboBoxEstado.Location = New System.Drawing.Point(96, 133)
         Me.ComboBoxEstado.Name = "ComboBoxEstado"
         Me.ComboBoxEstado.Size = New System.Drawing.Size(144, 21)

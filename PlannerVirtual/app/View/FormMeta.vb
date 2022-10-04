@@ -1,6 +1,12 @@
-﻿Public Class FormMeta
+﻿Imports System.Data.SQLite
+
+Public Class FormMeta
     Private _metaDAO As IMetaDAO
+    Public metaSelecionada As Meta
+    Dim dataInicioSemana As Date
+    Dim dataFimSemana As Date
     Private Sub FormMeta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        inicializarSemana()
         _metaDAO = MetaDAO.getSingletonObject
         carregarTodasMetas()
     End Sub
@@ -9,6 +15,14 @@
         carregarMetasSemanais()
         carregarMetasMensais()
         carregarMetasAnuais()
+    End Sub
+
+    Private Sub inicializarSemana()
+        Dim diaDaSemana = CInt(DateTime.Today.DayOfWeek)
+        dataInicioSemana = DateTime.Today.AddDays(-1 * diaDaSemana)
+        dataFimSemana = DateTime.Today.AddDays(7 - diaDaSemana).AddSeconds(-1)
+
+        lblSemana.Text = dataInicioSemana.ToString("dd/MM/yyyy") & " - " & dataFimSemana.ToString("dd/MM/yyyy")
     End Sub
 
     Private Sub carregarMetasSemanais()
@@ -67,13 +81,51 @@
 
     Private Sub btnAdicionarMeta_Click(sender As Object, e As EventArgs) Handles btnAdicionarMeta.Click
         Dim form As New FormAdicionarMeta
+        form.meta = Nothing
         form.ShowDialog()
         carregarTodasMetas()
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Dim form As New FormAdicionarMeta()
-        form.ShowDialog()
+        If listViewSemanais.SelectedItems.Count > 0 Then
+            Dim id As Integer = Integer.Parse(listViewSemanais.SelectedItems(0).Text)
+            metaSelecionada = _metaDAO.consultar(id)
+            form.meta = metaSelecionada
+            form.ShowDialog()
+        ElseIf ListViewMensais.SelectedItems.Count > 0 Then
+            Dim id As Integer = Integer.Parse(ListViewMensais.SelectedItems(0).Text)
+            metaSelecionada = _metaDAO.consultar(id)
+            form.meta = metaSelecionada
+            form.ShowDialog()
+        ElseIf ListViewAnuais.SelectedItems.Count > 0 Then
+            Dim id As Integer = Integer.Parse(ListViewAnuais.SelectedItems(0).Text)
+            metaSelecionada = _metaDAO.consultar(id)
+            form.meta = metaSelecionada
+            form.ShowDialog()
+        Else
+            MessageBox.Show("Selecione uma meta para editar")
+        End If
         carregarTodasMetas()
+    End Sub
+
+    Private Sub btnAvancarSemana_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub btnIrSemanaAtual_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub btnVoltarSemana_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub Label5_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub lblSemana_Click(sender As Object, e As EventArgs) Handles lblSemana.Click
+
     End Sub
 End Class

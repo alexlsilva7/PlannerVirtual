@@ -18,18 +18,19 @@ Public Class FormAdicionarMeta
         If meta IsNot Nothing Then
             txtDescricao.Text = meta.descricao
             DateTimePickerData.Value = meta.data
-            ComboBoxTipo.SelectedValue = meta.tipo
-            ComboBoxEstado.SelectedValue = meta.estado
+            ComboBoxTipo.SelectedIndex = CInt(meta.tipo)
+            ComboBoxEstado.SelectedIndex = CInt(meta.estado)
             lblTitulo.Text = "Editar Meta"
+            btnAdicionarMeta.Text = "Editar"
+        Else
+            ComboBoxTipo.SelectedIndex = 0
+            ComboBoxEstado.SelectedIndex = 2
         End If
-
+        ComboBoxTipo.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBoxEstado.DropDownStyle = ComboBoxStyle.DropDownList
         DateTimePickerData.Format = DateTimePickerFormat.Custom
         DateTimePickerData.CustomFormat = "dd/MM/yyyy"
 
-        ComboBoxTipo.SelectedIndex = 0
-        ComboBoxEstado.SelectedIndex = 2
-        ComboBoxTipo.DropDownStyle = ComboBoxStyle.DropDownList
-        ComboBoxEstado.DropDownStyle = ComboBoxStyle.DropDownList
     End Sub
 
     Private Sub btnAdicionarMeta_Click(sender As Object, e As EventArgs) Handles btnAdicionarMeta.Click
@@ -53,10 +54,10 @@ Public Class FormAdicionarMeta
         Select Case estado
             Case 0 'Cumprida
                 _EstadoMeta = EstadoMeta.cumprida
-            Case 1 'Parcialmente Cumprida
-                _EstadoMeta = EstadoMeta.parcialmenteCumprida
-            Case 2 'Não Cumprida
+            Case 1 'Não Cumprida
                 _EstadoMeta = EstadoMeta.naoCumprida
+            Case 2 'Parcialmente Cumprida
+                _EstadoMeta = EstadoMeta.parcialmenteCumprida
         End Select
 
         If descricao <> "" And _categoriaSelecionada IsNot Nothing And tipo <> "-1" Then
@@ -73,7 +74,11 @@ Public Class FormAdicionarMeta
             Else
                 Try
                     meta.descricao = descricao
+                    meta.data = data.ToString("dd-MM-yyyy")
+                    meta.categoria = _categoriaSelecionada
+                    meta.tipo = _tipoMeta
                     meta.estado = _EstadoMeta
+                    _MetaDAO.atualizar(meta)
                     Me.Close()
                 Catch ex As Exception
                     MsgBox("Erro ao adicionar Meta: " & ex.ToString)
