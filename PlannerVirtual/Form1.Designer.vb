@@ -60,12 +60,13 @@ Partial Class Form1
         '
         'btnTelaMetas
         '
-        Me.btnTelaMetas.Location = New System.Drawing.Point(265, 12)
+        Me.btnTelaMetas.Location = New System.Drawing.Point(137, 103)
         Me.btnTelaMetas.Name = "btnTelaMetas"
         Me.btnTelaMetas.Size = New System.Drawing.Size(108, 85)
         Me.btnTelaMetas.TabIndex = 3
         Me.btnTelaMetas.Text = "Tela de Metas"
         Me.btnTelaMetas.UseVisualStyleBackColor = True
+        '
         'btnTarefas
         '
         Me.btnTarefas.Location = New System.Drawing.Point(270, 12)
