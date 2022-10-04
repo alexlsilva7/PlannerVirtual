@@ -26,6 +26,9 @@ Partial Class Form1
         Me.btnSelecionarCategoriaDialog = New System.Windows.Forms.Button()
         Me.btnTelaLembretes = New System.Windows.Forms.Button()
         Me.btnTelaMetas = New System.Windows.Forms.Button()
+        Me.btnTarefas = New System.Windows.Forms.Button()
+        Me.btnHome = New System.Windows.Forms.Button()
+        Me.btnSemana = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnTelaCategorias
@@ -63,6 +66,32 @@ Partial Class Form1
         Me.btnTelaMetas.TabIndex = 3
         Me.btnTelaMetas.Text = "Tela de Metas"
         Me.btnTelaMetas.UseVisualStyleBackColor = True
+        'btnTarefas
+        '
+        Me.btnTarefas.Location = New System.Drawing.Point(270, 12)
+        Me.btnTarefas.Name = "btnTarefas"
+        Me.btnTarefas.Size = New System.Drawing.Size(105, 85)
+        Me.btnTarefas.TabIndex = 3
+        Me.btnTarefas.Text = "Tarefas"
+        Me.btnTarefas.UseVisualStyleBackColor = True
+        '
+        'btnHome
+        '
+        Me.btnHome.Location = New System.Drawing.Point(394, 12)
+        Me.btnHome.Name = "btnHome"
+        Me.btnHome.Size = New System.Drawing.Size(105, 85)
+        Me.btnHome.TabIndex = 4
+        Me.btnHome.Text = "Home"
+        Me.btnHome.UseVisualStyleBackColor = True
+        '
+        'btnSemana
+        '
+        Me.btnSemana.Location = New System.Drawing.Point(514, 12)
+        Me.btnSemana.Name = "btnSemana"
+        Me.btnSemana.Size = New System.Drawing.Size(105, 85)
+        Me.btnSemana.TabIndex = 5
+        Me.btnSemana.Text = "Semana"
+        Me.btnSemana.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -70,6 +99,9 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.btnTelaMetas)
+        Me.Controls.Add(Me.btnSemana)
+        Me.Controls.Add(Me.btnHome)
+        Me.Controls.Add(Me.btnTarefas)
         Me.Controls.Add(Me.btnTelaLembretes)
         Me.Controls.Add(Me.btnSelecionarCategoriaDialog)
         Me.Controls.Add(Me.btnTelaCategorias)
@@ -83,4 +115,7 @@ Partial Class Form1
     Friend WithEvents btnSelecionarCategoriaDialog As Button
     Friend WithEvents btnTelaLembretes As Button
     Friend WithEvents btnTelaMetas As Button
+    Friend WithEvents btnTarefas As Button
+    Friend WithEvents btnHome As Button
+    Friend WithEvents btnSemana As Button
 End Class

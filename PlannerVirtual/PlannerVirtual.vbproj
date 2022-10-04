@@ -118,6 +118,12 @@
     <Compile Include="app\View\Dialog\FormAdicionarLembrete.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="app\View\Dialog\FormAdicionarTarefa.Designer.vb">
+      <DependentUpon>FormAdicionarTarefa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="app\View\Dialog\FormAdicionarTarefa.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="app\View\Dialog\FormConsultarCategoria.Designer.vb">
       <DependentUpon>FormConsultarCategoria.vb</DependentUpon>
     </Compile>
@@ -154,6 +160,24 @@
     <Compile Include="app\View\FormLembrete.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="app\View\FormTarefa.designer.vb">
+      <DependentUpon>FormTarefa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="app\View\FormTarefa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="app\View\Home\FormExibicaoSemanal.Designer.vb">
+      <DependentUpon>FormExibicaoSemanal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="app\View\Home\FormExibicaoSemanal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="app\View\Home\FormHome.Designer.vb">
+      <DependentUpon>FormHome.vb</DependentUpon>
+    </Compile>
+    <Compile Include="app\View\Home\FormHome.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +205,9 @@
     <EmbeddedResource Include="app\View\Dialog\FormAdicionarLembrete.resx">
       <DependentUpon>FormAdicionarLembrete.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="app\View\Dialog\FormAdicionarTarefa.resx">
+      <DependentUpon>FormAdicionarTarefa.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="app\View\Dialog\FormConsultarCategoria.resx">
       <DependentUpon>FormConsultarCategoria.vb</DependentUpon>
     </EmbeddedResource>
@@ -198,6 +225,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="app\View\FormMeta.resx">
       <DependentUpon>FormMeta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="app\View\FormTarefa.resx">
+      <DependentUpon>FormTarefa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="app\View\Home\FormExibicaoSemanal.resx">
+      <DependentUpon>FormExibicaoSemanal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="app\View\Home\FormHome.resx">
+      <DependentUpon>FormHome.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>

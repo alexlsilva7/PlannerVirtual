@@ -42,9 +42,6 @@ Partial Class FormLembrete
         Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.btnAddLigacaoImportate = New System.Windows.Forms.Button()
         Me.btnVoltarSemana = New System.Windows.Forms.Button()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.lblSemana = New System.Windows.Forms.Label()
-        Me.btnAvancarSemana = New System.Windows.Forms.Button()
         Me.btnIrSemanaAtual = New System.Windows.Forms.Button()
         Me.btnApagarLigacao = New System.Windows.Forms.Button()
         Me.btnEditarLigacao = New System.Windows.Forms.Button()
@@ -52,6 +49,9 @@ Partial Class FormLembrete
         Me.btnApagarReuniao = New System.Windows.Forms.Button()
         Me.btnEditarCompra = New System.Windows.Forms.Button()
         Me.btnApagarCompra = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.lblSemana = New System.Windows.Forms.Label()
+        Me.btnAvancarSemana = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -221,36 +221,6 @@ Partial Class FormLembrete
         Me.btnVoltarSemana.Text = "<"
         Me.btnVoltarSemana.UseVisualStyleBackColor = True
         '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.SystemColors.ControlDark
-        Me.Label5.Location = New System.Drawing.Point(685, 9)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(75, 20)
-        Me.Label5.TabIndex = 17
-        Me.Label5.Text = "Semana"
-        '
-        'lblSemana
-        '
-        Me.lblSemana.AutoSize = True
-        Me.lblSemana.Location = New System.Drawing.Point(650, 36)
-        Me.lblSemana.Name = "lblSemana"
-        Me.lblSemana.Size = New System.Drawing.Size(46, 13)
-        Me.lblSemana.TabIndex = 18
-        Me.lblSemana.Text = "Semana"
-        Me.lblSemana.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'btnAvancarSemana
-        '
-        Me.btnAvancarSemana.Location = New System.Drawing.Point(814, 28)
-        Me.btnAvancarSemana.Name = "btnAvancarSemana"
-        Me.btnAvancarSemana.Size = New System.Drawing.Size(35, 23)
-        Me.btnAvancarSemana.TabIndex = 19
-        Me.btnAvancarSemana.Text = ">"
-        Me.btnAvancarSemana.UseVisualStyleBackColor = True
-        '
         'btnIrSemanaAtual
         '
         Me.btnIrSemanaAtual.Location = New System.Drawing.Point(517, 28)
@@ -314,6 +284,36 @@ Partial Class FormLembrete
         Me.btnApagarCompra.Text = "Apagar"
         Me.btnApagarCompra.UseVisualStyleBackColor = True
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.SystemColors.ControlDark
+        Me.Label5.Location = New System.Drawing.Point(685, 9)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(75, 20)
+        Me.Label5.TabIndex = 17
+        Me.Label5.Text = "Semana"
+        '
+        'lblSemana
+        '
+        Me.lblSemana.AutoSize = True
+        Me.lblSemana.Location = New System.Drawing.Point(650, 36)
+        Me.lblSemana.Name = "lblSemana"
+        Me.lblSemana.Size = New System.Drawing.Size(46, 13)
+        Me.lblSemana.TabIndex = 18
+        Me.lblSemana.Text = "Semana"
+        Me.lblSemana.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'btnAvancarSemana
+        '
+        Me.btnAvancarSemana.Location = New System.Drawing.Point(814, 28)
+        Me.btnAvancarSemana.Name = "btnAvancarSemana"
+        Me.btnAvancarSemana.Size = New System.Drawing.Size(35, 23)
+        Me.btnAvancarSemana.TabIndex = 19
+        Me.btnAvancarSemana.Text = ">"
+        Me.btnAvancarSemana.UseVisualStyleBackColor = True
+        '
         'FormLembrete
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -368,9 +368,6 @@ Partial Class FormLembrete
     Friend WithEvents ColumnHeader6 As ColumnHeader
     Friend WithEvents btnAddLigacaoImportate As Button
     Friend WithEvents btnVoltarSemana As Button
-    Friend WithEvents Label5 As Label
-    Friend WithEvents lblSemana As Label
-    Friend WithEvents btnAvancarSemana As Button
     Friend WithEvents btnIrSemanaAtual As Button
     Friend WithEvents btnApagarLigacao As Button
     Friend WithEvents btnEditarLigacao As Button
@@ -378,4 +375,7 @@ Partial Class FormLembrete
     Friend WithEvents btnApagarReuniao As Button
     Friend WithEvents btnEditarCompra As Button
     Friend WithEvents btnApagarCompra As Button
+    Friend WithEvents Label5 As Label
+    Friend WithEvents lblSemana As Label
+    Friend WithEvents btnAvancarSemana As Button
 End Class
