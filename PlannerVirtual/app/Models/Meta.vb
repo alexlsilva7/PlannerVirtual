@@ -8,10 +8,11 @@ Public Class Meta
     Private _data As Date
     Private _MetaDAO As IMetaDAO
 
-    Public Sub New(ByVal descricao As String, ByVal data As Date, ByVal tipo As TipoMeta, ByVal estado As EstadoMeta)
+    Public Sub New(ByVal descricao As String, ByVal categoria As Categoria, ByVal data As Date, ByVal tipo As TipoMeta, ByVal estado As EstadoMeta)
         _descricao = descricao
         _data = data
         _tipo = tipo
+        _categoria = categoria
         _estado = EstadoMeta.naoCumprida
         _MetaDAO = MetaDAO.getSingletonObject
     End Sub

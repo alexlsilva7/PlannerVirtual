@@ -55,16 +55,51 @@ Public Class MetaDAO
 
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
-            Dim sql = "SELECT descricao, tipoMeta, estadoMeta, data FROM Metas ORDER BY descricao"
+            Dim sql = "
+                            SELECT descricao, Categorias.nome as categoriaNome, Categorias.cor as categoriaCor, tipoMeta, estadoMeta, data
+                            FROM Metas, Categorias
+                            WHERE Metas.categoria = Categorias.nome
+                            ORDER BY descricao
+                        "
+
 
             Using cmd = New SQLiteCommand(sql, cn)
                 Using dr = cmd.ExecuteReader()
                     If dr.HasRows Then
                         While dr.Read()
-                            Dim meta As Meta = New Meta(dr("descricao"), dr("data"), dr("tipoMeta"), dr("estadoMeta"))
+                            Dim categoria As Categoria = New Categoria(dr("categoriaNome"), Color.FromArgb(dr("categoriaCor")))
+                            Dim meta As Meta = New Meta(dr("descricao"), categoria, dr("data"), dr("tipoMeta"), dr("estadoMeta"))
                             listaMetas.Add(meta)
                         End While
+                    End If
+                End Using
+            End Using
 
+            cn.Close()
+        End Using
+
+        Return listaMetas
+    End Function
+
+    Public Function listarPorTipo(tipo As TipoMeta) As List(Of Meta) Implements IMetaDAO.listarPorTipo
+        Dim listaMetas As List(Of Meta) = New List(Of Meta)
+
+        Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
+            cn.Open()
+            Dim sql = "
+                            SELECT descricao, Categorias.nome as categoriaNome, Categorias.cor as categoriaCor, tipoMeta, estadoMeta, data
+                            FROM Metas, Categorias
+                            WHERE Metas.categoria = Categorias.nome AND tipoMeta = '" & tipo & "'
+                            ORDER BY descricao
+                        "
+            Using cmd = New SQLiteCommand(sql, cn)
+                Using dr = cmd.ExecuteReader()
+                    If dr.HasRows Then
+                        While dr.Read()
+                            Dim categoria As Categoria = New Categoria(dr("categoriaNome"), Color.FromArgb(dr("categoriaCor")))
+                            Dim meta As Meta = New Meta(dr("descricao"), categoria, dr("data"), dr("tipoMeta"), dr("estadoMeta"))
+                            listaMetas.Add(meta)
+                        End While
                     End If
                 End Using
             End Using
@@ -84,9 +119,11 @@ Public Class MetaDAO
                 Using dr = cmd.ExecuteReader()
                     If dr.HasRows Then
                         dr.Read()
-                        Dim meta As Meta = New Meta(dr("descricao"), dr("data"), dr("tipoMeta"), dr("estadoMeta"))
+                        Dim color As Color = ColorTranslator.FromHtml("#FFFFFF")
+                        Dim categoria As Categoria = New Categoria("Casa", color)
+                        Dim meta As Meta = New Meta(dr("descricao"), categoria, dr("data"), dr("tipoMeta"), dr("estadoMeta"))
                         cn.Close()
-                        Return meta
+                        Return Meta
                     Else
                         cn.Close()
                         Throw New MetaNaoEncontradaException
