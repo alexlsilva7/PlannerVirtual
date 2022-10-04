@@ -1,6 +1,7 @@
 Imports Microsoft.VisualBasic
 
 Public Class Meta
+    Private _id As Integer
     Private _descricao As String
     Private _categoria As Categoria
     Private _tipo As TipoMeta
@@ -8,7 +9,10 @@ Public Class Meta
     Private _data As Date
     Private _MetaDAO As IMetaDAO
 
-    Public Sub New(ByVal descricao As String, ByVal categoria As Categoria, ByVal data As Date, ByVal tipo As TipoMeta, ByVal estado As EstadoMeta)
+    Public Sub New(ByVal descricao As String, ByVal categoria As Categoria, ByVal data As Date, ByVal tipo As TipoMeta, ByVal estado As EstadoMeta, Optional ByVal id As Integer = -1)
+        If id <> -1 Then
+            _id = id
+        End If
         _descricao = descricao
         _data = data
         _tipo = tipo
@@ -16,6 +20,12 @@ Public Class Meta
         _estado = EstadoMeta.naoCumprida
         _MetaDAO = MetaDAO.getSingletonObject
     End Sub
+
+    Public ReadOnly Property id() As Integer
+        Get
+            Return _id
+        End Get
+    End Property
 
     Public Property descricao() As String
         Get

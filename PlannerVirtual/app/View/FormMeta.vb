@@ -21,7 +21,7 @@
         Try
             For Each meta As Meta In lista
                 Console.WriteLine(meta)
-                Dim item = New ListViewItem({meta.descricao, meta.categoria.nome, meta.estado.ToString, meta.data})
+                Dim item = New ListViewItem({meta.id, meta.descricao, meta.categoria.nome, meta.estado.ToString, meta.data})
                 listViewSemanais.Items.Add(item)
             Next
         Catch ex As Exception
@@ -39,7 +39,7 @@
         Try
             For Each meta As Meta In lista
                 Console.WriteLine(meta)
-                Dim item = New ListViewItem({meta.descricao, meta.categoria.nome, meta.estado.ToString, meta.data})
+                Dim item = New ListViewItem({meta.id, meta.descricao, meta.categoria.nome, meta.estado.ToString, meta.data})
                 ListViewMensais.Items.Add(item)
             Next
         Catch ex As Exception
@@ -57,11 +57,23 @@
         Try
             For Each meta As Meta In lista
                 Console.WriteLine(meta)
-                Dim item = New ListViewItem({meta.descricao, meta.categoria.nome, meta.estado.ToString, meta.data})
+                Dim item = New ListViewItem({meta.id, meta.descricao, meta.categoria.nome, meta.estado.ToString, meta.data})
                 ListViewAnuais.Items.Add(item)
             Next
         Catch ex As Exception
             MessageBox.Show("Erro ao carregar os dados: " & ex.Message)
         End Try
+    End Sub
+
+    Private Sub btnAdicionarMeta_Click(sender As Object, e As EventArgs) Handles btnAdicionarMeta.Click
+        Dim form As New FormAdicionarMeta
+        form.ShowDialog()
+        carregarTodasMetas()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim form As New FormAdicionarMeta()
+        form.ShowDialog()
+        carregarTodasMetas()
     End Sub
 End Class

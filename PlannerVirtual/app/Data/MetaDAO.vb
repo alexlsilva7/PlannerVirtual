@@ -24,13 +24,13 @@ Public Class MetaDAO
 
     Public Sub inserir(meta As Meta) Implements IMetaDAO.inserir
         Try
-            consultar(meta.descricao)
+            consultar(meta.id)
             Throw New MetaExistenteException
         Catch ex As MetaNaoEncontradaException
             Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
                 cn.Open()
                 Using objCommand As SQLiteCommand = cn.CreateCommand()
-                    objCommand.CommandText = "INSERT INTO Metas (descricao , tipo , estado , data) VALUES ('" & meta.descricao & "','" & meta.tipo & "','" & meta.estado & "','" & meta.data & "')"
+                    objCommand.CommandText = "INSERT INTO Metas (descricao, data , estado, tipo, categoria) VALUES ('" & meta.descricao & "','" & meta.data.ToString("dd-MM-yyyy HH:mm") & "','" & meta.estado & "','" & meta.tipo & "','" & meta.categoria.nome & "')"
                     objCommand.ExecuteNonQuery()
                 End Using
                 cn.Close()
@@ -87,18 +87,18 @@ Public Class MetaDAO
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
             Dim sql = "
-                            SELECT descricao, Categorias.nome as categoriaNome, Categorias.cor as categoriaCor, tipo, estado, data
+                            SELECT id, descricao, Categorias.nome as categoriaNome, Categorias.cor as categoriaCor, tipo, estado, data
                             FROM Metas, Categorias
                             WHERE Metas.categoria = Categorias.nome
                             AND tipo = '" & tipo & "'
-                            ORDER BY descricao
+                            ORDER BY id
                         "
             Using cmd = New SQLiteCommand(sql, cn)
                 Using dr = cmd.ExecuteReader()
                     If dr.HasRows Then
                         While dr.Read()
                             Dim categoria As Categoria = New Categoria(dr("categoriaNome"), Color.FromArgb(dr("categoriaCor")))
-                            Dim meta As Meta = New Meta(dr("descricao"), categoria, dr("data"), dr("tipo"), dr("estado"))
+                            Dim meta As Meta = New Meta(dr("descricao"), categoria, dr("data"), dr("tipo"), dr("estado"), dr("id"))
                             listaMetas.Add(meta)
                         End While
                     End If
@@ -111,25 +111,24 @@ Public Class MetaDAO
         Return listaMetas
     End Function
 
-    Public Function consultar(descricao As String) As Meta Implements IMetaDAO.consultar
+    Function consultar(id As Integer) As Meta Implements IMetaDAO.consultar
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
             Dim sql = "
-                            SELECT descricao, Categorias.nome as categoriaNome, Categorias.cor as categoriaCor, tipo, estado, data
+                            SELECT id, descricao, Categorias.nome as categoriaNome, Categorias.cor as categoriaCor, tipo, estado, data
                             FROM Metas, Categorias
-                            WHERE Metas.categoria = Categorias.nome
-                            AND descricao = '" & descricao & "'
-                            ORDER BY descricao
+                            WHERE id = '" & id & "'
+                            Limit 1
                         "
 
             Using cmd = New SQLiteCommand(sql, cn)
                 Using dr = cmd.ExecuteReader()
                     If dr.HasRows Then
                         dr.Read()
-                        Dim categoria As Categoria = New Categoria(dr("categoriaNome"), Color.FromArgb(dr("categoriaCor")))
-                        Dim meta As Meta = New Meta(dr("descricao"), categoria, dr("data"), dr("tipo"), dr("estado"))
+                        Dim categoria = CategoriaDAO.getSingletonObject().consultar(dr("categoria"))
+                        Dim _meta As Meta = New Meta(dr("descricao"), categoria, dr("data"), dr("tipo"), dr("estado"), dr("id").parseInteger)
                         cn.Close()
-                        Return Meta
+                        Return _meta
                     Else
                         cn.Close()
                         Throw New MetaNaoEncontradaException
@@ -138,5 +137,6 @@ Public Class MetaDAO
             End Using
         End Using
     End Function
+
 
 End Class
