@@ -18,6 +18,9 @@ Public Class FormAdicionarTarefa
             DateTimePickerData.Value = tarefa.horarioInicio
             Label3.Text = tarefa.duracao
             ComboBox2.SelectedValue = tarefa.estado
+
+            btnAdicionarTarefa.Text = "Atualizar"
+            lblTitulo.Text = "Editar - "
         End If
 
         DateTimePickerData.Format = DateTimePickerFormat.Custom
@@ -80,6 +83,9 @@ Public Class FormAdicionarTarefa
                     tarefa.horarioInicio = dataFinal.ToString("dd-MM-yyyy HH:mm")
                     tarefa.estado = estado
                     tarefa.duracao = duracao
+                    tarefa.categoria = _categoriaSelecionada
+                    _TarefaDAO.atualizar(tarefa)
+                    txtDescricao.ResetText()
                     Me.Close()
                 Catch ex As Exception
                     MsgBox("Erro ao adicionar tarefa: " & ex.ToString)
@@ -121,4 +127,5 @@ Public Class FormAdicionarTarefa
             SelecionarCategoria.ForeColor = categoria.cor
         End If
     End Sub
+
 End Class

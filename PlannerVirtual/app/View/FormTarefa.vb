@@ -1,14 +1,12 @@
-﻿Public Class FormTarefa
+﻿Imports System.ComponentModel
+
+Public Class FormTarefa
     Private _TarefaDAO As ITarefaDAO
     Dim dataInicioSemana As Date
     Dim dataFimSemana As Date
     Private Sub FormTarefa_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         inicializarSemana()
         _TarefaDAO = TarefaDAO.getSingletonObject
-        carregarTodasTarefas()
-    End Sub
-
-    Private Sub carregarTodasTarefas()
         carregaTarefas()
     End Sub
 
@@ -62,37 +60,70 @@
     Private Sub btnAddTarefa_Click(sender As Object, e As EventArgs) Handles btnAddTarefa.Click
         Dim formAdicionarTarefa As New FormAdicionarTarefa
         formAdicionarTarefa.ShowDialog()
-        carregarTodasTarefas()
+        carregaTarefas()
     End Sub
 
     Private Sub btnApagarTarefa_Click(sender As Object, e As EventArgs) Handles btnApagarTarefa.Click
-
+        Dim result = apagarTarefa(listViewTarefas)
+        If result Then carregaTarefas()
     End Sub
 
+    Private Function apagarTarefa(listview As ListView) As Boolean
+        If listview.SelectedItems.Count > 0 Then
+            Dim descricaoSelecionada = listview.SelectedItems(0).SubItems(1).Text
+            Dim idSelecionao = Integer.Parse(listview.SelectedItems(0).SubItems(0).Text)
+            Dim result As DialogResult = MessageBox.Show("Deseja apagar a tarefa: " & descricaoSelecionada & " ?", "Apagar Tarefa", MessageBoxButtons.YesNo)
+            If result = DialogResult.No Then
+                Return False
+            ElseIf result = DialogResult.Yes Then
+                _TarefaDAO.deletar(idSelecionao)
+                Return True
+            End If
+        Else
+            MsgBox("Selecione uma tarefa para apagar")
+        End If
+        Return False
+    End Function
 
     Private Sub btnVoltarSemana_Click(sender As Object, e As EventArgs) Handles btnVoltarSemana.Click
         dataInicioSemana = dataInicioSemana.AddDays(-7)
         dataFimSemana = dataFimSemana.AddDays(-7)
         lblSemana.Text = dataInicioSemana.ToString("dd/MM/yyyy") & " - " & dataFimSemana.ToString("dd/MM/yyyy")
-        carregarTodasTarefas()
+        carregaTarefas()
     End Sub
 
     Private Sub btnAvancarSemana_Click(sender As Object, e As EventArgs) Handles btnAvancarSemana.Click
         dataInicioSemana = dataInicioSemana.AddDays(7)
         dataFimSemana = dataFimSemana.AddDays(7)
         lblSemana.Text = dataInicioSemana.ToString("dd/MM/yyyy") & " - " & dataFimSemana.ToString("dd/MM/yyyy")
-        carregarTodasTarefas()
+        carregaTarefas()
     End Sub
 
 
     Private Sub btnIrSemanaAtual_Click(sender As Object, e As EventArgs) Handles btnIrSemanaAtual.Click
         inicializarSemana()
-        carregarTodasTarefas()
+        carregaTarefas()
     End Sub
 
     Private Sub btnEditarTarefa_Click(sender As Object, e As EventArgs) Handles btnEditarTarefa.Click
-        Dim formEditarTarefa As New FormAdicionarTarefa
-        formEditarTarefa.ShowDialog()
-        carregarTodasTarefas()
+        Dim result = editarTarefa(listViewTarefas, FormAdicionarTarefa.ComboBox2.SelectedItem)
+        If result Then carregaTarefas()
+    End Sub
+
+    Private Function editarTarefa(listview As ListView, Estado As EstadoAtividade) As Boolean
+        If listview.SelectedItems.Count > 0 Then
+            Dim formAdicionarTarefa = New FormAdicionarTarefa
+            formAdicionarTarefa.ComboBox2.SelectedItem = Estado
+            formAdicionarTarefa.tarefa = _TarefaDAO.consultar(Integer.Parse(listview.SelectedItems(0).SubItems(0).Text))
+            formAdicionarTarefa.ShowDialog()
+            Return True
+        Else
+            MsgBox("Selecione uma tarefa para editar")
+        End If
+        Return False
+    End Function
+
+    Private Sub listViewTarefas_SelectedIndexChanged(sender As Object, e As EventArgs) Handles listViewTarefas.SelectedIndexChanged
+
     End Sub
 End Class
