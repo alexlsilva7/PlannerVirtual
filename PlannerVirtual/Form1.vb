@@ -39,6 +39,11 @@ Public Class Form1
         Dim result = formLembrete.ShowDialog()
     End Sub
 
+    Private Sub btnTelaMetas_Click(sender As Object, e As EventArgs) Handles btnTelaMetas.Click
+        Dim formMetas As New FormMeta
+        Dim result = formMetas.ShowDialog()
+    End Sub
+
     Private Sub btnTarefas_Click(sender As Object, e As EventArgs) Handles btnTarefas.Click
         Dim formTarefa As New FormTarefa
         Dim result = formTarefa.ShowDialog()

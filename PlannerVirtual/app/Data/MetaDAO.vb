@@ -55,16 +55,52 @@ Public Class MetaDAO
 
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
-            Dim sql = "SELECT descricao,cor FROM Metas ORDER BY descricao"
+            Dim sql = "
+                            SELECT descricao, Categorias.nome as categoriaNome, Categorias.cor as categoriaCor, tipo, estado, data
+                            FROM Metas, Categorias
+                            WHERE Metas.categoria = Categorias.nome
+                            ORDER BY descricao
+                        "
+
 
             Using cmd = New SQLiteCommand(sql, cn)
                 Using dr = cmd.ExecuteReader()
                     If dr.HasRows Then
                         While dr.Read()
-                            Dim meta As Meta = New Meta(dr("descricao"), dr("tipo"), dr("data"), dr("estado"))
+                            Dim categoria As Categoria = New Categoria(dr("categoriaNome"), Color.FromArgb(dr("categoriaCor")))
+                            Dim meta As Meta = New Meta(dr("descricao"), categoria, dr("data"), dr("tipo"), dr("estado"))
                             listaMetas.Add(meta)
                         End While
+                    End If
+                End Using
+            End Using
 
+            cn.Close()
+        End Using
+
+        Return listaMetas
+    End Function
+
+    Public Function listarPorTipo(tipo As TipoMeta) As List(Of Meta) Implements IMetaDAO.listarPorTipo
+        Dim listaMetas As List(Of Meta) = New List(Of Meta)
+
+        Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
+            cn.Open()
+            Dim sql = "
+                            SELECT descricao, Categorias.nome as categoriaNome, Categorias.cor as categoriaCor, tipo, estado, data
+                            FROM Metas, Categorias
+                            WHERE Metas.categoria = Categorias.nome
+                            AND tipo = '" & tipo & "'
+                            ORDER BY descricao
+                        "
+            Using cmd = New SQLiteCommand(sql, cn)
+                Using dr = cmd.ExecuteReader()
+                    If dr.HasRows Then
+                        While dr.Read()
+                            Dim categoria As Categoria = New Categoria(dr("categoriaNome"), Color.FromArgb(dr("categoriaCor")))
+                            Dim meta As Meta = New Meta(dr("descricao"), categoria, dr("data"), dr("tipo"), dr("estado"))
+                            listaMetas.Add(meta)
+                        End While
                     End If
                 End Using
             End Using
@@ -78,15 +114,22 @@ Public Class MetaDAO
     Public Function consultar(descricao As String) As Meta Implements IMetaDAO.consultar
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
-            Dim sql = "SELECT nome,cor FROM Metas WHERE descricao = '" & descricao & "'"
+            Dim sql = "
+                            SELECT descricao, Categorias.nome as categoriaNome, Categorias.cor as categoriaCor, tipo, estado, data
+                            FROM Metas, Categorias
+                            WHERE Metas.categoria = Categorias.nome
+                            AND descricao = '" & descricao & "'
+                            ORDER BY descricao
+                        "
 
             Using cmd = New SQLiteCommand(sql, cn)
                 Using dr = cmd.ExecuteReader()
                     If dr.HasRows Then
                         dr.Read()
-                        Dim meta As Meta = New Meta(dr("descricao"), dr("tipo"), dr("data"), dr("estado"))
+                        Dim categoria As Categoria = New Categoria(dr("categoriaNome"), Color.FromArgb(dr("categoriaCor")))
+                        Dim meta As Meta = New Meta(dr("descricao"), categoria, dr("data"), dr("tipo"), dr("estado"))
                         cn.Close()
-                        Return meta
+                        Return Meta
                     Else
                         cn.Close()
                         Throw New MetaNaoEncontradaException
