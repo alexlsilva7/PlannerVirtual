@@ -30,7 +30,7 @@ Public Class MetaDAO
             Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
                 cn.Open()
                 Using objCommand As SQLiteCommand = cn.CreateCommand()
-                    objCommand.CommandText = "INSERT INTO Metas (descricao , tipoMeta , estadoMeta , data) VALUES ('" & meta.descricao & "','" & meta.tipo & "','" & meta.estado & "','" & meta.data & "')"
+                    objCommand.CommandText = "INSERT INTO Metas (descricao , tipo , estado , data) VALUES ('" & meta.descricao & "','" & meta.tipo & "','" & meta.estado & "','" & meta.data & "')"
                     objCommand.ExecuteNonQuery()
                 End Using
                 cn.Close()
@@ -56,7 +56,7 @@ Public Class MetaDAO
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
             Dim sql = "
-                            SELECT descricao, Categorias.nome as categoriaNome, Categorias.cor as categoriaCor, tipoMeta, estadoMeta, data
+                            SELECT descricao, Categorias.nome as categoriaNome, Categorias.cor as categoriaCor, tipo, estado, data
                             FROM Metas, Categorias
                             WHERE Metas.categoria = Categorias.nome
                             ORDER BY descricao
@@ -68,7 +68,7 @@ Public Class MetaDAO
                     If dr.HasRows Then
                         While dr.Read()
                             Dim categoria As Categoria = New Categoria(dr("categoriaNome"), Color.FromArgb(dr("categoriaCor")))
-                            Dim meta As Meta = New Meta(dr("descricao"), categoria, dr("data"), dr("tipoMeta"), dr("estadoMeta"))
+                            Dim meta As Meta = New Meta(dr("descricao"), categoria, dr("data"), dr("tipo"), dr("estado"))
                             listaMetas.Add(meta)
                         End While
                     End If
@@ -87,9 +87,10 @@ Public Class MetaDAO
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
             Dim sql = "
-                            SELECT descricao, Categorias.nome as categoriaNome, Categorias.cor as categoriaCor, tipoMeta, estadoMeta, data
+                            SELECT descricao, Categorias.nome as categoriaNome, Categorias.cor as categoriaCor, tipo, estado, data
                             FROM Metas, Categorias
-                            WHERE Metas.categoria = Categorias.nome AND tipoMeta = '" & tipo & "'
+                            WHERE Metas.categoria = Categorias.nome
+                            AND tipo = '" & tipo & "'
                             ORDER BY descricao
                         "
             Using cmd = New SQLiteCommand(sql, cn)
@@ -97,7 +98,7 @@ Public Class MetaDAO
                     If dr.HasRows Then
                         While dr.Read()
                             Dim categoria As Categoria = New Categoria(dr("categoriaNome"), Color.FromArgb(dr("categoriaCor")))
-                            Dim meta As Meta = New Meta(dr("descricao"), categoria, dr("data"), dr("tipoMeta"), dr("estadoMeta"))
+                            Dim meta As Meta = New Meta(dr("descricao"), categoria, dr("data"), dr("tipo"), dr("estado"))
                             listaMetas.Add(meta)
                         End While
                     End If
@@ -113,15 +114,20 @@ Public Class MetaDAO
     Public Function consultar(descricao As String) As Meta Implements IMetaDAO.consultar
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
-            Dim sql = "SELECT nome,cor FROM Metas WHERE descricao = '" & descricao & "'"
+            Dim sql = "
+                            SELECT descricao, Categorias.nome as categoriaNome, Categorias.cor as categoriaCor, tipo, estado, data
+                            FROM Metas, Categorias
+                            WHERE Metas.categoria = Categorias.nome
+                            AND descricao = '" & descricao & "'
+                            ORDER BY descricao
+                        "
 
             Using cmd = New SQLiteCommand(sql, cn)
                 Using dr = cmd.ExecuteReader()
                     If dr.HasRows Then
                         dr.Read()
-                        Dim color As Color = ColorTranslator.FromHtml("#FFFFFF")
-                        Dim categoria As Categoria = New Categoria("Casa", color)
-                        Dim meta As Meta = New Meta(dr("descricao"), categoria, dr("data"), dr("tipoMeta"), dr("estadoMeta"))
+                        Dim categoria As Categoria = New Categoria(dr("categoriaNome"), Color.FromArgb(dr("categoriaCor")))
+                        Dim meta As Meta = New Meta(dr("descricao"), categoria, dr("data"), dr("tipo"), dr("estado"))
                         cn.Close()
                         Return Meta
                     Else
