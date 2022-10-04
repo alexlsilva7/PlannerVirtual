@@ -21,6 +21,12 @@ Public Class Meta
         _MetaDAO = MetaDAO.getSingletonObject
     End Sub
 
+    Public ReadOnly Property id() As Integer
+        Get
+            Return _id
+        End Get
+    End Property
+
     Public Property descricao() As String
         Get
             Return _descricao
