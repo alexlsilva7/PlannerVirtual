@@ -71,4 +71,9 @@
         carregarTodasMetas()
     End Sub
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim form As New FormAdicionarMeta()
+        form.ShowDialog()
+        carregarTodasMetas()
+    End Sub
 End Class
