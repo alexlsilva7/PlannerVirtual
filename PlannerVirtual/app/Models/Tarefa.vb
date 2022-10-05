@@ -92,9 +92,9 @@ End Class
 
 Public Enum EstadoAtividade
     aExecutar
-    executada
     parcialmenteExecutada
     adiada
+    executada
 End Enum
 
 
