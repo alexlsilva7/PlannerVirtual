@@ -174,6 +174,12 @@
     <Compile Include="app\View\FormLembrete.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="app\View\FormRelatorioQuantidade.designer.vb">
+      <DependentUpon>FormRelatorioQuantidade.vb</DependentUpon>
+    </Compile>
+    <Compile Include="app\View\FormRelatorioQuantidade.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="app\View\FormTarefa.designer.vb">
       <DependentUpon>FormTarefa.vb</DependentUpon>
     </Compile>
@@ -245,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="app\View\FormMeta.resx">
       <DependentUpon>FormMeta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="app\View\FormRelatorioQuantidade.resx">
+      <DependentUpon>FormRelatorioQuantidade.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="app\View\FormTarefa.resx">
       <DependentUpon>FormTarefa.vb</DependentUpon>
