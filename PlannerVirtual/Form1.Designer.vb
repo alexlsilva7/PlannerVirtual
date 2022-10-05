@@ -29,6 +29,7 @@ Partial Class Form1
         Me.btnTarefas = New System.Windows.Forms.Button()
         Me.btnHome = New System.Windows.Forms.Button()
         Me.btnSemana = New System.Windows.Forms.Button()
+        Me.BtnRelatorios = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnTelaCategorias
@@ -94,11 +95,21 @@ Partial Class Form1
         Me.btnSemana.Text = "Semana"
         Me.btnSemana.UseVisualStyleBackColor = True
         '
+        'BtnRelatorios
+        '
+        Me.BtnRelatorios.Location = New System.Drawing.Point(267, 103)
+        Me.BtnRelatorios.Name = "BtnRelatorios"
+        Me.BtnRelatorios.Size = New System.Drawing.Size(108, 85)
+        Me.BtnRelatorios.TabIndex = 6
+        Me.BtnRelatorios.Text = "Relatorios"
+        Me.BtnRelatorios.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.BtnRelatorios)
         Me.Controls.Add(Me.btnTelaMetas)
         Me.Controls.Add(Me.btnSemana)
         Me.Controls.Add(Me.btnHome)
@@ -119,4 +130,5 @@ Partial Class Form1
     Friend WithEvents btnTarefas As Button
     Friend WithEvents btnHome As Button
     Friend WithEvents btnSemana As Button
+    Friend WithEvents BtnRelatorios As Button
 End Class

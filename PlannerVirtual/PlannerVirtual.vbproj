@@ -111,6 +111,8 @@
     <Compile Include="app\Models\Categoria.vb" />
     <Compile Include="app\Models\Lembrete.vb" />
     <Compile Include="app\Models\Meta.vb" />
+    <Compile Include="app\Models\Relatorio\Relatorio.vb" />
+    <Compile Include="app\Models\Relatorio\RelatorioMaisRealizadas.vb" />
     <Compile Include="app\Models\Tarefa.vb" />
     <Compile Include="app\View\Dialog\FormAdicionarLembrete.Designer.vb">
       <DependentUpon>FormAdicionarLembrete.vb</DependentUpon>
@@ -146,6 +148,12 @@
       <DependentUpon>FormSelecionarCategoria.vb</DependentUpon>
     </Compile>
     <Compile Include="app\View\Dialog\FormSelecionarCategoria.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="app\View\FormRelatorioCategoriasMaisRealizadas.Designer.vb">
+      <DependentUpon>FormRelatorioCategoriasMaisRealizadas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="app\View\FormRelatorioCategoriasMaisRealizadas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="app\View\FormMeta.Designer.vb">
@@ -225,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="app\View\Dialog\FormSelecionarCategoria.resx">
       <DependentUpon>FormSelecionarCategoria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="app\View\FormRelatorioCategoriasMaisRealizadas.resx">
+      <DependentUpon>FormRelatorioCategoriasMaisRealizadas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="app\View\FormCategoria.resx">
       <DependentUpon>FormCategoria.vb</DependentUpon>
