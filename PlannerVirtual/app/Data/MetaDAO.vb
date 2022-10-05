@@ -72,10 +72,9 @@ Public Class MetaDAO
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
             Dim sql = "
-                            SELECT descricao, Categorias.nome as categoriaNome, Categorias.cor as categoriaCor, tipo, estado, data
-                            FROM Metas, Categorias
-                            WHERE Metas.categoria = Categorias.nome
-                            ORDER BY descricao
+                            SELECT id, descricao, categoria, tipo, estado, data
+                            FROM Metas
+                            
                         "
 
 
@@ -83,7 +82,7 @@ Public Class MetaDAO
                 Using dr = cmd.ExecuteReader()
                     If dr.HasRows Then
                         While dr.Read()
-                            Dim categoria As Categoria = New Categoria(dr("categoriaNome"), Color.FromArgb(dr("categoriaCor")))
+                            Dim categoria As Categoria = CategoriaDAO.getSingletonObject.consultar(dr("categoria"))
                             Dim meta As Meta = New Meta(dr("descricao"), categoria, dr("data"), dr("tipo"), dr("estado"))
                             listaMetas.Add(meta)
                         End While
@@ -96,6 +95,7 @@ Public Class MetaDAO
 
         Return listaMetas
     End Function
+
 
     Public Function listarPorTipo(tipo As TipoMeta) As List(Of Meta) Implements IMetaDAO.listarPorTipo
         Dim listaMetas As List(Of Meta) = New List(Of Meta)
@@ -125,6 +125,14 @@ Public Class MetaDAO
         End Using
 
         Return listaMetas
+    End Function
+
+    Public Function listarEntreDatas(ByVal dataInicial As Date, ByVal dataFinal As Date) As List(Of Meta) Implements IMetaDAO.listarEntreDatas
+        Dim listaMetas As List(Of Meta) = listar()
+
+        Dim listarMetasFiltradas As List(Of Meta) = listaMetas.FindAll(Function(meta As Meta) meta.data >= dataInicial And meta.data <= dataFinal)
+
+        Return listarMetasFiltradas
     End Function
 
     Function consultar(id As Integer) As Meta Implements IMetaDAO.consultar
