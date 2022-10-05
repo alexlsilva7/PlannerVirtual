@@ -58,4 +58,9 @@ Public Class Form1
         Dim formSemana As New FormExibicaoSemanal
         Dim result = formSemana.ShowDialog()
     End Sub
+
+    Private Sub BtnRelatorios_Click(sender As Object, e As EventArgs) Handles BtnRelatorios.Click
+        Dim formRelatorio As New FormRelatorioCategoriasMaisRealizadas
+        Dim result = formRelatorio.ShowDialog()
+    End Sub
 End Class
