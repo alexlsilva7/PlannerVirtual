@@ -16,11 +16,46 @@ Public Class FormAdicionarTarefa
         If tarefa IsNot Nothing Then
             txtDescricao.Text = tarefa.descricao
             DateTimePickerData.Value = tarefa.horarioInicio
-            Label3.Text = tarefa.duracao
-            ComboBox2.SelectedValue = tarefa.estado
+            Select Case tarefa.estado
+                Case EstadoAtividade.aExecutar
+                    cbEstado.SelectedIndex = 0
+                Case EstadoAtividade.parcialmenteExecutada
+                    cbEstado.SelectedIndex = 1
+                Case EstadoAtividade.adiada
+                    cbEstado.SelectedIndex = 2
+                Case EstadoAtividade.executada
+                    cbEstado.SelectedIndex = 3
+            End Select
+
+
+            SelecionarCategoria.Text = tarefa.categoria.nome
+            SelecionarCategoria.ForeColor = tarefa.categoria.cor
+            _categoriaSelecionada = tarefa.categoria
 
             btnAdicionarTarefa.Text = "Atualizar"
-            lblTitulo.Text = "Editar - "
+            lblTitulo.Text = "Editar Tarefa"
+
+            Select Case tarefa.duracao
+                Case 30
+                    cbDuracao.SelectedIndex = 0
+                Case 60
+                    cbDuracao.SelectedIndex = 1
+                Case 240
+                    Select Case tarefa.horarioInicio.Hour
+                        Case 8
+                            cbDuracao.SelectedIndex = 2
+                        Case 13
+                            cbDuracao.SelectedIndex = 3
+                        Case 18
+                            cbDuracao.SelectedIndex = 4
+                    End Select
+            End Select
+
+        Else
+            'Tipo Padrao 
+            cbEstado.SelectedIndex = 0
+            DateTimePickerHora.Visible = False
+            lblHora.Visible = False
         End If
 
         DateTimePickerData.Format = DateTimePickerFormat.Custom
@@ -30,19 +65,15 @@ Public Class FormAdicionarTarefa
         DateTimePickerHora.CustomFormat = "HH:mm"
         DateTimePickerHora.ShowUpDown = True
         'inicia com timer picker desabilitado
-        lblHora.Visible = False
-        DateTimePickerHora.Visible = False
-        'Duração padrão 30 min
-        ComboBox.SelectedIndex = 0
-        'Tipo Padrao 
-        ComboBox2.SelectedIndex = 0
+
+
     End Sub
 
     Private Sub btnAdicionarTarefa_Click(sender As Object, e As EventArgs) Handles btnAdicionarTarefa.Click
         Dim descricao As String = txtDescricao.Text
         Dim Data As DateTime = DateTimePickerData.Value
         Dim Hora As DateTime
-        Dim indexComboBox As Integer = ComboBox.SelectedIndex
+        Dim indexComboBox As Integer = cbDuracao.SelectedIndex
         Dim duracao As Integer = 0
         Select Case indexComboBox
             Case 0 '30 min
@@ -63,7 +94,7 @@ Public Class FormAdicionarTarefa
         End Select
 
         Dim dataFinal = New DateTime(Data.Year, Data.Month, Data.Day, Hora.Hour, Hora.Minute, 0)
-        Dim estado As String = ComboBox2.SelectedIndex
+        Dim estado As String = cbEstado.SelectedIndex
 
 
         If descricao <> "" And duracao <> 0 And _categoriaSelecionada IsNot Nothing And estado <> "-1" Then
@@ -97,8 +128,8 @@ Public Class FormAdicionarTarefa
         End If
     End Sub
 
-    Private Sub ComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox.SelectedIndexChanged
-        Select Case ComboBox.SelectedIndex
+    Private Sub ComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbDuracao.SelectedIndexChanged
+        Select Case cbDuracao.SelectedIndex
             Case 0 '30 min
                 DateTimePickerHora.Visible = True
                 lblHora.Visible = True

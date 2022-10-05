@@ -30,12 +30,12 @@ Partial Class FormAdicionarTarefa
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.cbEstado = New System.Windows.Forms.ComboBox()
         Me.SelecionarCategoria = New System.Windows.Forms.Button()
         Me.DateTimePickerData = New System.Windows.Forms.DateTimePicker()
         Me.DateTimePickerHora = New System.Windows.Forms.DateTimePicker()
         Me.lblHora = New System.Windows.Forms.Label()
-        Me.ComboBox = New System.Windows.Forms.ComboBox()
+        Me.cbDuracao = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'lblTitulo
@@ -115,14 +115,14 @@ Partial Class FormAdicionarTarefa
         Me.Label6.TabIndex = 19
         Me.Label6.Text = "Categoria"
         '
-        'ComboBox2
+        'cbEstado
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Items.AddRange(New Object() {"A Executar", "Executada", "Parcialmente Executada", "Adiada"})
-        Me.ComboBox2.Location = New System.Drawing.Point(82, 177)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(308, 21)
-        Me.ComboBox2.TabIndex = 21
+        Me.cbEstado.FormattingEnabled = True
+        Me.cbEstado.Items.AddRange(New Object() {"A Executar", "Parcialmente Executada", "Adiada", "Executada"})
+        Me.cbEstado.Location = New System.Drawing.Point(82, 177)
+        Me.cbEstado.Name = "cbEstado"
+        Me.cbEstado.Size = New System.Drawing.Size(308, 21)
+        Me.cbEstado.TabIndex = 21
         '
         'SelecionarCategoria
         '
@@ -157,26 +157,26 @@ Partial Class FormAdicionarTarefa
         Me.lblHora.TabIndex = 25
         Me.lblHora.Text = "Inicio:"
         '
-        'ComboBox
+        'cbDuracao
         '
-        Me.ComboBox.FormattingEnabled = True
-        Me.ComboBox.Items.AddRange(New Object() {"30 min", "1 h", "De manhã (8h às 12h)", "De tarde (13h às 17h)", "De noite (18h às 22h)"})
-        Me.ComboBox.Location = New System.Drawing.Point(80, 138)
-        Me.ComboBox.Name = "ComboBox"
-        Me.ComboBox.Size = New System.Drawing.Size(163, 21)
-        Me.ComboBox.TabIndex = 26
+        Me.cbDuracao.FormattingEnabled = True
+        Me.cbDuracao.Items.AddRange(New Object() {"30 min", "1 h", "De manhã (8h às 12h)", "De tarde (13h às 17h)", "De noite (18h às 22h)"})
+        Me.cbDuracao.Location = New System.Drawing.Point(80, 138)
+        Me.cbDuracao.Name = "cbDuracao"
+        Me.cbDuracao.Size = New System.Drawing.Size(163, 21)
+        Me.cbDuracao.TabIndex = 26
         '
         'FormAdicionarTarefa
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(409, 301)
-        Me.Controls.Add(Me.ComboBox)
+        Me.Controls.Add(Me.cbDuracao)
         Me.Controls.Add(Me.lblHora)
         Me.Controls.Add(Me.DateTimePickerHora)
         Me.Controls.Add(Me.DateTimePickerData)
         Me.Controls.Add(Me.SelecionarCategoria)
-        Me.Controls.Add(Me.ComboBox2)
+        Me.Controls.Add(Me.cbEstado)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -200,10 +200,10 @@ Partial Class FormAdicionarTarefa
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents cbEstado As ComboBox
     Friend WithEvents SelecionarCategoria As Button
     Friend WithEvents DateTimePickerData As DateTimePicker
     Friend WithEvents DateTimePickerHora As DateTimePicker
     Friend WithEvents lblHora As Label
-    Friend WithEvents ComboBox As ComboBox
+    Friend WithEvents cbDuracao As ComboBox
 End Class
