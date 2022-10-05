@@ -1,6 +1,7 @@
 Imports System.Data.Common
 Imports System.Data.SQLite
 Imports System.Diagnostics.Eventing
+Imports System.Windows.Controls
 
 Public Class MetaDAO
     Implements IMetaDAO
@@ -53,11 +54,11 @@ Public Class MetaDAO
         End Try
     End Sub
 
-    Public Sub deletar(descricao As String) Implements IMetaDAO.deletar
+    Public Sub deletar(id As Integer) Implements IMetaDAO.deletar
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
             Using objCommand As SQLiteCommand = cn.CreateCommand()
-                objCommand.CommandText = "DELETE FROM Metas WHERE nome = '" & descricao & "'"
+                objCommand.CommandText = "DELETE FROM Metas WHERE id = '" & id & "'"
                 objCommand.ExecuteNonQuery()
             End Using
             cn.Close()
@@ -129,18 +130,13 @@ Public Class MetaDAO
     Function consultar(id As Integer) As Meta Implements IMetaDAO.consultar
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
-            Dim sql = "
-                            SELECT id, descricao, Categorias.nome as categoriaNome, Categorias.cor as categoriaCor, tipo, estado, data
-                            FROM Metas, Categorias
-                            WHERE id = '" & id & "'
-                            Limit 1
-                        "
+            Dim sql = "SELECT id, descricao, categoria, tipo, estado, data FROM Metas WHERE id = '" & id & "'"
 
             Using cmd = New SQLiteCommand(sql, cn)
                 Using dr = cmd.ExecuteReader()
                     If dr.HasRows Then
                         dr.Read()
-                        Dim categoria = CategoriaDAO.getSingletonObject().consultar(dr("categoriaNome"))
+                        Dim categoria = CategoriaDAO.getSingletonObject().consultar(dr("categoria"))
                         Dim _meta As Meta = New Meta(dr("descricao"), categoria, dr("data"), dr("tipo"), dr("estado"), dr("id"))
                         cn.Close()
                         Return _meta

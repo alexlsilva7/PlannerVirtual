@@ -39,6 +39,9 @@ Partial Class FormTarefa
         Me.btnApagarTarefa = New System.Windows.Forms.Button()
         Me.btnAddTarefa = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.cbFiltroCategoria = New System.Windows.Forms.ComboBox()
+        Me.cbFiltroEstado = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label2
@@ -62,7 +65,7 @@ Partial Class FormTarefa
         Me.listViewTarefas.Location = New System.Drawing.Point(29, 85)
         Me.listViewTarefas.MultiSelect = False
         Me.listViewTarefas.Name = "listViewTarefas"
-        Me.listViewTarefas.Size = New System.Drawing.Size(729, 295)
+        Me.listViewTarefas.Size = New System.Drawing.Size(925, 295)
         Me.listViewTarefas.TabIndex = 13
         Me.listViewTarefas.UseCompatibleStateImageBehavior = False
         Me.listViewTarefas.View = System.Windows.Forms.View.Details
@@ -75,7 +78,7 @@ Partial Class FormTarefa
         'Descricao
         '
         Me.Descricao.Text = "Descrição"
-        Me.Descricao.Width = 125
+        Me.Descricao.Width = 320
         '
         'Horário
         '
@@ -99,7 +102,7 @@ Partial Class FormTarefa
         '
         'btnIrSemanaAtual
         '
-        Me.btnIrSemanaAtual.Location = New System.Drawing.Point(426, 52)
+        Me.btnIrSemanaAtual.Location = New System.Drawing.Point(622, 43)
         Me.btnIrSemanaAtual.Name = "btnIrSemanaAtual"
         Me.btnIrSemanaAtual.Size = New System.Drawing.Size(65, 23)
         Me.btnIrSemanaAtual.TabIndex = 25
@@ -108,7 +111,7 @@ Partial Class FormTarefa
         '
         'btnAvancarSemana
         '
-        Me.btnAvancarSemana.Location = New System.Drawing.Point(723, 52)
+        Me.btnAvancarSemana.Location = New System.Drawing.Point(919, 43)
         Me.btnAvancarSemana.Name = "btnAvancarSemana"
         Me.btnAvancarSemana.Size = New System.Drawing.Size(35, 23)
         Me.btnAvancarSemana.TabIndex = 24
@@ -118,7 +121,7 @@ Partial Class FormTarefa
         'lblSemana
         '
         Me.lblSemana.AutoSize = True
-        Me.lblSemana.Location = New System.Drawing.Point(559, 60)
+        Me.lblSemana.Location = New System.Drawing.Point(755, 51)
         Me.lblSemana.Name = "lblSemana"
         Me.lblSemana.Size = New System.Drawing.Size(46, 13)
         Me.lblSemana.TabIndex = 23
@@ -130,7 +133,7 @@ Partial Class FormTarefa
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.SystemColors.ControlDark
-        Me.Label5.Location = New System.Drawing.Point(594, 33)
+        Me.Label5.Location = New System.Drawing.Point(790, 24)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(75, 20)
         Me.Label5.TabIndex = 22
@@ -138,7 +141,7 @@ Partial Class FormTarefa
         '
         'btnVoltarSemana
         '
-        Me.btnVoltarSemana.Location = New System.Drawing.Point(497, 52)
+        Me.btnVoltarSemana.Location = New System.Drawing.Point(693, 43)
         Me.btnVoltarSemana.Name = "btnVoltarSemana"
         Me.btnVoltarSemana.Size = New System.Drawing.Size(35, 23)
         Me.btnVoltarSemana.TabIndex = 21
@@ -177,18 +180,45 @@ Partial Class FormTarefa
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(27, 60)
+        Me.Label1.Location = New System.Drawing.Point(30, 61)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(131, 18)
+        Me.Label1.Size = New System.Drawing.Size(55, 13)
         Me.Label1.TabIndex = 29
-        Me.Label1.Text = "Tarefas a se fazer:"
+        Me.Label1.Text = "Categoria:"
+        '
+        'cbFiltroCategoria
+        '
+        Me.cbFiltroCategoria.FormattingEnabled = True
+        Me.cbFiltroCategoria.Location = New System.Drawing.Point(91, 57)
+        Me.cbFiltroCategoria.Name = "cbFiltroCategoria"
+        Me.cbFiltroCategoria.Size = New System.Drawing.Size(121, 21)
+        Me.cbFiltroCategoria.TabIndex = 30
+        '
+        'cbFiltroEstado
+        '
+        Me.cbFiltroEstado.FormattingEnabled = True
+        Me.cbFiltroEstado.Location = New System.Drawing.Point(305, 58)
+        Me.cbFiltroEstado.Name = "cbFiltroEstado"
+        Me.cbFiltroEstado.Size = New System.Drawing.Size(164, 21)
+        Me.cbFiltroEstado.TabIndex = 32
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(256, 61)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(43, 13)
+        Me.Label3.TabIndex = 31
+        Me.Label3.Text = "Estado:"
         '
         'FormTarefa
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(972, 450)
+        Me.Controls.Add(Me.cbFiltroEstado)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.cbFiltroCategoria)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnEditarTarefa)
         Me.Controls.Add(Me.btnApagarTarefa)
@@ -224,4 +254,7 @@ Partial Class FormTarefa
     Friend WithEvents btnApagarTarefa As Button
     Friend WithEvents btnAddTarefa As Button
     Friend WithEvents Label1 As Label
+    Friend WithEvents cbFiltroCategoria As ComboBox
+    Friend WithEvents cbFiltroEstado As ComboBox
+    Friend WithEvents Label3 As Label
 End Class

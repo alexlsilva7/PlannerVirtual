@@ -3,10 +3,22 @@
 Public Class FormMeta
     Private _metaDAO As IMetaDAO
     Public metaSelecionada As Meta
+    'Semana
     Dim dataInicioSemana As Date
     Dim dataFimSemana As Date
+
+    'Mes
+    Dim dataInicioMes As Date
+    Dim dataFimMes As Date
+
+    'Ano
+    Dim dataInicioAno As Date
+    Dim dataFimAno As Date
+
     Private Sub FormMeta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         inicializarSemana()
+        inicializarMes()
+        inicializarAno()
         _metaDAO = MetaDAO.getSingletonObject
         carregarTodasMetas()
     End Sub
@@ -25,11 +37,26 @@ Public Class FormMeta
         lblSemana.Text = dataInicioSemana.ToString("dd/MM/yyyy") & " - " & dataFimSemana.ToString("dd/MM/yyyy")
     End Sub
 
+    Private Sub inicializarMes()
+        dataInicioMes = New Date(DateTime.Today.Year, DateTime.Today.Month, 1)
+        dataFimMes = dataInicioMes.AddMonths(1).AddSeconds(-1)
+
+        lblMes.Text = dataInicioMes.ToString("MMMM/yyyy")
+    End Sub
+
+    Private Sub inicializarAno()
+        dataInicioAno = New Date(DateTime.Today.Year, 1, 1)
+        dataFimAno = dataInicioAno.AddYears(1).AddSeconds(-1)
+
+        lblAno.Text = dataInicioAno.ToString("yyyy")
+    End Sub
+
+
     Private Sub carregarMetasSemanais()
         'limpar listview
         listViewSemanais.Items.Clear()
         'Busca os dados
-        Dim lista As List(Of Meta) = _metaDAO.listarPorTipo(TipoMeta.semanal)
+        Dim lista As List(Of Meta) = _metaDAO.listarPorTipo(TipoMeta.semanal).FindAll(Function(x) x.data >= dataInicioSemana And x.data <= dataFimSemana)
 
         'Preencher o listview
         Try
@@ -47,7 +74,7 @@ Public Class FormMeta
         'limpar listview
         ListViewMensais.Items.Clear()
         'Busca os dados
-        Dim lista As List(Of Meta) = _metaDAO.listarPorTipo(TipoMeta.mensal)
+        Dim lista As List(Of Meta) = _metaDAO.listarPorTipo(TipoMeta.mensal).FindAll(Function(x) x.data >= dataInicioMes And x.data <= dataFimMes)
 
         'Preencher o listview
         Try
@@ -65,7 +92,7 @@ Public Class FormMeta
         'limpar listview
         ListViewAnuais.Items.Clear()
         'Busca os dados
-        Dim lista As List(Of Meta) = _metaDAO.listarPorTipo(TipoMeta.anual)
+        Dim lista As List(Of Meta) = _metaDAO.listarPorTipo(TipoMeta.anual).FindAll(Function(x) x.data >= dataInicioAno And x.data <= dataFimAno)
 
         'Preencher o listview
         Try
@@ -79,53 +106,143 @@ Public Class FormMeta
         End Try
     End Sub
 
-    Private Sub btnAdicionarMeta_Click(sender As Object, e As EventArgs) Handles btnAdicionarMeta.Click
+
+    Private Sub btnSemanaAtual_Click(sender As Object, e As EventArgs) Handles btnSemanaAtual.Click
+        inicializarSemana()
+        carregarMetasSemanais()
+    End Sub
+
+    Private Sub btnVoltarSemana_Click(sender As Object, e As EventArgs) Handles btnVoltarSemana.Click
+        dataInicioSemana = dataInicioSemana.AddDays(-7)
+        dataFimSemana = dataFimSemana.AddDays(-7)
+        lblSemana.Text = dataInicioSemana.ToString("dd/MM/yyyy") & " - " & dataFimSemana.ToString("dd/MM/yyyy")
+        carregarMetasSemanais()
+    End Sub
+
+    Private Sub btnAvancarSemana_Click(sender As Object, e As EventArgs) Handles btnAvancarSemana.Click
+        dataInicioSemana = dataInicioSemana.AddDays(7)
+        dataFimSemana = dataFimSemana.AddDays(7)
+        lblSemana.Text = dataInicioSemana.ToString("dd/MM/yyyy") & " - " & dataFimSemana.ToString("dd/MM/yyyy")
+        carregarMetasSemanais()
+    End Sub
+
+    Private Sub btnMesAtual_Click(sender As Object, e As EventArgs) Handles btnMesAtual.Click
+        inicializarMes()
+        carregarMetasMensais()
+    End Sub
+
+    Private Sub btnVoltarMes_Click(sender As Object, e As EventArgs) Handles btnVoltarMes.Click
+        dataInicioMes = dataInicioMes.AddMonths(-1)
+        dataFimMes = dataFimMes.AddMonths(-1)
+        lblMes.Text = dataInicioMes.ToString("MMMM/yyyy")
+        carregarMetasMensais()
+    End Sub
+
+    Private Sub btnAvancarMes_Click(sender As Object, e As EventArgs) Handles btnAvancarMes.Click
+        dataInicioMes = dataInicioMes.AddMonths(1)
+        dataFimMes = dataFimMes.AddMonths(1)
+        lblMes.Text = dataInicioMes.ToString("MMMM/yyyy")
+        carregarMetasMensais()
+    End Sub
+
+    Private Sub btnAnoAtual_Click(sender As Object, e As EventArgs) Handles btnAnoAtual.Click
+        inicializarAno()
+        carregarMetasAnuais()
+    End Sub
+
+    Private Sub btnVoltarAno_Click(sender As Object, e As EventArgs) Handles btnVoltarAno.Click
+        dataInicioAno = dataInicioAno.AddYears(-1)
+        dataFimAno = dataFimAno.AddYears(-1)
+        lblAno.Text = dataInicioAno.ToString("yyyy")
+        carregarMetasAnuais()
+    End Sub
+
+    Private Sub btnAvancarAno_Click(sender As Object, e As EventArgs) Handles btnAvancarAno.Click
+        dataInicioAno = dataInicioAno.AddYears(1)
+        dataFimAno = dataFimAno.AddYears(1)
+        lblAno.Text = dataInicioAno.ToString("yyyy")
+        carregarMetasAnuais()
+    End Sub
+
+    Private Sub btnAdicionarMetaSemanal_Click(sender As Object, e As EventArgs) Handles btnAdicionarMetaSemanal.Click
         Dim form As New FormAdicionarMeta
-        form.meta = Nothing
+        form.tipo = TipoMeta.semanal
         form.ShowDialog()
-        carregarTodasMetas()
+        carregarMetasSemanais()
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim form As New FormAdicionarMeta()
-        If listViewSemanais.SelectedItems.Count > 0 Then
-            Dim id As Integer = Integer.Parse(listViewSemanais.SelectedItems(0).Text)
-            metaSelecionada = _metaDAO.consultar(id)
-            form.meta = metaSelecionada
+    Private Sub btnAdicionarMetaMensal_Click(sender As Object, e As EventArgs) Handles btnAdicionarMetaMensal.Click
+        Dim form As New FormAdicionarMeta
+        form.tipo = TipoMeta.mensal
+        form.ShowDialog()
+        carregarMetasMensais()
+    End Sub
+
+    Private Sub btnAdicionarMetaAnual_Click(sender As Object, e As EventArgs) Handles btnAdicionarMetaAnual.Click
+        Dim form As New FormAdicionarMeta
+        form.tipo = TipoMeta.anual
+        form.ShowDialog()
+        carregarMetasAnuais()
+    End Sub
+
+    Private Sub btnEditarSemanal_Click(sender As Object, e As EventArgs) Handles btnEditarSemanal.Click
+        Dim result = editarMeta(listViewSemanais, TipoMeta.semanal)
+        If result Then carregarMetasSemanais()
+    End Sub
+
+    Private Sub btnEditarMensal_Click(sender As Object, e As EventArgs) Handles btnEditarMensal.Click
+        Dim result = editarMeta(ListViewMensais, TipoMeta.mensal)
+        If result Then carregarMetasMensais()
+    End Sub
+
+    Private Sub btnEditarAnual_Click(sender As Object, e As EventArgs) Handles btnEditarAnual.Click
+        Dim result = editarMeta(ListViewAnuais, TipoMeta.anual)
+        If result Then carregarMetasAnuais()
+    End Sub
+
+    Private Function editarMeta(listview As ListView, tipo As TipoMeta) As Boolean
+        If listview.SelectedItems.Count > 0 Then
+            Dim id As Integer = listview.SelectedItems(0).Text
+            Dim form As New FormAdicionarMeta
+            form.tipo = tipo
+            form.meta = MetaDAO.getSingletonObject().consultar(id)
             form.ShowDialog()
-        ElseIf ListViewMensais.SelectedItems.Count > 0 Then
-            Dim id As Integer = Integer.Parse(ListViewMensais.SelectedItems(0).Text)
-            metaSelecionada = _metaDAO.consultar(id)
-            form.meta = metaSelecionada
-            form.ShowDialog()
-        ElseIf ListViewAnuais.SelectedItems.Count > 0 Then
-            Dim id As Integer = Integer.Parse(ListViewAnuais.SelectedItems(0).Text)
-            metaSelecionada = _metaDAO.consultar(id)
-            form.meta = metaSelecionada
-            form.ShowDialog()
+            Return True
         Else
-            MessageBox.Show("Selecione uma meta para editar")
+            MsgBox("Selecione uma meta para editar")
         End If
-        carregarTodasMetas()
+        Return False
+    End Function
+
+    Private Sub btnApagarSemanal_Click(sender As Object, e As EventArgs) Handles btnApagarSemanal.Click
+        Dim result = apagarMeta(listViewSemanais)
+        If result Then carregarMetasSemanais()
     End Sub
 
-    Private Sub btnAvancarSemana_Click(sender As Object, e As EventArgs)
-
+    Private Sub btnApagarMensal_Click(sender As Object, e As EventArgs) Handles btnApagarMensal.Click
+        Dim result = apagarMeta(ListViewMensais)
+        If result Then carregarMetasMensais()
     End Sub
 
-    Private Sub btnIrSemanaAtual_Click(sender As Object, e As EventArgs)
-
+    Private Sub btnApagarAnual_Click(sender As Object, e As EventArgs) Handles btnApagarAnual.Click
+        Dim result = apagarMeta(ListViewAnuais)
+        If result Then carregarMetasAnuais()
     End Sub
 
-    Private Sub btnVoltarSemana_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub Label5_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub lblSemana_Click(sender As Object, e As EventArgs) Handles lblSemana.Click
-
-    End Sub
+    Private Function apagarMeta(listview As ListView) As Boolean
+        If listview.SelectedItems.Count > 0 Then
+            Dim descricaoSelecionada = listview.SelectedItems(0).SubItems(1).Text
+            Dim idSelecionao = Integer.Parse(listview.SelectedItems(0).SubItems(0).Text)
+            Dim result As DialogResult = MessageBox.Show("Deseja apagar a meta: " & descricaoSelecionada & " ?", "Apagar Lembrete", MessageBoxButtons.YesNo)
+            If result = DialogResult.No Then
+                Return False
+            ElseIf result = DialogResult.Yes Then
+                MetaDAO.getSingletonObject().deletar(idSelecionao)
+                Return True
+            End If
+        Else
+            MsgBox("Selecione uma meta para apagar!")
+        End If
+        Return False
+    End Function
 End Class

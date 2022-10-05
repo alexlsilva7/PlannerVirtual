@@ -8,6 +8,4 @@ Public Interface ITarefaDAO
 
     Sub atualizar(ByVal tarefa As Tarefa)
     Function getTarefasByEstado(tipoLembrete As EstadoAtividade) As List(Of Tarefa)
-    Function getAllTarefas() As List(Of Tarefa)
-
 End Interface
