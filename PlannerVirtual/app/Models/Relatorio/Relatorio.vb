@@ -42,4 +42,17 @@
 
         Return tarefasExecutadas
     End Function
+
+    Public Function getMetasCumpridas() As List(Of Meta)
+        Dim metas As List(Of Meta) = _metaDAO.listarEntreDatas(_dataInicio, _dataFim)
+        Dim metasRealizadas As List(Of Meta) = New List(Of Meta)
+
+        For Each meta In metas
+            If meta.estado = EstadoMeta.cumprida Then
+                metasRealizadas.Add(meta)
+            End If
+        Next
+
+        Return metasRealizadas
+    End Function
 End Class
