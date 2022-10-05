@@ -7,6 +7,7 @@ Public Class FormAdicionarMeta
 
     Private _categoriaSelecionada As Categoria
     Public meta As Meta
+    Public tipo As TipoMeta
 
     Private Sub FormAdicionarMeta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         InitState()
@@ -18,15 +19,16 @@ Public Class FormAdicionarMeta
         If meta IsNot Nothing Then
             txtDescricao.Text = meta.descricao
             DateTimePickerData.Value = meta.data
-            ComboBoxTipo.SelectedIndex = CInt(meta.tipo)
             ComboBoxEstado.SelectedIndex = CInt(meta.estado)
             lblTitulo.Text = "Editar Meta"
             btnAdicionarMeta.Text = "Editar"
+            _categoriaSelecionada = meta.categoria
+            SelecionarCategoria.Text = meta.categoria.nome
+            SelecionarCategoria.ForeColor = meta.categoria.cor
         Else
-            ComboBoxTipo.SelectedIndex = 0
-            ComboBoxEstado.SelectedIndex = 2
+            'Valor Padrao 'Não Cumprido'
+            ComboBoxEstado.SelectedIndex = 1
         End If
-        ComboBoxTipo.DropDownStyle = ComboBoxStyle.DropDownList
         ComboBoxEstado.DropDownStyle = ComboBoxStyle.DropDownList
         DateTimePickerData.Format = DateTimePickerFormat.Custom
         DateTimePickerData.CustomFormat = "dd/MM/yyyy"
@@ -36,20 +38,11 @@ Public Class FormAdicionarMeta
     Private Sub btnAdicionarMeta_Click(sender As Object, e As EventArgs) Handles btnAdicionarMeta.Click
         Dim descricao As String = txtDescricao.Text
         Dim data As DateTime = DateTimePickerData.Value
-        Dim _tipoMeta As TipoMeta
+
         Dim _EstadoMeta As EstadoMeta
-        Dim tipo As String = ComboBoxTipo.SelectedIndex
 
         Dim estado As String = ComboBoxEstado.SelectedIndex
 
-        Select Case tipo
-            Case 0 'Semanal
-                _tipoMeta = TipoMeta.semanal
-            Case 1 'Mensal
-                _tipoMeta = TipoMeta.mensal
-            Case 2 'Anual
-                _tipoMeta = TipoMeta.anual
-        End Select
 
         Select Case estado
             Case 0 'Cumprida
@@ -60,9 +53,9 @@ Public Class FormAdicionarMeta
                 _EstadoMeta = EstadoMeta.parcialmenteCumprida
         End Select
 
-        If descricao <> "" And _categoriaSelecionada IsNot Nothing And tipo <> "-1" Then
+        If (descricao <> "") And (_categoriaSelecionada IsNot Nothing) Then
             If meta Is Nothing Then
-                Dim novaMeta As New Meta(descricao, _categoriaSelecionada, data.ToString("dd-MM-yyyy"), _tipoMeta, _EstadoMeta)
+                Dim novaMeta As New Meta(descricao, _categoriaSelecionada, data.ToString("dd-MM-yyyy"), tipo, _EstadoMeta)
                 Try
                     _MetaDAO.inserir(novaMeta)
                     Me.Close()
@@ -76,7 +69,6 @@ Public Class FormAdicionarMeta
                     meta.descricao = descricao
                     meta.data = data.ToString("dd-MM-yyyy")
                     meta.categoria = _categoriaSelecionada
-                    meta.tipo = _tipoMeta
                     meta.estado = _EstadoMeta
                     _MetaDAO.atualizar(meta)
                     Me.Close()

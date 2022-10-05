@@ -40,15 +40,15 @@ Partial Class FormMeta
         Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.btnAdicionarMeta = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.Button8 = New System.Windows.Forms.Button()
+        Me.btnAdicionarMetaSemanal = New System.Windows.Forms.Button()
+        Me.btnApagarSemanal = New System.Windows.Forms.Button()
+        Me.btnEditarSemanal = New System.Windows.Forms.Button()
+        Me.btnApagarMensal = New System.Windows.Forms.Button()
+        Me.btnEditarMensal = New System.Windows.Forms.Button()
+        Me.btnAdicionarMetaMensal = New System.Windows.Forms.Button()
+        Me.btnApagarAnual = New System.Windows.Forms.Button()
+        Me.btnEditarAnual = New System.Windows.Forms.Button()
+        Me.btnAdicionarMetaAnual = New System.Windows.Forms.Button()
         Me.btnSemanaAtual = New System.Windows.Forms.Button()
         Me.btnAvancarSemana = New System.Windows.Forms.Button()
         Me.lblSemana = New System.Windows.Forms.Label()
@@ -177,86 +177,86 @@ Partial Class FormMeta
         Me.ColumnHeader10.Text = "Data"
         Me.ColumnHeader10.Width = 129
         '
-        'btnAdicionarMeta
+        'btnAdicionarMetaSemanal
         '
-        Me.btnAdicionarMeta.Location = New System.Drawing.Point(120, 262)
-        Me.btnAdicionarMeta.Name = "btnAdicionarMeta"
-        Me.btnAdicionarMeta.Size = New System.Drawing.Size(107, 23)
-        Me.btnAdicionarMeta.TabIndex = 7
-        Me.btnAdicionarMeta.Text = "Criar"
-        Me.btnAdicionarMeta.UseVisualStyleBackColor = True
+        Me.btnAdicionarMetaSemanal.Location = New System.Drawing.Point(12, 262)
+        Me.btnAdicionarMetaSemanal.Name = "btnAdicionarMetaSemanal"
+        Me.btnAdicionarMetaSemanal.Size = New System.Drawing.Size(107, 23)
+        Me.btnAdicionarMetaSemanal.TabIndex = 7
+        Me.btnAdicionarMetaSemanal.Text = "Adicionar"
+        Me.btnAdicionarMetaSemanal.UseVisualStyleBackColor = True
         '
-        'Button4
+        'btnApagarSemanal
         '
-        Me.Button4.Location = New System.Drawing.Point(233, 262)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(155, 23)
-        Me.Button4.TabIndex = 10
-        Me.Button4.Text = "Deletar"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.btnApagarSemanal.Location = New System.Drawing.Point(233, 262)
+        Me.btnApagarSemanal.Name = "btnApagarSemanal"
+        Me.btnApagarSemanal.Size = New System.Drawing.Size(155, 23)
+        Me.btnApagarSemanal.TabIndex = 10
+        Me.btnApagarSemanal.Text = "Apagar"
+        Me.btnApagarSemanal.UseVisualStyleBackColor = True
         '
-        'Button2
+        'btnEditarSemanal
         '
-        Me.Button2.Location = New System.Drawing.Point(12, 262)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(102, 23)
-        Me.Button2.TabIndex = 8
-        Me.Button2.Text = "Atualizar"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnEditarSemanal.Location = New System.Drawing.Point(125, 262)
+        Me.btnEditarSemanal.Name = "btnEditarSemanal"
+        Me.btnEditarSemanal.Size = New System.Drawing.Size(102, 23)
+        Me.btnEditarSemanal.TabIndex = 8
+        Me.btnEditarSemanal.Text = "Editar"
+        Me.btnEditarSemanal.UseVisualStyleBackColor = True
         '
-        'Button1
+        'btnApagarMensal
         '
-        Me.Button1.Location = New System.Drawing.Point(229, 547)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(155, 23)
-        Me.Button1.TabIndex = 13
-        Me.Button1.Text = "Deletar"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnApagarMensal.Location = New System.Drawing.Point(229, 547)
+        Me.btnApagarMensal.Name = "btnApagarMensal"
+        Me.btnApagarMensal.Size = New System.Drawing.Size(155, 23)
+        Me.btnApagarMensal.TabIndex = 13
+        Me.btnApagarMensal.Text = "Apagar"
+        Me.btnApagarMensal.UseVisualStyleBackColor = True
         '
-        'Button3
+        'btnEditarMensal
         '
-        Me.Button3.Location = New System.Drawing.Point(8, 547)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(102, 23)
-        Me.Button3.TabIndex = 12
-        Me.Button3.Text = "Atualizar"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.btnEditarMensal.Location = New System.Drawing.Point(120, 547)
+        Me.btnEditarMensal.Name = "btnEditarMensal"
+        Me.btnEditarMensal.Size = New System.Drawing.Size(102, 23)
+        Me.btnEditarMensal.TabIndex = 12
+        Me.btnEditarMensal.Text = "Editar"
+        Me.btnEditarMensal.UseVisualStyleBackColor = True
         '
-        'Button5
+        'btnAdicionarMetaMensal
         '
-        Me.Button5.Location = New System.Drawing.Point(116, 547)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(107, 23)
-        Me.Button5.TabIndex = 11
-        Me.Button5.Text = "Criar"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.btnAdicionarMetaMensal.Location = New System.Drawing.Point(7, 547)
+        Me.btnAdicionarMetaMensal.Name = "btnAdicionarMetaMensal"
+        Me.btnAdicionarMetaMensal.Size = New System.Drawing.Size(107, 23)
+        Me.btnAdicionarMetaMensal.TabIndex = 11
+        Me.btnAdicionarMetaMensal.Text = "Adicionar"
+        Me.btnAdicionarMetaMensal.UseVisualStyleBackColor = True
         '
-        'Button6
+        'btnApagarAnual
         '
-        Me.Button6.Location = New System.Drawing.Point(229, 866)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(155, 23)
-        Me.Button6.TabIndex = 16
-        Me.Button6.Text = "Deletar"
-        Me.Button6.UseVisualStyleBackColor = True
+        Me.btnApagarAnual.Location = New System.Drawing.Point(229, 866)
+        Me.btnApagarAnual.Name = "btnApagarAnual"
+        Me.btnApagarAnual.Size = New System.Drawing.Size(155, 23)
+        Me.btnApagarAnual.TabIndex = 16
+        Me.btnApagarAnual.Text = "Apagar"
+        Me.btnApagarAnual.UseVisualStyleBackColor = True
         '
-        'Button7
+        'btnEditarAnual
         '
-        Me.Button7.Location = New System.Drawing.Point(8, 866)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(102, 23)
-        Me.Button7.TabIndex = 15
-        Me.Button7.Text = "Atualizar"
-        Me.Button7.UseVisualStyleBackColor = True
+        Me.btnEditarAnual.Location = New System.Drawing.Point(121, 866)
+        Me.btnEditarAnual.Name = "btnEditarAnual"
+        Me.btnEditarAnual.Size = New System.Drawing.Size(102, 23)
+        Me.btnEditarAnual.TabIndex = 15
+        Me.btnEditarAnual.Text = "Editar"
+        Me.btnEditarAnual.UseVisualStyleBackColor = True
         '
-        'Button8
+        'btnAdicionarMetaAnual
         '
-        Me.Button8.Location = New System.Drawing.Point(116, 866)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(107, 23)
-        Me.Button8.TabIndex = 14
-        Me.Button8.Text = "Criar"
-        Me.Button8.UseVisualStyleBackColor = True
+        Me.btnAdicionarMetaAnual.Location = New System.Drawing.Point(8, 866)
+        Me.btnAdicionarMetaAnual.Name = "btnAdicionarMetaAnual"
+        Me.btnAdicionarMetaAnual.Size = New System.Drawing.Size(107, 23)
+        Me.btnAdicionarMetaAnual.TabIndex = 14
+        Me.btnAdicionarMetaAnual.Text = "Adicionar"
+        Me.btnAdicionarMetaAnual.UseVisualStyleBackColor = True
         '
         'btnSemanaAtual
         '
@@ -422,15 +422,15 @@ Partial Class FormMeta
         Me.Controls.Add(Me.btnAvancarSemana)
         Me.Controls.Add(Me.lblSemana)
         Me.Controls.Add(Me.btnVoltarSemana)
-        Me.Controls.Add(Me.Button6)
-        Me.Controls.Add(Me.Button7)
-        Me.Controls.Add(Me.Button8)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button5)
-        Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.btnAdicionarMeta)
+        Me.Controls.Add(Me.btnApagarAnual)
+        Me.Controls.Add(Me.btnEditarAnual)
+        Me.Controls.Add(Me.btnAdicionarMetaAnual)
+        Me.Controls.Add(Me.btnApagarMensal)
+        Me.Controls.Add(Me.btnEditarMensal)
+        Me.Controls.Add(Me.btnAdicionarMetaMensal)
+        Me.Controls.Add(Me.btnApagarSemanal)
+        Me.Controls.Add(Me.btnEditarSemanal)
+        Me.Controls.Add(Me.btnAdicionarMetaSemanal)
         Me.Controls.Add(Me.ListViewAnuais)
         Me.Controls.Add(Me.ListViewMensais)
         Me.Controls.Add(Me.listViewSemanais)
@@ -456,18 +456,18 @@ Partial Class FormMeta
     Friend WithEvents ColumnHeader7 As ColumnHeader
     Friend WithEvents ColumnHeader9 As ColumnHeader
     Friend WithEvents ColumnHeader10 As ColumnHeader
-    Friend WithEvents btnAdicionarMeta As Button
-    Friend WithEvents Button4 As Button
+    Friend WithEvents btnAdicionarMetaSemanal As Button
+    Friend WithEvents btnApagarSemanal As Button
     Friend WithEvents id As ColumnHeader
     Friend WithEvents ColumnHeader3 As ColumnHeader
     Friend WithEvents ColumnHeader8 As ColumnHeader
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button5 As Button
-    Friend WithEvents Button6 As Button
-    Friend WithEvents Button7 As Button
-    Friend WithEvents Button8 As Button
+    Friend WithEvents btnEditarSemanal As Button
+    Friend WithEvents btnApagarMensal As Button
+    Friend WithEvents btnEditarMensal As Button
+    Friend WithEvents btnAdicionarMetaMensal As Button
+    Friend WithEvents btnApagarAnual As Button
+    Friend WithEvents btnEditarAnual As Button
+    Friend WithEvents btnAdicionarMetaAnual As Button
     Friend WithEvents btnSemanaAtual As Button
     Friend WithEvents btnAvancarSemana As Button
     Friend WithEvents lblSemana As Label

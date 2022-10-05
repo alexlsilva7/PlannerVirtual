@@ -106,35 +106,6 @@ Public Class FormMeta
         End Try
     End Sub
 
-    Private Sub btnAdicionarMeta_Click(sender As Object, e As EventArgs) Handles btnAdicionarMeta.Click
-        Dim form As New FormAdicionarMeta
-        form.meta = Nothing
-        form.ShowDialog()
-        carregarTodasMetas()
-    End Sub
-
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim form As New FormAdicionarMeta()
-        If listViewSemanais.SelectedItems.Count > 0 Then
-            Dim id As Integer = Integer.Parse(listViewSemanais.SelectedItems(0).Text)
-            metaSelecionada = _metaDAO.consultar(id)
-            form.meta = metaSelecionada
-            form.ShowDialog()
-        ElseIf ListViewMensais.SelectedItems.Count > 0 Then
-            Dim id As Integer = Integer.Parse(ListViewMensais.SelectedItems(0).Text)
-            metaSelecionada = _metaDAO.consultar(id)
-            form.meta = metaSelecionada
-            form.ShowDialog()
-        ElseIf ListViewAnuais.SelectedItems.Count > 0 Then
-            Dim id As Integer = Integer.Parse(ListViewAnuais.SelectedItems(0).Text)
-            metaSelecionada = _metaDAO.consultar(id)
-            form.meta = metaSelecionada
-            form.ShowDialog()
-        Else
-            MessageBox.Show("Selecione uma meta para editar")
-        End If
-        carregarTodasMetas()
-    End Sub
 
     Private Sub btnSemanaAtual_Click(sender As Object, e As EventArgs) Handles btnSemanaAtual.Click
         inicializarSemana()
@@ -192,4 +163,86 @@ Public Class FormMeta
         lblAno.Text = dataInicioAno.ToString("yyyy")
         carregarMetasAnuais()
     End Sub
+
+    Private Sub btnAdicionarMetaSemanal_Click(sender As Object, e As EventArgs) Handles btnAdicionarMetaSemanal.Click
+        Dim form As New FormAdicionarMeta
+        form.tipo = TipoMeta.semanal
+        form.ShowDialog()
+        carregarMetasSemanais()
+    End Sub
+
+    Private Sub btnAdicionarMetaMensal_Click(sender As Object, e As EventArgs) Handles btnAdicionarMetaMensal.Click
+        Dim form As New FormAdicionarMeta
+        form.tipo = TipoMeta.mensal
+        form.ShowDialog()
+        carregarMetasMensais()
+    End Sub
+
+    Private Sub btnAdicionarMetaAnual_Click(sender As Object, e As EventArgs) Handles btnAdicionarMetaAnual.Click
+        Dim form As New FormAdicionarMeta
+        form.tipo = TipoMeta.anual
+        form.ShowDialog()
+        carregarMetasAnuais()
+    End Sub
+
+    Private Sub btnEditarSemanal_Click(sender As Object, e As EventArgs) Handles btnEditarSemanal.Click
+        Dim result = editarMeta(listViewSemanais, TipoMeta.semanal)
+        If result Then carregarMetasSemanais()
+    End Sub
+
+    Private Sub btnEditarMensal_Click(sender As Object, e As EventArgs) Handles btnEditarMensal.Click
+        Dim result = editarMeta(ListViewMensais, TipoMeta.mensal)
+        If result Then carregarMetasMensais()
+    End Sub
+
+    Private Sub btnEditarAnual_Click(sender As Object, e As EventArgs) Handles btnEditarAnual.Click
+        Dim result = editarMeta(ListViewAnuais, TipoMeta.anual)
+        If result Then carregarMetasAnuais()
+    End Sub
+
+    Private Function editarMeta(listview As ListView, tipo As TipoMeta) As Boolean
+        If listview.SelectedItems.Count > 0 Then
+            Dim id As Integer = listview.SelectedItems(0).Text
+            Dim form As New FormAdicionarMeta
+            form.tipo = tipo
+            form.meta = MetaDAO.getSingletonObject().consultar(id)
+            form.ShowDialog()
+            Return True
+        Else
+            MsgBox("Selecione uma meta para editar")
+        End If
+        Return False
+    End Function
+
+    Private Sub btnApagarSemanal_Click(sender As Object, e As EventArgs) Handles btnApagarSemanal.Click
+        Dim result = apagarMeta(listViewSemanais)
+        If result Then carregarMetasSemanais()
+    End Sub
+
+    Private Sub btnApagarMensal_Click(sender As Object, e As EventArgs) Handles btnApagarMensal.Click
+        Dim result = apagarMeta(ListViewMensais)
+        If result Then carregarMetasMensais()
+    End Sub
+
+    Private Sub btnApagarAnual_Click(sender As Object, e As EventArgs) Handles btnApagarAnual.Click
+        Dim result = apagarMeta(ListViewAnuais)
+        If result Then carregarMetasAnuais()
+    End Sub
+
+    Private Function apagarMeta(listview As ListView) As Boolean
+        If listview.SelectedItems.Count > 0 Then
+            Dim descricaoSelecionada = listview.SelectedItems(0).SubItems(1).Text
+            Dim idSelecionao = Integer.Parse(listview.SelectedItems(0).SubItems(0).Text)
+            Dim result As DialogResult = MessageBox.Show("Deseja apagar a meta: " & descricaoSelecionada & " ?", "Apagar Lembrete", MessageBoxButtons.YesNo)
+            If result = DialogResult.No Then
+                Return False
+            ElseIf result = DialogResult.Yes Then
+                MetaDAO.getSingletonObject().deletar(idSelecionao)
+                Return True
+            End If
+        Else
+            MsgBox("Selecione uma meta para apagar!")
+        End If
+        Return False
+    End Function
 End Class
