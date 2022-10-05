@@ -16,10 +16,16 @@
     End Function
 
     Public Function calcularPorcentagemTarefasExecutadas() As Double
+        If getQuantidadeDeTarefas() = 0 Then
+            Return 0
+        End If
         Return calcularQuantidadeTarefasExecutadas() / getQuantidadeDeTarefas()
     End Function
 
     Public Function calcularPorcentagemMetasCumpridas() As Double
+        If getQuantidadeDeMetas() = 0 Then
+            Return 0
+        End If
         Return calcularQuantidadeMetasCumpridas() / getQuantidadeDeMetas()
     End Function
 End Class
