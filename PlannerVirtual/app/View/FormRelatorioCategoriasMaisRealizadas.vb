@@ -11,19 +11,21 @@
 
     Private Sub FormRelatorioCategoriasMaisRealizadas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cbIntervaloTempo.SelectedIndex = IntervaloTempo.Semana
+        cbTipoRelatorio.SelectedIndex = 0
+        cbIntervaloTempo.DropDownStyle = ComboBoxStyle.DropDownList
+        cbTipoRelatorio.DropDownStyle = ComboBoxStyle.DropDownList
         inicializar()
         PreencherListView()
     End Sub
 
-    Private Function CriarRelatorio() As Dictionary(Of String, Integer)
+    Private Function CriarRelatorio(tipo As Integer) As Dictionary(Of String, Integer)
         Dim relatorio As RelatorioMaisRealizadas = New RelatorioMaisRealizadas(dataInicio, dataFim)
-        Return relatorio.calcularCategoriasMaisRealizadas()
+        Return relatorio.calcularCategoriasMaisRealizadas(tipo)
     End Function
 
     Private Sub PreencherListView()
         ListViewRelatorio.Items.Clear()
-        Dim categoriasMaisRealizadas As Dictionary(Of String, Integer) = CriarRelatorio()
-
+        Dim categoriasMaisRealizadas As Dictionary(Of String, Integer) = CriarRelatorio(cbTipoRelatorio.SelectedIndex)
         Try
             For Each categoria As KeyValuePair(Of String, Integer) In categoriasMaisRealizadas
                 Console.WriteLine(categoria)
@@ -34,6 +36,7 @@
         Catch ex As Exception
             MessageBox.Show("Erro ao carregar os dados: " & ex.Message)
         End Try
+
     End Sub
 
     Private Sub inicializar()
@@ -94,9 +97,22 @@
             Case IntervaloTempo.Ano
                 lblSemana.Text = dataInicio.ToString("yyyy")
         End Select
+
+        Select Case cbTipoRelatorio.SelectedIndex
+            Case 0
+                lblTipoRelatorio.Text = "Categorias mais realizadas em Tarefas"
+            Case 1
+                lblTipoRelatorio.Text = "Categorias mais realizadas em Metas"
+        End Select
     End Sub
 
     Private Sub cbIntervaloTempo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbIntervaloTempo.SelectedIndexChanged
         ChangeLabelText()
     End Sub
+
+    Private Sub cbTipoRelatorio_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbTipoRelatorio.SelectedIndexChanged
+        ChangeLabelText()
+        PreencherListView()
+    End Sub
+
 End Class
