@@ -55,4 +55,12 @@
 
         Return metasRealizadas
     End Function
+
+    Public Function getQuantidadeDeMetas() As Integer
+        Return _metaDAO.listarEntreDatas(_dataInicio, _dataFim).Count
+    End Function
+
+    Public Function getQuantidadeDeTarefas() As Integer
+        Return _tarefaDAO.listarEntreDatas(_dataInicio, _dataFim).Count
+    End Function
 End Class
