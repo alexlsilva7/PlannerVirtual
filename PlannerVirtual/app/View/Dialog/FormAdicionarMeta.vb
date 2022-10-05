@@ -25,6 +25,7 @@ Public Class FormAdicionarMeta
             _categoriaSelecionada = meta.categoria
             SelecionarCategoria.Text = meta.categoria.nome
             SelecionarCategoria.ForeColor = meta.categoria.cor
+
         Else
             'Valor Padrao 'Não Cumprido'
             ComboBoxEstado.SelectedIndex = 1
@@ -32,6 +33,7 @@ Public Class FormAdicionarMeta
         ComboBoxEstado.DropDownStyle = ComboBoxStyle.DropDownList
         DateTimePickerData.Format = DateTimePickerFormat.Custom
         DateTimePickerData.CustomFormat = "dd/MM/yyyy"
+        lblTitulo.Text += " " + tipo.ToString
 
     End Sub
 
