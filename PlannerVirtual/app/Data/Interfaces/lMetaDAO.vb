@@ -6,4 +6,5 @@ Public Interface IMetaDAO
     Function listar() As List(Of Meta)
     Function listarPorTipo(tipo As TipoMeta) As List(Of Meta)
     Function consultar(ByVal id As Integer) As Meta
+    Function listarEntreDatas(dataInicial As Date, dataFinal As Date) As List(Of Meta)
 End Interface

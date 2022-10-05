@@ -34,14 +34,16 @@ Partial Class FormRelatorioCategoriasMaisRealizadas
         Me.lblSemana = New System.Windows.Forms.Label()
         Me.btnVoltarSemana = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.cbTipoRelatorio = New System.Windows.Forms.ComboBox()
+        Me.lblTipoRelatorio = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        Me.Panel6.SuspendLayout()
         Me.Panel5.SuspendLayout()
         Me.Panel4.SuspendLayout()
-        Me.Panel6.SuspendLayout()
         Me.SuspendLayout()
         '
         'ListViewRelatorio
@@ -146,12 +148,24 @@ Partial Class FormRelatorioCategoriasMaisRealizadas
         '
         'Panel3
         '
+        Me.Panel3.Controls.Add(Me.lblTipoRelatorio)
+        Me.Panel3.Controls.Add(Me.cbTipoRelatorio)
         Me.Panel3.Controls.Add(Me.Panel6)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel3.Location = New System.Drawing.Point(0, 68)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1003, 100)
         Me.Panel3.TabIndex = 26
+        '
+        'Panel6
+        '
+        Me.Panel6.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel6.Controls.Add(Me.Panel5)
+        Me.Panel6.Controls.Add(Me.Panel4)
+        Me.Panel6.Location = New System.Drawing.Point(360, 0)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(277, 100)
+        Me.Panel6.TabIndex = 0
         '
         'Panel5
         '
@@ -174,15 +188,23 @@ Partial Class FormRelatorioCategoriasMaisRealizadas
         Me.Panel4.Size = New System.Drawing.Size(277, 49)
         Me.Panel4.TabIndex = 26
         '
-        'Panel6
+        'cbTipoRelatorio
         '
-        Me.Panel6.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Panel6.Controls.Add(Me.Panel5)
-        Me.Panel6.Controls.Add(Me.Panel4)
-        Me.Panel6.Location = New System.Drawing.Point(360, 0)
-        Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(277, 100)
-        Me.Panel6.TabIndex = 0
+        Me.cbTipoRelatorio.FormattingEnabled = True
+        Me.cbTipoRelatorio.Items.AddRange(New Object() {"Tarefas", "Metas"})
+        Me.cbTipoRelatorio.Location = New System.Drawing.Point(38, 51)
+        Me.cbTipoRelatorio.Name = "cbTipoRelatorio"
+        Me.cbTipoRelatorio.Size = New System.Drawing.Size(121, 21)
+        Me.cbTipoRelatorio.TabIndex = 27
+        '
+        'lblTipoRelatorio
+        '
+        Me.lblTipoRelatorio.AutoSize = True
+        Me.lblTipoRelatorio.Location = New System.Drawing.Point(35, 35)
+        Me.lblTipoRelatorio.Name = "lblTipoRelatorio"
+        Me.lblTipoRelatorio.Size = New System.Drawing.Size(77, 13)
+        Me.lblTipoRelatorio.TabIndex = 28
+        Me.lblTipoRelatorio.Text = "Selecionar tipo"
         '
         'FormRelatorioCategoriasMaisRealizadas
         '
@@ -197,9 +219,10 @@ Partial Class FormRelatorioCategoriasMaisRealizadas
         Me.Text = "Form2"
         Me.Panel1.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
+        Me.Panel6.ResumeLayout(False)
         Me.Panel5.ResumeLayout(False)
         Me.Panel4.ResumeLayout(False)
-        Me.Panel6.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -219,4 +242,6 @@ Partial Class FormRelatorioCategoriasMaisRealizadas
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Panel5 As Panel
     Friend WithEvents Panel6 As Panel
+    Friend WithEvents cbTipoRelatorio As ComboBox
+    Friend WithEvents lblTipoRelatorio As Label
 End Class
