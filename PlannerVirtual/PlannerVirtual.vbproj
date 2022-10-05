@@ -113,6 +113,7 @@
     <Compile Include="app\Models\Meta.vb" />
     <Compile Include="app\Models\Relatorio\Relatorio.vb" />
     <Compile Include="app\Models\Relatorio\RelatorioMaisRealizadas.vb" />
+    <Compile Include="app\Models\Relatorio\RelatorioQuantidade.vb" />
     <Compile Include="app\Models\Tarefa.vb" />
     <Compile Include="app\View\Dialog\FormAdicionarLembrete.Designer.vb">
       <DependentUpon>FormAdicionarLembrete.vb</DependentUpon>
@@ -136,6 +137,12 @@
       <DependentUpon>FormConsultarCategoria.vb</DependentUpon>
     </Compile>
     <Compile Include="app\View\Dialog\FormConsultarCategoria.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="app\View\Dialog\FormMostrarTarefa.Designer.vb">
+      <DependentUpon>FormMostrarTarefa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="app\View\Dialog\FormMostrarTarefa.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="app\View\Dialog\FormNovaCategoria.Designer.vb">
@@ -233,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="app\View\Dialog\FormConsultarCategoria.resx">
       <DependentUpon>FormConsultarCategoria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="app\View\Dialog\FormMostrarTarefa.resx">
+      <DependentUpon>FormMostrarTarefa.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="app\View\Dialog\FormNovaCategoria.resx">
       <DependentUpon>FormNovaCategoria.vb</DependentUpon>
