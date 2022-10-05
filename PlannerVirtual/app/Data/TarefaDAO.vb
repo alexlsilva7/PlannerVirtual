@@ -73,7 +73,7 @@ Public Class TarefaDAO
             cn.Close()
         End Using
 
-        Return listaTarefas
+        Return listaTarefas.OrderBy(Function(t) t.estado).ToList()
     End Function
 
     Public Function listarEntreDatas(ByVal dataInicial As Date, ByVal dataFinal As Date) As List(Of Tarefa) Implements ITarefaDAO.listarEntreDatas
@@ -141,34 +141,5 @@ Public Class TarefaDAO
             cn.Close()
         End Using
     End Sub
-
-    Public Function getAllTarefas() As List(Of Tarefa) Implements ITarefaDAO.getAllTarefas
-        Dim listaTarefas As List(Of Tarefa) = New List(Of Tarefa)
-
-        Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
-            cn.Open()
-            Dim sql = "SELECT id,descricao,categoria,horarioInicio,duracao,estado FROM Tarefa ORDER BY id"
-
-            Using cmd = New SQLiteCommand(sql, cn)
-                Using dr = cmd.ExecuteReader()
-                    If dr.HasRows Then
-                        While dr.Read()
-                            Dim id = Integer.Parse(dr("id"))
-                            Dim horarioInicio = DataHelpers.stringToData(dr("horarioInicio"))
-                            Dim estadoAtividade As EstadoAtividade = dr("estado")
-                            Dim duracao = Integer.Parse(dr("duracao"))
-                            Dim tarefa As Tarefa = New Tarefa(dr("descricao"), dr("categoria"), dr(horarioInicio), dr(duracao), dr(estadoAtividade))
-                            listaTarefas.Add(tarefa)
-                        End While
-
-                    End If
-                End Using
-            End Using
-
-            cn.Close()
-        End Using
-
-        Return listaTarefas
-    End Function
 
 End Class
