@@ -187,22 +187,22 @@
     <Compile Include="app\View\FormRelatorioQuantidade.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="app\View\FormTarefa.designer.vb">
+    <Compile Include="app\View\Tarefa\FormTarefa.designer.vb">
       <DependentUpon>FormTarefa.vb</DependentUpon>
     </Compile>
-    <Compile Include="app\View\FormTarefa.vb">
+    <Compile Include="app\View\Tarefa\FormTarefa.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="app\View\Home\FormExibicaoSemanal.Designer.vb">
+    <Compile Include="app\View\Tarefa\FormExibicaoSemanal.Designer.vb">
       <DependentUpon>FormExibicaoSemanal.vb</DependentUpon>
     </Compile>
-    <Compile Include="app\View\Home\FormExibicaoSemanal.vb">
+    <Compile Include="app\View\Tarefa\FormExibicaoSemanal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="app\View\Home\FormExibirMensal.Designer.vb">
+    <Compile Include="app\View\Tarefa\FormExibirMensal.Designer.vb">
       <DependentUpon>FormExibirMensal.vb</DependentUpon>
     </Compile>
-    <Compile Include="app\View\Home\FormExibirMensal.vb">
+    <Compile Include="app\View\Tarefa\FormExibirMensal.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="app\View\Home\FormHomePage.Designer.vb">
@@ -272,13 +272,13 @@
     <EmbeddedResource Include="app\View\FormRelatorioQuantidade.resx">
       <DependentUpon>FormRelatorioQuantidade.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="app\View\FormTarefa.resx">
+    <EmbeddedResource Include="app\View\Tarefa\FormTarefa.resx">
       <DependentUpon>FormTarefa.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="app\View\Home\FormExibicaoSemanal.resx">
+    <EmbeddedResource Include="app\View\Tarefa\FormExibicaoSemanal.resx">
       <DependentUpon>FormExibicaoSemanal.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="app\View\Home\FormExibirMensal.resx">
+    <EmbeddedResource Include="app\View\Tarefa\FormExibirMensal.resx">
       <DependentUpon>FormExibirMensal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="app\View\Home\FormHomePage.resx">
