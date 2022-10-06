@@ -86,15 +86,8 @@ Partial Class Form1
         Me.Label1.TabIndex = 9
         Me.Label1.Text = "carregando..."
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'btnProdutividade
-        '
-        Me.btnProdutividade.Location = New System.Drawing.Point(514, 103)
-        Me.btnProdutividade.Name = "btnProdutividade"
-        Me.btnProdutividade.Size = New System.Drawing.Size(108, 85)
-        Me.btnProdutividade.TabIndex = 8
-        Me.btnProdutividade.Text = "RelatorioProd"
-        Me.btnProdutividade.UseVisualStyleBackColor = True
+
+
         '
         'Form1
         '
