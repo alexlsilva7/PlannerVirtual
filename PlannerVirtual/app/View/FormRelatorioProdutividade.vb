@@ -1,4 +1,5 @@
-﻿Imports PlannerVirtual.FormRelatorioProdutividade
+﻿Imports System.Windows.Forms.DataVisualization.Charting
+Imports PlannerVirtual.FormRelatorioProdutividade
 
 Public Class FormRelatorioProdutividade
 
@@ -57,9 +58,15 @@ Public Class FormRelatorioProdutividade
     Private Function CriarRelatorioSemana(intervalo As Integer) As Dictionary(Of String, Integer)
         Dim relatorio As RelatorioProdutividade = New RelatorioProdutividade(dataInicio, dataFim)
         Select Case intervalo
+            Case IntervaloTempo.Semana
+                ChartSemanas.Series(0).IsVisibleInLegend = False
             Case IntervaloTempo.Mes
+                ChartSemanas.Series(0).IsVisibleInLegend = True
+                ChartSemanas.Series(0).LegendText = "Semana"
                 Return relatorio.calcularSemanasMaisProdutivas(intervalo)
             Case IntervaloTempo.Ano
+                ChartSemanas.Series(0).IsVisibleInLegend = True
+                ChartSemanas.Series(0).LegendText = "Meses"
                 Return relatorio.calcularSemanasMaisProdutivas(intervalo)
         End Select
         Return relatorio.calcularSemanasMaisProdutivas(intervalo)
