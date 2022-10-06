@@ -148,7 +148,9 @@ Partial Class FormHomePage
         Me.ClientSize = New System.Drawing.Size(1212, 911)
         Me.Controls.Add(Me.PanelCenter)
         Me.Controls.Add(Me.Panel1)
+        Me.MaximizeBox = False
         Me.MaximumSize = New System.Drawing.Size(1228, 950)
+        Me.MinimizeBox = False
         Me.MinimumSize = New System.Drawing.Size(1228, 950)
         Me.Name = "FormHomePage"
         Me.Text = "FormHomePage"
