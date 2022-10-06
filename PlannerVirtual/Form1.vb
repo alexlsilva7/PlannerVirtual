@@ -68,4 +68,9 @@ Public Class Form1
         Dim formRelatorio As New FormRelatorioQuantidade
         Dim result = formRelatorio.ShowDialog()
     End Sub
+
+    Private Sub btnProdutividade_Click(sender As Object, e As EventArgs) Handles btnProdutividade.Click
+        Dim formRelatorio As New FormRelatorioProdutividade
+        Dim result = formRelatorio.ShowDialog()
+    End Sub
 End Class
