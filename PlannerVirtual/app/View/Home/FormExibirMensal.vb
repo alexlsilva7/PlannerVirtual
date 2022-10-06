@@ -1,4 +1,4 @@
-﻿Public Class FormHome
+﻿Public Class FormExibirMensal
 
     Private listFlowLayoutDay As New List(Of FlowLayoutPanel)
 
@@ -6,7 +6,7 @@
 
     Dim _tarefaDAO As TarefaDAO
 
-    Private Sub FormHome_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub FormExibirMensal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         _tarefaDAO = TarefaDAO.getSingletonObject()
         GerarDias(42)
         MostrarDatas()

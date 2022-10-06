@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class FormHome
+Partial Class FormExibirMensal
     Inherits System.Windows.Forms.Form
 
     'Descartar substituições de formulário para limpar a lista de componentes.
@@ -197,6 +197,8 @@ Partial Class FormHome
         Me.flDays.BackColor = System.Drawing.Color.White
         Me.flDays.Dock = System.Windows.Forms.DockStyle.Fill
         Me.flDays.Location = New System.Drawing.Point(0, 107)
+        Me.flDays.MaximumSize = New System.Drawing.Size(940, 637)
+        Me.flDays.MinimumSize = New System.Drawing.Size(940, 637)
         Me.flDays.Name = "flDays"
         Me.flDays.Size = New System.Drawing.Size(940, 637)
         Me.flDays.TabIndex = 5
