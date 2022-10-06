@@ -20,6 +20,7 @@ Public Class FormNovaCategoria
 
         If categoria IsNot Nothing Then
             txtNomeCategoria.Text = categoria.nome
+            txtNomeCategoria.Enabled = False
             corSelecionada = categoria.cor
             panelCor.BackColor = categoria.cor
             lblTitulo.Text = "Editar Categoria"
