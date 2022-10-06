@@ -9,6 +9,7 @@ Public Class FormNovaCategoria
     Public categoria As Categoria
 
     Private Sub FormNovaCategoria_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.CenterToScreen()
         initState()
     End Sub
 

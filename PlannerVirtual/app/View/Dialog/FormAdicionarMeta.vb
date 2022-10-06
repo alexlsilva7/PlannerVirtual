@@ -10,6 +10,7 @@ Public Class FormAdicionarMeta
     Public tipo As TipoMeta
 
     Private Sub FormAdicionarMeta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.CenterToScreen()
         InitState()
     End Sub
 

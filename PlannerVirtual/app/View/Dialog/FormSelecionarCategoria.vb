@@ -7,6 +7,7 @@ Public Class FormSelecionarCategoria
     Private _categoriaDAO As ICategoriaDAO
 
     Private Sub FormCategoria_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.CenterToScreen()
         initState()
         carregaDados()
     End Sub

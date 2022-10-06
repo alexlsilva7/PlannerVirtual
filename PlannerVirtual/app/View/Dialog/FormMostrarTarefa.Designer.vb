@@ -81,7 +81,7 @@ Partial Class FormMostrarTarefa
         '
         Me.lblTitulo.AutoSize = True
         Me.lblTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitulo.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.lblTitulo.ForeColor = System.Drawing.SystemColors.ControlText
         Me.lblTitulo.Location = New System.Drawing.Point(170, 9)
         Me.lblTitulo.Name = "lblTitulo"
         Me.lblTitulo.Size = New System.Drawing.Size(69, 24)
@@ -145,21 +145,30 @@ Partial Class FormMostrarTarefa
         '
         'btnEditar
         '
+        Me.btnEditar.BackColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(97, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.btnEditar.FlatAppearance.BorderSize = 0
+        Me.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEditar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEditar.ForeColor = System.Drawing.Color.White
         Me.btnEditar.Location = New System.Drawing.Point(27, 255)
         Me.btnEditar.Name = "btnEditar"
-        Me.btnEditar.Size = New System.Drawing.Size(212, 23)
+        Me.btnEditar.Size = New System.Drawing.Size(212, 26)
         Me.btnEditar.TabIndex = 40
         Me.btnEditar.Text = "Editar"
-        Me.btnEditar.UseVisualStyleBackColor = True
+        Me.btnEditar.UseVisualStyleBackColor = False
         '
         'BtnApagar
         '
+        Me.BtnApagar.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.BtnApagar.FlatAppearance.BorderSize = 0
+        Me.BtnApagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnApagar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnApagar.Location = New System.Drawing.Point(245, 255)
         Me.BtnApagar.Name = "BtnApagar"
-        Me.BtnApagar.Size = New System.Drawing.Size(166, 23)
+        Me.BtnApagar.Size = New System.Drawing.Size(166, 26)
         Me.BtnApagar.TabIndex = 41
         Me.BtnApagar.Text = "Apagar"
-        Me.BtnApagar.UseVisualStyleBackColor = True
+        Me.BtnApagar.UseVisualStyleBackColor = False
         '
         'FormMostrarTarefa
         '
@@ -181,6 +190,10 @@ Partial Class FormMostrarTarefa
         Me.Controls.Add(Me.lblTitulo)
         Me.Controls.Add(Me.Label1)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(439, 329)
+        Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(439, 329)
         Me.Name = "FormMostrarTarefa"
         Me.Text = "FormMostrarTarefa"
         Me.ResumeLayout(False)

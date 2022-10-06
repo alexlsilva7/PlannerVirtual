@@ -56,7 +56,7 @@ Partial Class FormLembrete
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ControlText
         Me.Label2.Location = New System.Drawing.Point(9, 66)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(208, 24)
@@ -67,7 +67,7 @@ Partial Class FormLembrete
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label3.ForeColor = System.Drawing.SystemColors.ControlText
         Me.Label3.Location = New System.Drawing.Point(330, 66)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(99, 24)
@@ -78,7 +78,7 @@ Partial Class FormLembrete
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label4.ForeColor = System.Drawing.SystemColors.ControlText
         Me.Label4.Location = New System.Drawing.Point(649, 66)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(93, 24)

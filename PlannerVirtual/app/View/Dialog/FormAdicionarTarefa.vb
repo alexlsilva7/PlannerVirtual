@@ -7,6 +7,7 @@ Public Class FormAdicionarTarefa
 
     Public tarefa As Tarefa
     Private Sub FormAdicionarTarefa_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.CenterToScreen()
         initState()
     End Sub
 

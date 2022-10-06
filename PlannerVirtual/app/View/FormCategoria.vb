@@ -9,6 +9,7 @@ Public Class FormCategoria
     Private _categoriaDAO As ICategoriaDAO
 
     Private Sub FormCategoria_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.CenterToScreen()
         initState()
         carregaDados()
     End Sub
@@ -33,7 +34,7 @@ Public Class FormCategoria
         End Try
     End Sub
 
-    Private Sub btnNovaCategoria_Click(sender As Object, e As EventArgs) Handles btnNovaCategoria.Click
+    Private Sub btnNovaCategoria_Click(sender As Object, e As EventArgs)
         Dim formNovaCategoria = New FormNovaCategoria()
         formNovaCategoria.ShowDialog()
         carregaDados()
@@ -69,5 +70,11 @@ Public Class FormCategoria
     Private Sub btnConsultarCategoria_Click(sender As Object, e As EventArgs) Handles btnConsultarCategoria.Click
         Dim formConsultarCategoria = New FormConsultarCategoria()
         formConsultarCategoria.ShowDialog()
+    End Sub
+
+    Private Sub btnNovaCategoria_Click_1(sender As Object, e As EventArgs) Handles btnNovaCategoria.Click
+        Dim formNovaCategoria = New FormNovaCategoria()
+        formNovaCategoria.ShowDialog()
+        carregaDados()
     End Sub
 End Class

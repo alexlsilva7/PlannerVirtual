@@ -21,6 +21,10 @@ Public Class FormMeta
         inicializarAno()
         _metaDAO = MetaDAO.getSingletonObject
         carregarTodasMetas()
+        'inicializa filtros
+        cbFiltroEstadoSemanal.SelectedIndex = 0
+        cbFiltroEstadoMensal.SelectedIndex = 0
+        cbFiltroEstadoAnual.SelectedIndex = 0
     End Sub
 
     Private Sub carregarTodasMetas()
@@ -58,6 +62,21 @@ Public Class FormMeta
         'Busca os dados
         Dim lista As List(Of Meta) = _metaDAO.listarPorTipo(TipoMeta.semanal).FindAll(Function(x) x.data >= dataInicioSemana And x.data <= dataFimSemana)
 
+        'filtra a lista
+        Select Case cbFiltroEstadoSemanal.SelectedIndex
+            Case 0
+                'todos
+            Case 1
+                'cumprida
+                lista = lista.FindAll(Function(x) x.estado = EstadoMeta.cumprida)
+            Case 2
+                'não cumprida
+                lista = lista.FindAll(Function(x) x.estado = EstadoMeta.naoCumprida)
+            Case 3
+                'parcialmente cumprida
+                lista = lista.FindAll(Function(x) x.estado = EstadoMeta.parcialmenteCumprida)
+        End Select
+
         'Preencher o listview
         Try
             For Each meta As Meta In lista
@@ -77,6 +96,21 @@ Public Class FormMeta
         'Busca os dados
         Dim lista As List(Of Meta) = _metaDAO.listarPorTipo(TipoMeta.mensal).FindAll(Function(x) x.data >= dataInicioMes And x.data <= dataFimMes)
 
+        'filtra a lista
+        Select Case cbFiltroEstadoMensal.SelectedIndex
+            Case 0
+                'todos
+            Case 1
+                'cumprida
+                lista = lista.FindAll(Function(x) x.estado = EstadoMeta.cumprida)
+            Case 2
+                'não cumprida
+                lista = lista.FindAll(Function(x) x.estado = EstadoMeta.naoCumprida)
+            Case 3
+                'parcialmente cumprida
+                lista = lista.FindAll(Function(x) x.estado = EstadoMeta.parcialmenteCumprida)
+        End Select
+
         'Preencher o listview
         Try
             For Each meta As Meta In lista
@@ -95,6 +129,21 @@ Public Class FormMeta
         ListViewAnuais.Items.Clear()
         'Busca os dados
         Dim lista As List(Of Meta) = _metaDAO.listarPorTipo(TipoMeta.anual).FindAll(Function(x) x.data >= dataInicioAno And x.data <= dataFimAno)
+
+        'filtra a lista
+        Select Case cbFiltroEstadoAnual.SelectedIndex
+            Case 0
+                'todos
+            Case 1
+                'cumprida
+                lista = lista.FindAll(Function(x) x.estado = EstadoMeta.cumprida)
+            Case 2
+                'não cumprida
+                lista = lista.FindAll(Function(x) x.estado = EstadoMeta.naoCumprida)
+            Case 3
+                'parcialmente cumprida
+                lista = lista.FindAll(Function(x) x.estado = EstadoMeta.parcialmenteCumprida)
+        End Select
 
         'Preencher o listview
         Try
@@ -248,4 +297,16 @@ Public Class FormMeta
         End If
         Return False
     End Function
+
+    Private Sub cbFiltroEstadoSemanal_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbFiltroEstadoSemanal.SelectedIndexChanged
+        carregarMetasSemanais()
+    End Sub
+
+    Private Sub cbFiltroEstadoMensal_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbFiltroEstadoMensal.SelectedIndexChanged
+        carregarMetasMensais()
+    End Sub
+
+    Private Sub cbFiltroEstadoAnual_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbFiltroEstadoAnual.SelectedIndexChanged
+        carregarMetasAnuais()
+    End Sub
 End Class

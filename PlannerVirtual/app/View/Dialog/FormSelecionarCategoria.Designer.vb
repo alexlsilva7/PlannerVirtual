@@ -32,7 +32,7 @@ Partial Class FormSelecionarCategoria
         '
         Me.btnSelecionarCategoria.AutoSize = True
         Me.btnSelecionarCategoria.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSelecionarCategoria.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.btnSelecionarCategoria.ForeColor = System.Drawing.SystemColors.ControlText
         Me.btnSelecionarCategoria.Location = New System.Drawing.Point(26, 10)
         Me.btnSelecionarCategoria.Name = "btnSelecionarCategoria"
         Me.btnSelecionarCategoria.Size = New System.Drawing.Size(184, 16)
@@ -71,6 +71,10 @@ Partial Class FormSelecionarCategoria
         Me.ClientSize = New System.Drawing.Size(236, 298)
         Me.Controls.Add(Me.listviewCategorias)
         Me.Controls.Add(Me.btnSelecionarCategoria)
+        Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(252, 337)
+        Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(252, 337)
         Me.Name = "FormSelecionarCategoria"
         Me.Text = "SelecionarCategoria"
         Me.ResumeLayout(False)

@@ -5,6 +5,7 @@
     Public lembrete As Lembrete
 
     Private Sub FormAdicionarLembrete_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.CenterToScreen()
         initState()
     End Sub
 
