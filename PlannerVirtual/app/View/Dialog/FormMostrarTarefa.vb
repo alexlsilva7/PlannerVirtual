@@ -3,6 +3,7 @@
 
     Private _tarefaDAO As ITarefaDAO
     Private Sub FormMostrarTarefa_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.CenterToScreen()
         _tarefaDAO = TarefaDAO.getSingletonObject()
 
         inicializarLabels()

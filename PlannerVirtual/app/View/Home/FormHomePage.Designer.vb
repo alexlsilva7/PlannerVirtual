@@ -30,12 +30,14 @@ Partial Class FormHomePage
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PanelCenter = New System.Windows.Forms.Panel()
+        Me.btnCategorias = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.btnCategorias)
         Me.Panel1.Controls.Add(Me.btnRelatorios)
         Me.Panel1.Controls.Add(Me.btnLembretes)
         Me.Panel1.Controls.Add(Me.btnMetas)
@@ -140,6 +142,21 @@ Partial Class FormHomePage
         Me.PanelCenter.Size = New System.Drawing.Size(976, 911)
         Me.PanelCenter.TabIndex = 1
         '
+        'btnCategorias
+        '
+        Me.btnCategorias.BackColor = System.Drawing.Color.Transparent
+        Me.btnCategorias.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnCategorias.FlatAppearance.BorderColor = System.Drawing.Color.Silver
+        Me.btnCategorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCategorias.Font = New System.Drawing.Font("Source Code Pro", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCategorias.ForeColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(97, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.btnCategorias.Location = New System.Drawing.Point(-12, 861)
+        Me.btnCategorias.Name = "btnCategorias"
+        Me.btnCategorias.Size = New System.Drawing.Size(257, 57)
+        Me.btnCategorias.TabIndex = 19
+        Me.btnCategorias.Text = "Editar Categorias"
+        Me.btnCategorias.UseVisualStyleBackColor = False
+        '
         'FormHomePage
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -168,4 +185,5 @@ Partial Class FormHomePage
     Friend WithEvents btnMetas As Button
     Friend WithEvents PanelCenter As Panel
     Friend WithEvents btnRelatorios As Button
+    Friend WithEvents btnCategorias As Button
 End Class

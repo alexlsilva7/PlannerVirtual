@@ -76,4 +76,9 @@
         btnMetas.BackColor = Color.Transparent
         btnMetas.ForeColor = Color.FromArgb(67, 97, 238)
     End Sub
+
+    Private Sub btnCategorias_Click(sender As Object, e As EventArgs) Handles btnCategorias.Click
+        Dim form As New FormCategoria
+        form.ShowDialog()
+    End Sub
 End Class
