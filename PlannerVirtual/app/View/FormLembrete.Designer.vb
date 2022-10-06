@@ -22,7 +22,6 @@ Partial Class FormLembrete
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -49,69 +48,70 @@ Partial Class FormLembrete
         Me.btnApagarReuniao = New System.Windows.Forms.Button()
         Me.btnEditarCompra = New System.Windows.Forms.Button()
         Me.btnApagarCompra = New System.Windows.Forms.Button()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.lblSemana = New System.Windows.Forms.Label()
         Me.btnAvancarSemana = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label1.Location = New System.Drawing.Point(21, 24)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(122, 25)
-        Me.Label1.TabIndex = 3
-        Me.Label1.Text = "Lembretes"
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(23, 66)
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label2.Location = New System.Drawing.Point(9, 66)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(150, 18)
+        Me.Label2.Size = New System.Drawing.Size(208, 24)
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Ligações importantes"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(303, 66)
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label3.Location = New System.Drawing.Point(330, 66)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(71, 18)
+        Me.Label3.Size = New System.Drawing.Size(99, 24)
         Me.Label3.TabIndex = 7
         Me.Label3.Text = "Reuniões"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(586, 66)
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label4.Location = New System.Drawing.Point(649, 66)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(70, 18)
+        Me.Label4.Size = New System.Drawing.Size(93, 24)
         Me.Label4.TabIndex = 8
         Me.Label4.Text = "Compras"
         '
         'btnAddReuniao
         '
-        Me.btnAddReuniao.Location = New System.Drawing.Point(306, 418)
+        Me.btnAddReuniao.BackColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(97, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.btnAddReuniao.FlatAppearance.BorderSize = 0
+        Me.btnAddReuniao.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAddReuniao.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAddReuniao.ForeColor = System.Drawing.Color.White
+        Me.btnAddReuniao.Location = New System.Drawing.Point(333, 840)
         Me.btnAddReuniao.Name = "btnAddReuniao"
-        Me.btnAddReuniao.Size = New System.Drawing.Size(260, 23)
+        Me.btnAddReuniao.Size = New System.Drawing.Size(312, 23)
         Me.btnAddReuniao.TabIndex = 10
         Me.btnAddReuniao.Text = "Adicionar Lembrete"
-        Me.btnAddReuniao.UseVisualStyleBackColor = True
+        Me.btnAddReuniao.UseVisualStyleBackColor = False
         '
         'btnAddCompra
         '
-        Me.btnAddCompra.Location = New System.Drawing.Point(589, 418)
+        Me.btnAddCompra.BackColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(97, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.btnAddCompra.FlatAppearance.BorderSize = 0
+        Me.btnAddCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAddCompra.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAddCompra.ForeColor = System.Drawing.Color.White
+        Me.btnAddCompra.Location = New System.Drawing.Point(652, 840)
         Me.btnAddCompra.Name = "btnAddCompra"
-        Me.btnAddCompra.Size = New System.Drawing.Size(260, 23)
+        Me.btnAddCompra.Size = New System.Drawing.Size(312, 23)
         Me.btnAddCompra.TabIndex = 11
         Me.btnAddCompra.Text = "Adicionar Lembrete"
-        Me.btnAddCompra.UseVisualStyleBackColor = True
+        Me.btnAddCompra.UseVisualStyleBackColor = False
         '
         'listViewLigacoes
         '
@@ -120,10 +120,10 @@ Partial Class FormLembrete
         Me.listViewLigacoes.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.listViewLigacoes.FullRowSelect = True
         Me.listViewLigacoes.HideSelection = False
-        Me.listViewLigacoes.Location = New System.Drawing.Point(26, 99)
+        Me.listViewLigacoes.Location = New System.Drawing.Point(12, 99)
         Me.listViewLigacoes.MultiSelect = False
         Me.listViewLigacoes.Name = "listViewLigacoes"
-        Me.listViewLigacoes.Size = New System.Drawing.Size(260, 313)
+        Me.listViewLigacoes.Size = New System.Drawing.Size(312, 735)
         Me.listViewLigacoes.TabIndex = 12
         Me.listViewLigacoes.UseCompatibleStateImageBehavior = False
         Me.listViewLigacoes.View = System.Windows.Forms.View.Details
@@ -136,12 +136,12 @@ Partial Class FormLembrete
         'Descricao
         '
         Me.Descricao.Text = "Descrição"
-        Me.Descricao.Width = 159
+        Me.Descricao.Width = 190
         '
         'Data
         '
         Me.Data.Text = "Data"
-        Me.Data.Width = 72
+        Me.Data.Width = 93
         '
         'listViewReunioes
         '
@@ -149,10 +149,10 @@ Partial Class FormLembrete
         Me.listViewReunioes.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.listViewReunioes.FullRowSelect = True
         Me.listViewReunioes.HideSelection = False
-        Me.listViewReunioes.Location = New System.Drawing.Point(306, 99)
+        Me.listViewReunioes.Location = New System.Drawing.Point(333, 99)
         Me.listViewReunioes.MultiSelect = False
         Me.listViewReunioes.Name = "listViewReunioes"
-        Me.listViewReunioes.Size = New System.Drawing.Size(260, 313)
+        Me.listViewReunioes.Size = New System.Drawing.Size(312, 735)
         Me.listViewReunioes.TabIndex = 13
         Me.listViewReunioes.UseCompatibleStateImageBehavior = False
         Me.listViewReunioes.View = System.Windows.Forms.View.Details
@@ -165,12 +165,12 @@ Partial Class FormLembrete
         'ColumnHeader2
         '
         Me.ColumnHeader2.Text = "Descrição"
-        Me.ColumnHeader2.Width = 159
+        Me.ColumnHeader2.Width = 190
         '
         'ColumnHeader3
         '
         Me.ColumnHeader3.Text = "Data"
-        Me.ColumnHeader3.Width = 72
+        Me.ColumnHeader3.Width = 93
         '
         'listViewCompras
         '
@@ -178,10 +178,10 @@ Partial Class FormLembrete
         Me.listViewCompras.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.listViewCompras.FullRowSelect = True
         Me.listViewCompras.HideSelection = False
-        Me.listViewCompras.Location = New System.Drawing.Point(589, 99)
+        Me.listViewCompras.Location = New System.Drawing.Point(652, 99)
         Me.listViewCompras.MultiSelect = False
         Me.listViewCompras.Name = "listViewCompras"
-        Me.listViewCompras.Size = New System.Drawing.Size(260, 313)
+        Me.listViewCompras.Size = New System.Drawing.Size(312, 735)
         Me.listViewCompras.TabIndex = 14
         Me.listViewCompras.UseCompatibleStateImageBehavior = False
         Me.listViewCompras.View = System.Windows.Forms.View.Details
@@ -194,132 +194,161 @@ Partial Class FormLembrete
         'ColumnHeader5
         '
         Me.ColumnHeader5.Text = "Descrição"
-        Me.ColumnHeader5.Width = 159
+        Me.ColumnHeader5.Width = 190
         '
         'ColumnHeader6
         '
         Me.ColumnHeader6.Text = "Data"
-        Me.ColumnHeader6.Width = 72
+        Me.ColumnHeader6.Width = 93
         '
         'btnAddLigacaoImportate
         '
-        Me.btnAddLigacaoImportate.BackColor = System.Drawing.Color.CornflowerBlue
-        Me.btnAddLigacaoImportate.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.btnAddLigacaoImportate.Location = New System.Drawing.Point(26, 418)
+        Me.btnAddLigacaoImportate.BackColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(97, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.btnAddLigacaoImportate.FlatAppearance.BorderSize = 0
+        Me.btnAddLigacaoImportate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAddLigacaoImportate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAddLigacaoImportate.ForeColor = System.Drawing.Color.White
+        Me.btnAddLigacaoImportate.Location = New System.Drawing.Point(12, 840)
         Me.btnAddLigacaoImportate.Name = "btnAddLigacaoImportate"
-        Me.btnAddLigacaoImportate.Size = New System.Drawing.Size(260, 23)
+        Me.btnAddLigacaoImportate.Size = New System.Drawing.Size(312, 23)
         Me.btnAddLigacaoImportate.TabIndex = 15
         Me.btnAddLigacaoImportate.Text = "Adicionar Lembrete"
         Me.btnAddLigacaoImportate.UseVisualStyleBackColor = False
         '
         'btnVoltarSemana
         '
-        Me.btnVoltarSemana.Location = New System.Drawing.Point(588, 28)
+        Me.btnVoltarSemana.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.btnVoltarSemana.FlatAppearance.BorderSize = 0
+        Me.btnVoltarSemana.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVoltarSemana.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVoltarSemana.Location = New System.Drawing.Point(674, 22)
         Me.btnVoltarSemana.Name = "btnVoltarSemana"
         Me.btnVoltarSemana.Size = New System.Drawing.Size(35, 23)
         Me.btnVoltarSemana.TabIndex = 16
         Me.btnVoltarSemana.Text = "<"
-        Me.btnVoltarSemana.UseVisualStyleBackColor = True
+        Me.btnVoltarSemana.UseVisualStyleBackColor = False
         '
         'btnIrSemanaAtual
         '
-        Me.btnIrSemanaAtual.Location = New System.Drawing.Point(517, 28)
+        Me.btnIrSemanaAtual.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.btnIrSemanaAtual.FlatAppearance.BorderSize = 0
+        Me.btnIrSemanaAtual.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnIrSemanaAtual.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnIrSemanaAtual.Location = New System.Drawing.Point(603, 22)
         Me.btnIrSemanaAtual.Name = "btnIrSemanaAtual"
         Me.btnIrSemanaAtual.Size = New System.Drawing.Size(65, 23)
         Me.btnIrSemanaAtual.TabIndex = 20
         Me.btnIrSemanaAtual.Text = "Atual"
-        Me.btnIrSemanaAtual.UseVisualStyleBackColor = True
+        Me.btnIrSemanaAtual.UseVisualStyleBackColor = False
         '
         'btnApagarLigacao
         '
-        Me.btnApagarLigacao.Location = New System.Drawing.Point(26, 447)
+        Me.btnApagarLigacao.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.btnApagarLigacao.FlatAppearance.BorderSize = 0
+        Me.btnApagarLigacao.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnApagarLigacao.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnApagarLigacao.Location = New System.Drawing.Point(12, 869)
         Me.btnApagarLigacao.Name = "btnApagarLigacao"
-        Me.btnApagarLigacao.Size = New System.Drawing.Size(125, 23)
+        Me.btnApagarLigacao.Size = New System.Drawing.Size(153, 23)
         Me.btnApagarLigacao.TabIndex = 21
         Me.btnApagarLigacao.Text = "Apagar"
-        Me.btnApagarLigacao.UseVisualStyleBackColor = True
+        Me.btnApagarLigacao.UseVisualStyleBackColor = False
         '
         'btnEditarLigacao
         '
-        Me.btnEditarLigacao.Location = New System.Drawing.Point(161, 447)
+        Me.btnEditarLigacao.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.btnEditarLigacao.FlatAppearance.BorderSize = 0
+        Me.btnEditarLigacao.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEditarLigacao.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEditarLigacao.Location = New System.Drawing.Point(171, 869)
         Me.btnEditarLigacao.Name = "btnEditarLigacao"
-        Me.btnEditarLigacao.Size = New System.Drawing.Size(125, 23)
+        Me.btnEditarLigacao.Size = New System.Drawing.Size(153, 23)
         Me.btnEditarLigacao.TabIndex = 22
         Me.btnEditarLigacao.Text = "Editar"
-        Me.btnEditarLigacao.UseVisualStyleBackColor = True
+        Me.btnEditarLigacao.UseVisualStyleBackColor = False
         '
         'btnEditarReuniao
         '
-        Me.btnEditarReuniao.Location = New System.Drawing.Point(441, 447)
+        Me.btnEditarReuniao.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.btnEditarReuniao.FlatAppearance.BorderSize = 0
+        Me.btnEditarReuniao.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEditarReuniao.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEditarReuniao.Location = New System.Drawing.Point(492, 869)
         Me.btnEditarReuniao.Name = "btnEditarReuniao"
-        Me.btnEditarReuniao.Size = New System.Drawing.Size(125, 23)
+        Me.btnEditarReuniao.Size = New System.Drawing.Size(153, 23)
         Me.btnEditarReuniao.TabIndex = 24
         Me.btnEditarReuniao.Text = "Editar"
-        Me.btnEditarReuniao.UseVisualStyleBackColor = True
+        Me.btnEditarReuniao.UseVisualStyleBackColor = False
         '
         'btnApagarReuniao
         '
-        Me.btnApagarReuniao.Location = New System.Drawing.Point(306, 447)
+        Me.btnApagarReuniao.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.btnApagarReuniao.FlatAppearance.BorderSize = 0
+        Me.btnApagarReuniao.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnApagarReuniao.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnApagarReuniao.Location = New System.Drawing.Point(333, 869)
         Me.btnApagarReuniao.Name = "btnApagarReuniao"
-        Me.btnApagarReuniao.Size = New System.Drawing.Size(125, 23)
+        Me.btnApagarReuniao.Size = New System.Drawing.Size(153, 23)
         Me.btnApagarReuniao.TabIndex = 23
         Me.btnApagarReuniao.Text = "Apagar"
-        Me.btnApagarReuniao.UseVisualStyleBackColor = True
+        Me.btnApagarReuniao.UseVisualStyleBackColor = False
         '
         'btnEditarCompra
         '
-        Me.btnEditarCompra.Location = New System.Drawing.Point(724, 447)
+        Me.btnEditarCompra.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.btnEditarCompra.FlatAppearance.BorderSize = 0
+        Me.btnEditarCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEditarCompra.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEditarCompra.Location = New System.Drawing.Point(811, 869)
         Me.btnEditarCompra.Name = "btnEditarCompra"
-        Me.btnEditarCompra.Size = New System.Drawing.Size(125, 23)
+        Me.btnEditarCompra.Size = New System.Drawing.Size(153, 23)
         Me.btnEditarCompra.TabIndex = 26
         Me.btnEditarCompra.Text = "Editar"
-        Me.btnEditarCompra.UseVisualStyleBackColor = True
+        Me.btnEditarCompra.UseVisualStyleBackColor = False
         '
         'btnApagarCompra
         '
-        Me.btnApagarCompra.Location = New System.Drawing.Point(589, 447)
+        Me.btnApagarCompra.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.btnApagarCompra.FlatAppearance.BorderSize = 0
+        Me.btnApagarCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnApagarCompra.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnApagarCompra.Location = New System.Drawing.Point(652, 869)
         Me.btnApagarCompra.Name = "btnApagarCompra"
-        Me.btnApagarCompra.Size = New System.Drawing.Size(125, 23)
+        Me.btnApagarCompra.Size = New System.Drawing.Size(153, 23)
         Me.btnApagarCompra.TabIndex = 25
         Me.btnApagarCompra.Text = "Apagar"
-        Me.btnApagarCompra.UseVisualStyleBackColor = True
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.SystemColors.ControlDark
-        Me.Label5.Location = New System.Drawing.Point(685, 9)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(75, 20)
-        Me.Label5.TabIndex = 17
-        Me.Label5.Text = "Semana"
+        Me.btnApagarCompra.UseVisualStyleBackColor = False
         '
         'lblSemana
         '
-        Me.lblSemana.AutoSize = True
-        Me.lblSemana.Location = New System.Drawing.Point(650, 36)
+        Me.lblSemana.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSemana.Location = New System.Drawing.Point(715, 22)
         Me.lblSemana.Name = "lblSemana"
-        Me.lblSemana.Size = New System.Drawing.Size(46, 13)
+        Me.lblSemana.Size = New System.Drawing.Size(208, 23)
         Me.lblSemana.TabIndex = 18
         Me.lblSemana.Text = "Semana"
         Me.lblSemana.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'btnAvancarSemana
         '
-        Me.btnAvancarSemana.Location = New System.Drawing.Point(814, 28)
+        Me.btnAvancarSemana.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.btnAvancarSemana.FlatAppearance.BorderSize = 0
+        Me.btnAvancarSemana.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAvancarSemana.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAvancarSemana.Location = New System.Drawing.Point(929, 22)
         Me.btnAvancarSemana.Name = "btnAvancarSemana"
         Me.btnAvancarSemana.Size = New System.Drawing.Size(35, 23)
         Me.btnAvancarSemana.TabIndex = 19
         Me.btnAvancarSemana.Text = ">"
-        Me.btnAvancarSemana.UseVisualStyleBackColor = True
+        Me.btnAvancarSemana.UseVisualStyleBackColor = False
         '
         'FormLembrete
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(872, 476)
+        Me.ClientSize = New System.Drawing.Size(976, 911)
+        Me.ControlBox = False
         Me.Controls.Add(Me.btnEditarCompra)
         Me.Controls.Add(Me.btnApagarCompra)
         Me.Controls.Add(Me.btnEditarReuniao)
@@ -329,7 +358,6 @@ Partial Class FormLembrete
         Me.Controls.Add(Me.btnIrSemanaAtual)
         Me.Controls.Add(Me.btnAvancarSemana)
         Me.Controls.Add(Me.lblSemana)
-        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.btnVoltarSemana)
         Me.Controls.Add(Me.btnAddLigacaoImportate)
         Me.Controls.Add(Me.listViewCompras)
@@ -340,15 +368,13 @@ Partial Class FormLembrete
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "FormLembrete"
         Me.Text = "FormLembrete"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
@@ -375,7 +401,6 @@ Partial Class FormLembrete
     Friend WithEvents btnApagarReuniao As Button
     Friend WithEvents btnEditarCompra As Button
     Friend WithEvents btnApagarCompra As Button
-    Friend WithEvents Label5 As Label
     Friend WithEvents lblSemana As Label
     Friend WithEvents btnAvancarSemana As Button
 End Class

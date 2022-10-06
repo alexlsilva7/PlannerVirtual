@@ -81,16 +81,19 @@
 
     Private Sub btnVoltarMes_Click(sender As Object, e As EventArgs) Handles btnVoltarMes.Click
         dataAtual = dataAtual.AddMonths(-1)
+        GerarDias(42)
         MostrarDatas()
     End Sub
 
     Private Sub btnAvancarMes_Click(sender As Object, e As EventArgs) Handles btnAvancarMes.Click
         dataAtual = dataAtual.AddMonths(1)
+        GerarDias(42)
         MostrarDatas()
     End Sub
 
     Private Sub btnMesAtual_Click(sender As Object, e As EventArgs) Handles btnMesAtual.Click
         dataAtual = DateTime.Today
+        GerarDias(42)
         MostrarDatas()
     End Sub
 

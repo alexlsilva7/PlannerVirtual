@@ -4,7 +4,7 @@
 
     Private Sub FormHomePage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.CenterToScreen()
-        loadForm(New FormTarefa)
+        loadForm(New FormHomeTarefas)
     End Sub
 
     Private Sub loadForm(form As Form)
@@ -24,7 +24,7 @@
     End Sub
 
     Private Sub btnTarefas_Click(sender As Object, e As EventArgs) Handles btnTarefas.Click
-        loadForm(New FormTarefa)
+        loadForm(New FormHomeTarefas)
         btnTarefas.BackColor = Color.FromArgb(67, 97, 238)
         btnTarefas.ForeColor = Color.White
 
@@ -32,7 +32,8 @@
         btnMetas.ForeColor = Color.FromArgb(67, 97, 238)
         btnLembretes.BackColor = Color.Transparent
         btnLembretes.ForeColor = Color.FromArgb(67, 97, 238)
-
+        btnRelatorios.BackColor = Color.Transparent
+        btnRelatorios.ForeColor = Color.FromArgb(67, 97, 238)
     End Sub
 
 
@@ -46,6 +47,8 @@
         btnTarefas.ForeColor = Color.FromArgb(67, 97, 238)
         btnLembretes.BackColor = Color.Transparent
         btnLembretes.ForeColor = Color.FromArgb(67, 97, 238)
+        btnRelatorios.BackColor = Color.Transparent
+        btnRelatorios.ForeColor = Color.FromArgb(67, 97, 238)
     End Sub
 
     Private Sub btnLembretes_Click(sender As Object, e As EventArgs) Handles btnLembretes.Click
@@ -57,7 +60,20 @@
         btnTarefas.ForeColor = Color.FromArgb(67, 97, 238)
         btnMetas.BackColor = Color.Transparent
         btnMetas.ForeColor = Color.FromArgb(67, 97, 238)
+        btnRelatorios.BackColor = Color.Transparent
+        btnRelatorios.ForeColor = Color.FromArgb(67, 97, 238)
     End Sub
 
+    Private Sub btnRelatorios_Click(sender As Object, e As EventArgs) Handles btnRelatorios.Click
+        loadForm(New FormHomeRelatorios)
+        btnRelatorios.BackColor = Color.FromArgb(67, 97, 238)
+        btnRelatorios.ForeColor = Color.White
 
+        btnLembretes.BackColor = Color.Transparent
+        btnLembretes.ForeColor = Color.FromArgb(67, 97, 238)
+        btnTarefas.BackColor = Color.Transparent
+        btnTarefas.ForeColor = Color.FromArgb(67, 97, 238)
+        btnMetas.BackColor = Color.Transparent
+        btnMetas.ForeColor = Color.FromArgb(67, 97, 238)
+    End Sub
 End Class

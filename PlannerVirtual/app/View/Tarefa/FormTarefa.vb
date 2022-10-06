@@ -171,4 +171,8 @@ Public Class FormTarefa
     Private Sub cbFiltroEstado_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbFiltroEstado.SelectedIndexChanged
         carregaTarefas()
     End Sub
+
+    Private Sub lblSemana_Click(sender As Object, e As EventArgs) Handles lblSemana.Click
+
+    End Sub
 End Class

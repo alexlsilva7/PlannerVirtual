@@ -23,20 +23,20 @@ Partial Class FormHomePage
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnRelatorios = New System.Windows.Forms.Button()
+        Me.btnLembretes = New System.Windows.Forms.Button()
+        Me.btnMetas = New System.Windows.Forms.Button()
         Me.btnTarefas = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.btnMetas = New System.Windows.Forms.Button()
-        Me.btnLembretes = New System.Windows.Forms.Button()
         Me.PanelCenter = New System.Windows.Forms.Panel()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.White
-        Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.btnRelatorios)
         Me.Panel1.Controls.Add(Me.btnLembretes)
         Me.Panel1.Controls.Add(Me.btnMetas)
         Me.Panel1.Controls.Add(Me.btnTarefas)
@@ -45,8 +45,53 @@ Partial Class FormHomePage
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(226, 703)
+        Me.Panel1.Size = New System.Drawing.Size(236, 911)
         Me.Panel1.TabIndex = 0
+        '
+        'btnRelatorios
+        '
+        Me.btnRelatorios.BackColor = System.Drawing.Color.Transparent
+        Me.btnRelatorios.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnRelatorios.FlatAppearance.BorderSize = 0
+        Me.btnRelatorios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRelatorios.Font = New System.Drawing.Font("Source Code Pro", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRelatorios.ForeColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(97, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.btnRelatorios.Location = New System.Drawing.Point(3, 228)
+        Me.btnRelatorios.Name = "btnRelatorios"
+        Me.btnRelatorios.Size = New System.Drawing.Size(227, 47)
+        Me.btnRelatorios.TabIndex = 18
+        Me.btnRelatorios.Text = "Relatorios"
+        Me.btnRelatorios.UseVisualStyleBackColor = False
+        '
+        'btnLembretes
+        '
+        Me.btnLembretes.BackColor = System.Drawing.Color.Transparent
+        Me.btnLembretes.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnLembretes.FlatAppearance.BorderSize = 0
+        Me.btnLembretes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnLembretes.Font = New System.Drawing.Font("Source Code Pro", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLembretes.ForeColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(97, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.btnLembretes.Location = New System.Drawing.Point(0, 175)
+        Me.btnLembretes.Name = "btnLembretes"
+        Me.btnLembretes.Size = New System.Drawing.Size(227, 47)
+        Me.btnLembretes.TabIndex = 17
+        Me.btnLembretes.Text = "Lembretes"
+        Me.btnLembretes.UseVisualStyleBackColor = False
+        '
+        'btnMetas
+        '
+        Me.btnMetas.BackColor = System.Drawing.Color.Transparent
+        Me.btnMetas.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnMetas.FlatAppearance.BorderSize = 0
+        Me.btnMetas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnMetas.Font = New System.Drawing.Font("Source Code Pro", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMetas.ForeColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(97, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.btnMetas.Location = New System.Drawing.Point(0, 122)
+        Me.btnMetas.Name = "btnMetas"
+        Me.btnMetas.Size = New System.Drawing.Size(227, 47)
+        Me.btnMetas.TabIndex = 16
+        Me.btnMetas.Text = "Metas"
+        Me.btnMetas.UseVisualStyleBackColor = False
         '
         'btnTarefas
         '
@@ -87,67 +132,24 @@ Partial Class FormHomePage
         Me.Label2.TabIndex = 13
         Me.Label2.Text = "PL"
         '
-        'btnMetas
-        '
-        Me.btnMetas.BackColor = System.Drawing.Color.Transparent
-        Me.btnMetas.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnMetas.FlatAppearance.BorderSize = 0
-        Me.btnMetas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnMetas.Font = New System.Drawing.Font("Source Code Pro", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnMetas.ForeColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(97, Byte), Integer), CType(CType(238, Byte), Integer))
-        Me.btnMetas.Location = New System.Drawing.Point(0, 122)
-        Me.btnMetas.Name = "btnMetas"
-        Me.btnMetas.Size = New System.Drawing.Size(227, 47)
-        Me.btnMetas.TabIndex = 16
-        Me.btnMetas.Text = "Metas"
-        Me.btnMetas.UseVisualStyleBackColor = False
-        '
-        'btnLembretes
-        '
-        Me.btnLembretes.BackColor = System.Drawing.Color.Transparent
-        Me.btnLembretes.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnLembretes.FlatAppearance.BorderSize = 0
-        Me.btnLembretes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnLembretes.Font = New System.Drawing.Font("Source Code Pro", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLembretes.ForeColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(97, Byte), Integer), CType(CType(238, Byte), Integer))
-        Me.btnLembretes.Location = New System.Drawing.Point(0, 175)
-        Me.btnLembretes.Name = "btnLembretes"
-        Me.btnLembretes.Size = New System.Drawing.Size(227, 47)
-        Me.btnLembretes.TabIndex = 17
-        Me.btnLembretes.Text = "Lembretes"
-        Me.btnLembretes.UseVisualStyleBackColor = False
-        '
         'PanelCenter
         '
         Me.PanelCenter.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PanelCenter.Location = New System.Drawing.Point(226, 0)
+        Me.PanelCenter.Location = New System.Drawing.Point(236, 0)
         Me.PanelCenter.Name = "PanelCenter"
-        Me.PanelCenter.Size = New System.Drawing.Size(986, 703)
+        Me.PanelCenter.Size = New System.Drawing.Size(976, 911)
         Me.PanelCenter.TabIndex = 1
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.Transparent
-        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Source Code Pro", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(97, Byte), Integer), CType(CType(238, Byte), Integer))
-        Me.Button1.Location = New System.Drawing.Point(3, 228)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(227, 47)
-        Me.Button1.TabIndex = 18
-        Me.Button1.Text = "Relatorios"
-        Me.Button1.UseVisualStyleBackColor = False
         '
         'FormHomePage
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1212, 703)
+        Me.ClientSize = New System.Drawing.Size(1212, 911)
         Me.Controls.Add(Me.PanelCenter)
         Me.Controls.Add(Me.Panel1)
+        Me.MaximumSize = New System.Drawing.Size(1228, 950)
+        Me.MinimumSize = New System.Drawing.Size(1228, 950)
         Me.Name = "FormHomePage"
         Me.Text = "FormHomePage"
         Me.Panel1.ResumeLayout(False)
@@ -163,5 +165,5 @@ Partial Class FormHomePage
     Friend WithEvents btnLembretes As Button
     Friend WithEvents btnMetas As Button
     Friend WithEvents PanelCenter As Panel
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnRelatorios As Button
 End Class
