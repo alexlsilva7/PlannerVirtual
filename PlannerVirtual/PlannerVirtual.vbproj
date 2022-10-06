@@ -157,6 +157,12 @@
     <Compile Include="app\View\Dialog\FormSelecionarCategoria.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="app\View\FormHomeRelatorios.Designer.vb">
+      <DependentUpon>FormHomeRelatorios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="app\View\FormHomeRelatorios.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="app\View\FormRelatorioCategoriasMaisRealizadas.Designer.vb">
       <DependentUpon>FormRelatorioCategoriasMaisRealizadas.vb</DependentUpon>
     </Compile>
@@ -185,6 +191,12 @@
       <DependentUpon>FormRelatorioQuantidade.vb</DependentUpon>
     </Compile>
     <Compile Include="app\View\FormRelatorioQuantidade.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="app\View\Tarefa\FormHomeTarefas.Designer.vb">
+      <DependentUpon>FormHomeTarefas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="app\View\Tarefa\FormHomeTarefas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="app\View\Tarefa\FormTarefa.designer.vb">
@@ -257,6 +269,9 @@
     <EmbeddedResource Include="app\View\Dialog\FormSelecionarCategoria.resx">
       <DependentUpon>FormSelecionarCategoria.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="app\View\FormHomeRelatorios.resx">
+      <DependentUpon>FormHomeRelatorios.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="app\View\FormRelatorioCategoriasMaisRealizadas.resx">
       <DependentUpon>FormRelatorioCategoriasMaisRealizadas.vb</DependentUpon>
     </EmbeddedResource>
@@ -271,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="app\View\FormRelatorioQuantidade.resx">
       <DependentUpon>FormRelatorioQuantidade.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="app\View\Tarefa\FormHomeTarefas.resx">
+      <DependentUpon>FormHomeTarefas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="app\View\Tarefa\FormTarefa.resx">
       <DependentUpon>FormTarefa.vb</DependentUpon>
