@@ -135,7 +135,7 @@ Public Class TarefaDAO
         Using cn = New SQLiteConnection(DatabaseConfiguration.getConnectionString)
             cn.Open()
             Using objCommand As SQLiteCommand = cn.CreateCommand()
-                objCommand.CommandText = "UPDATE Tarefas SET descricao = '" & tarefa.descricao & "', categoria = '" & tarefa.categoria.nome & "', horarioInicio = '" & tarefa.horarioInicio & "', duracao = '" & tarefa.duracao & "', estado = '" & tarefa.estado & "' WHERE id = '" & tarefa.id & "'"
+                objCommand.CommandText = "UPDATE Tarefas SET descricao = '" & tarefa.descricao & "', categoria = '" & tarefa.categoria.nome & "', horarioInicio = '" & tarefa.horarioInicio.ToString("dd-MM-yyyy HH:mm") & "', duracao = '" & tarefa.duracao & "', estado = '" & tarefa.estado & "' WHERE id = '" & tarefa.id & "'"
                 objCommand.ExecuteNonQuery()
             End Using
             cn.Close()
