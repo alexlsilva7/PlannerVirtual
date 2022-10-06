@@ -31,17 +31,51 @@ Public Class FormTarefa
         cbFiltroEstado.SelectedIndex = 0
 
     End Sub
+    Private Sub carregarSegunda()
+        carregaListView(listViewSegunda, DayOfWeek.Monday)
+        lblDay2.Text = dataInicioSemana.AddDays(1).ToString("dd")
+    End Sub
 
-    Private Sub carregaTarefas()
+    Private Sub carregarTerca()
+        carregaListView(listViewTerca, DayOfWeek.Tuesday)
+        lblDay3.Text = dataInicioSemana.AddDays(2).ToString("dd")
+    End Sub
+
+    Private Sub carregarQuarta()
+        carregaListView(listViewQuarta, DayOfWeek.Wednesday)
+        lblDay4.Text = dataInicioSemana.AddDays(3).ToString("dd")
+    End Sub
+
+    Private Sub carregarQuinta()
+        carregaListView(listViewQuinta, DayOfWeek.Thursday)
+        lblDay5.Text = dataInicioSemana.AddDays(4).ToString("dd")
+    End Sub
+
+    Private Sub carregarSexta()
+        carregaListView(listViewSexta, DayOfWeek.Friday)
+        lblDay6.Text = dataInicioSemana.AddDays(5).ToString("dd")
+    End Sub
+
+    Private Sub carregarSabado()
+        carregaListView(listViewSabado, DayOfWeek.Saturday)
+        lblDay7.Text = dataInicioSemana.AddDays(6).ToString("dd")
+    End Sub
+
+    Private Sub carregarDomingo()
+        carregaListView(listViewDomingo, DayOfWeek.Sunday)
+        lblDay1.Text = dataInicioSemana.ToString("dd")
+    End Sub
+
+    Private Sub carregaListView(listView As ListView, dayOfWeek As DayOfWeek)
         'limpar listview
-        listViewTarefas.Items.Clear()
+        listView.Items.Clear()
         'Busca os dados
         Dim lista As List(Of Tarefa) = _TarefaDAO.listar()
 
         'Pega os lembretes da semana
         Dim listaSemana = lista.FindAll(
                 Function(tarefa)
-                    Return tarefa.horarioInicio >= dataInicioSemana And tarefa.horarioInicio <= dataFimSemana
+                    Return tarefa.horarioInicio >= dataInicioSemana And tarefa.horarioInicio <= dataFimSemana And tarefa.horarioInicio.DayOfWeek = dayOfWeek
                 End Function
             )
 
@@ -63,7 +97,7 @@ Public Class FormTarefa
                             duracao = "De noite (18h às 22h)"
                         End If
                 End Select
-                Dim item = New ListViewItem({tarefa.id.ToString, tarefa.descricao, tarefa.horarioInicio, duracao, tarefa.estado.ToString, tarefa.categoria.nome.ToString})
+                Dim item = New ListViewItem({tarefa.descricao})
                 If (tarefa.estado = EstadoAtividade.executada) Then
                     item.Font = New Font("Microsoft Sans Serif", 12, FontStyle.Strikeout)
                 End If
@@ -83,12 +117,22 @@ Public Class FormTarefa
                 End If
 
 
-                listViewTarefas.Items.Add(item)
+                listView.Items.Add(item)
 
             Next
         Catch ex As Exception
             MessageBox.Show("Erro ao carregar os dados: " & ex.Message)
         End Try
+    End Sub
+
+    Private Sub carregaTarefas()
+        carregarDomingo()
+        carregarSegunda()
+        carregarTerca()
+        carregarQuarta()
+        carregarQuinta()
+        carregarSexta()
+        carregarSabado()
     End Sub
 
     Private Sub inicializarSemana()
@@ -105,27 +149,6 @@ Public Class FormTarefa
         carregaTarefas()
     End Sub
 
-    Private Sub btnApagarTarefa_Click(sender As Object, e As EventArgs) Handles btnApagarTarefa.Click
-        Dim result = apagarTarefa(listViewTarefas)
-        If result Then carregaTarefas()
-    End Sub
-
-    Private Function apagarTarefa(listview As ListView) As Boolean
-        If listview.SelectedItems.Count > 0 Then
-            Dim descricaoSelecionada = listview.SelectedItems(0).SubItems(1).Text
-            Dim idSelecionao = Integer.Parse(listview.SelectedItems(0).SubItems(0).Text)
-            Dim result As DialogResult = MessageBox.Show("Deseja apagar a tarefa: " & descricaoSelecionada & " ?", "Apagar Tarefa", MessageBoxButtons.YesNo)
-            If result = DialogResult.No Then
-                Return False
-            ElseIf result = DialogResult.Yes Then
-                _TarefaDAO.deletar(idSelecionao)
-                Return True
-            End If
-        Else
-            MsgBox("Selecione uma tarefa para apagar")
-        End If
-        Return False
-    End Function
 
     Private Sub btnVoltarSemana_Click(sender As Object, e As EventArgs) Handles btnVoltarSemana.Click
         dataInicioSemana = dataInicioSemana.AddDays(-7)
@@ -147,22 +170,6 @@ Public Class FormTarefa
         carregaTarefas()
     End Sub
 
-    Private Sub btnEditarTarefa_Click(sender As Object, e As EventArgs) Handles btnEditarTarefa.Click
-        Dim result = editarTarefa(listViewTarefas, FormAdicionarTarefa.cbEstado.SelectedItem)
-        If result Then carregaTarefas()
-    End Sub
-
-    Private Function editarTarefa(listview As ListView, Estado As EstadoAtividade) As Boolean
-        If listview.SelectedItems.Count > 0 Then
-            Dim formAdicionarTarefa = New FormAdicionarTarefa
-            formAdicionarTarefa.tarefa = _TarefaDAO.consultar(Integer.Parse(listview.SelectedItems(0).SubItems(0).Text))
-            formAdicionarTarefa.ShowDialog()
-            Return True
-        Else
-            MsgBox("Selecione uma tarefa para editar")
-        End If
-        Return False
-    End Function
 
     Private Sub cbFiltroCategoria_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbFiltroCategoria.SelectedIndexChanged
         carregaTarefas()
@@ -172,7 +179,84 @@ Public Class FormTarefa
         carregaTarefas()
     End Sub
 
-    Private Sub lblSemana_Click(sender As Object, e As EventArgs) Handles lblSemana.Click
 
+
+    Private Sub listViewDomingo_Click(sender As Object, e As EventArgs) Handles listViewDomingo.Click
+        If listViewDomingo.SelectedItems.Count > 0 Then
+            Dim tarefaDescricao = listViewDomingo.SelectedItems(0).Text
+            Dim tarefa As Tarefa = _TarefaDAO.listar().Find(Function(t) t.descricao = tarefaDescricao)
+            Dim form As New FormMostrarTarefa
+            form.tarefa = tarefa
+            form.ShowDialog()
+            carregarDomingo()
+        End If
     End Sub
+
+    Private Sub listViewSegunda_Click(sender As Object, e As EventArgs) Handles listViewSegunda.Click
+        If listViewSegunda.SelectedItems.Count > 0 Then
+            Dim tarefaDescricao = listViewSegunda.SelectedItems(0).Text
+            Dim tarefa As Tarefa = _TarefaDAO.listar().Find(Function(t) t.descricao = tarefaDescricao)
+            Dim form As New FormMostrarTarefa
+            form.tarefa = tarefa
+            form.ShowDialog()
+            carregarSegunda()
+        End If
+    End Sub
+
+    Private Sub listViewTerca_Click(sender As Object, e As EventArgs) Handles listViewTerca.Click
+        If listViewTerca.SelectedItems.Count > 0 Then
+            Dim tarefaDescricao = listViewTerca.SelectedItems(0).Text
+            Dim tarefa As Tarefa = _TarefaDAO.listar().Find(Function(t) t.descricao = tarefaDescricao)
+            Dim form As New FormMostrarTarefa
+            form.tarefa = tarefa
+            form.ShowDialog()
+            carregarTerca()
+        End If
+    End Sub
+
+    Private Sub listViewQuarta_Click(sender As Object, e As EventArgs) Handles listViewQuarta.Click
+        If listViewQuarta.SelectedItems.Count > 0 Then
+            Dim tarefaDescricao = listViewQuarta.SelectedItems(0).Text
+            Dim tarefa As Tarefa = _TarefaDAO.listar().Find(Function(t) t.descricao = tarefaDescricao)
+            Dim form As New FormMostrarTarefa
+            form.tarefa = tarefa
+            form.ShowDialog()
+            carregarQuarta()
+        End If
+    End Sub
+
+    Private Sub listViewQuinta_Click(sender As Object, e As EventArgs) Handles listViewQuinta.Click
+        If listViewQuinta.SelectedItems.Count > 0 Then
+            Dim tarefaDescricao = listViewQuinta.SelectedItems(0).Text
+            Dim tarefa As Tarefa = _TarefaDAO.listar().Find(Function(t) t.descricao = tarefaDescricao)
+            Dim form As New FormMostrarTarefa
+            form.tarefa = tarefa
+            form.ShowDialog()
+            carregarQuinta()
+        End If
+    End Sub
+
+    Private Sub listViewSexta_Click(sender As Object, e As EventArgs) Handles listViewSexta.Click
+        If listViewSexta.SelectedItems.Count > 0 Then
+            Dim tarefaDescricao = listViewSexta.SelectedItems(0).Text
+            Dim tarefa As Tarefa = _TarefaDAO.listar().Find(Function(t) t.descricao = tarefaDescricao)
+            Dim form As New FormMostrarTarefa
+            form.tarefa = tarefa
+            form.ShowDialog()
+            carregarSexta()
+        End If
+    End Sub
+
+    Private Sub listViewSabado_Click(sender As Object, e As EventArgs) Handles listViewSabado.Click
+        If listViewSabado.SelectedItems.Count > 0 Then
+            Dim tarefaDescricao = listViewSabado.SelectedItems(0).Text
+            Dim tarefa As Tarefa = _TarefaDAO.listar().Find(Function(t) t.descricao = tarefaDescricao)
+            Dim form As New FormMostrarTarefa
+            form.tarefa = tarefa
+            form.ShowDialog()
+            carregarSabado()
+        End If
+    End Sub
+
+
 End Class

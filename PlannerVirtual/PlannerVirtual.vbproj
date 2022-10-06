@@ -213,12 +213,6 @@
     <Compile Include="app\View\Tarefa\FormTarefa.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="app\View\Tarefa\FormExibicaoSemanal.Designer.vb">
-      <DependentUpon>FormExibicaoSemanal.vb</DependentUpon>
-    </Compile>
-    <Compile Include="app\View\Tarefa\FormExibicaoSemanal.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="app\View\Tarefa\FormExibirMensal.Designer.vb">
       <DependentUpon>FormExibirMensal.vb</DependentUpon>
     </Compile>
@@ -303,9 +297,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="app\View\Tarefa\FormTarefa.resx">
       <DependentUpon>FormTarefa.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="app\View\Tarefa\FormExibicaoSemanal.resx">
-      <DependentUpon>FormExibicaoSemanal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="app\View\Tarefa\FormExibirMensal.resx">
       <DependentUpon>FormExibirMensal.vb</DependentUpon>
