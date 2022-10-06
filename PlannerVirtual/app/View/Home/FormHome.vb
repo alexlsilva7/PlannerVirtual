@@ -67,7 +67,14 @@
 
             'Define a cor do dia atual
             If New Date(dataAtual.Year, dataAtual.Month, i) = Date.Today Then
-                listFlowLayoutDay((i - 1) + (startDayAtFlNumber - 1)).BackColor = Color.Lavender
+                listFlowLayoutDay((i - 1) + (startDayAtFlNumber - 1)).BackColor = Color.AliceBlue
+            End If
+        Next
+
+        For Each fl As FlowLayoutPanel In listFlowLayoutDay
+            If fl.Tag = 0 Then
+                fl.BorderStyle = BorderStyle.None
+                fl.Enabled = False
             End If
         Next
     End Sub
@@ -109,8 +116,8 @@
     Private Sub AddNovaTarefa(ByVal sender As Object, e As EventArgs)
         Dim dia As Integer = CType(sender, FlowLayoutPanel).Tag
         If dia <> 0 Then
-            'TODO setar data do form
             Dim form As New FormAdicionarTarefa
+            form.DateTimePickerData.Value = New Date(dataAtual.Year, dataAtual.Month, dia)
             form.ShowDialog()
             MostrarDatas()
         End If
@@ -119,8 +126,9 @@
     Private Sub ExibirDetalhesTarefa(sender As Object, e As EventArgs)
         Dim id As Integer = CType(sender, LinkLabel).Tag
         Dim tarefa = _tarefaDAO.consultar(id)
-        'TODO ABRIR TELA PERSONALIZADA DE DELTALHES
-        MsgBox("Tarefa: " & tarefa.descricao)
+        Dim form As New FormMostrarTarefa
+        form.tarefa = tarefa
+        form.ShowDialog()
         MostrarDatas()
     End Sub
 

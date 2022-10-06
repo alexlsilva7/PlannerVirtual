@@ -209,6 +209,10 @@ Partial Class FormHome
         Me.Controls.Add(Me.flDays)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel1)
+        Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(956, 783)
+        Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(956, 783)
         Me.Name = "FormHome"
         Me.Text = "FormHome"
         Me.Panel3.ResumeLayout(False)
