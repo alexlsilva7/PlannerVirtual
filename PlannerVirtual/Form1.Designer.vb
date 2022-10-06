@@ -22,125 +22,89 @@ Partial Class Form1
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.btnTelaCategorias = New System.Windows.Forms.Button()
-        Me.btnSelecionarCategoriaDialog = New System.Windows.Forms.Button()
-        Me.btnTelaLembretes = New System.Windows.Forms.Button()
-        Me.btnTelaMetas = New System.Windows.Forms.Button()
-        Me.btnTarefas = New System.Windows.Forms.Button()
-        Me.btnHome = New System.Windows.Forms.Button()
         Me.btnSemana = New System.Windows.Forms.Button()
-        Me.BtnRelatorios = New System.Windows.Forms.Button()
-        Me.btnquantidade = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
-        '
-        'btnTelaCategorias
-        '
-        Me.btnTelaCategorias.Location = New System.Drawing.Point(12, 12)
-        Me.btnTelaCategorias.Name = "btnTelaCategorias"
-        Me.btnTelaCategorias.Size = New System.Drawing.Size(105, 85)
-        Me.btnTelaCategorias.TabIndex = 0
-        Me.btnTelaCategorias.Text = "Tela de Categorias"
-        Me.btnTelaCategorias.UseVisualStyleBackColor = True
-        '
-        'btnSelecionarCategoriaDialog
-        '
-        Me.btnSelecionarCategoriaDialog.Location = New System.Drawing.Point(12, 103)
-        Me.btnSelecionarCategoriaDialog.Name = "btnSelecionarCategoriaDialog"
-        Me.btnSelecionarCategoriaDialog.Size = New System.Drawing.Size(105, 38)
-        Me.btnSelecionarCategoriaDialog.TabIndex = 1
-        Me.btnSelecionarCategoriaDialog.Text = "Selecionar Categoria Dialog"
-        Me.btnSelecionarCategoriaDialog.UseVisualStyleBackColor = True
-        '
-        'btnTelaLembretes
-        '
-        Me.btnTelaLembretes.Location = New System.Drawing.Point(137, 12)
-        Me.btnTelaLembretes.Name = "btnTelaLembretes"
-        Me.btnTelaLembretes.Size = New System.Drawing.Size(105, 85)
-        Me.btnTelaLembretes.TabIndex = 2
-        Me.btnTelaLembretes.Text = "Tela de Lembretes"
-        Me.btnTelaLembretes.UseVisualStyleBackColor = True
-        '
-        'btnTelaMetas
-        '
-        Me.btnTelaMetas.Location = New System.Drawing.Point(137, 103)
-        Me.btnTelaMetas.Name = "btnTelaMetas"
-        Me.btnTelaMetas.Size = New System.Drawing.Size(108, 85)
-        Me.btnTelaMetas.TabIndex = 3
-        Me.btnTelaMetas.Text = "Tela de Metas"
-        Me.btnTelaMetas.UseVisualStyleBackColor = True
-        '
-        'btnTarefas
-        '
-        Me.btnTarefas.Location = New System.Drawing.Point(270, 12)
-        Me.btnTarefas.Name = "btnTarefas"
-        Me.btnTarefas.Size = New System.Drawing.Size(105, 85)
-        Me.btnTarefas.TabIndex = 3
-        Me.btnTarefas.Text = "Tarefas"
-        Me.btnTarefas.UseVisualStyleBackColor = True
-        '
-        'btnHome
-        '
-        Me.btnHome.Location = New System.Drawing.Point(394, 12)
-        Me.btnHome.Name = "btnHome"
-        Me.btnHome.Size = New System.Drawing.Size(105, 85)
-        Me.btnHome.TabIndex = 4
-        Me.btnHome.Text = "Home"
-        Me.btnHome.UseVisualStyleBackColor = True
         '
         'btnSemana
         '
-        Me.btnSemana.Location = New System.Drawing.Point(514, 12)
+        Me.btnSemana.Location = New System.Drawing.Point(51, 183)
         Me.btnSemana.Name = "btnSemana"
-        Me.btnSemana.Size = New System.Drawing.Size(105, 85)
+        Me.btnSemana.Size = New System.Drawing.Size(127, 24)
         Me.btnSemana.TabIndex = 5
         Me.btnSemana.Text = "Semana"
         Me.btnSemana.UseVisualStyleBackColor = True
         '
-        'BtnRelatorios
+        'Label2
         '
-        Me.BtnRelatorios.Location = New System.Drawing.Point(267, 103)
-        Me.BtnRelatorios.Name = "BtnRelatorios"
-        Me.BtnRelatorios.Size = New System.Drawing.Size(108, 85)
-        Me.BtnRelatorios.TabIndex = 6
-        Me.BtnRelatorios.Text = "Relatorios"
-        Me.BtnRelatorios.UseVisualStyleBackColor = True
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Font = New System.Drawing.Font("Source Code Pro Black", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.DodgerBlue
+        Me.Label2.Location = New System.Drawing.Point(117, 8)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(61, 44)
+        Me.Label2.TabIndex = 10
+        Me.Label2.Text = "PL"
         '
-        'btnquantidade
+        'Label3
         '
-        Me.btnquantidade.Location = New System.Drawing.Point(391, 103)
-        Me.btnquantidade.Name = "btnquantidade"
-        Me.btnquantidade.Size = New System.Drawing.Size(108, 85)
-        Me.btnquantidade.TabIndex = 7
-        Me.btnquantidade.Text = "RelatorioQntd"
-        Me.btnquantidade.UseVisualStyleBackColor = True
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Source Code Pro", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.Black
+        Me.Label3.Location = New System.Drawing.Point(94, 52)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(239, 20)
+        Me.Label3.TabIndex = 11
+        Me.Label3.Text = "Eleve Sua Produtividade"
+        '
+        'Label4
+        '
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.Font = New System.Drawing.Font("Source Code Pro Black", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.Black
+        Me.Label4.Location = New System.Drawing.Point(162, 8)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(170, 44)
+        Me.Label4.TabIndex = 12
+        Me.Label4.Text = "Planner"
+        '
+        'Label1
+        '
+        Me.Label1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Label1.Font = New System.Drawing.Font("Source Code Pro", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.Label1.Location = New System.Drawing.Point(0, 73)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(444, 84)
+        Me.Label1.TabIndex = 9
+        Me.Label1.Text = "carregando..."
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.btnquantidade)
-        Me.Controls.Add(Me.BtnRelatorios)
-        Me.Controls.Add(Me.btnTelaMetas)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(444, 157)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnSemana)
-        Me.Controls.Add(Me.btnHome)
-        Me.Controls.Add(Me.btnTarefas)
-        Me.Controls.Add(Me.btnTelaLembretes)
-        Me.Controls.Add(Me.btnSelecionarCategoriaDialog)
-        Me.Controls.Add(Me.btnTelaCategorias)
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents btnTelaCategorias As Button
-    Friend WithEvents btnSelecionarCategoriaDialog As Button
-    Friend WithEvents btnTelaLembretes As Button
-    Friend WithEvents btnTelaMetas As Button
-    Friend WithEvents btnTarefas As Button
-    Friend WithEvents btnHome As Button
     Friend WithEvents btnSemana As Button
-    Friend WithEvents BtnRelatorios As Button
-    Friend WithEvents btnquantidade As Button
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label1 As Label
 End Class

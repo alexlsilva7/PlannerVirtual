@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SQLite
+Imports System.Net.Http
 Imports System.Reflection
 Imports System.Resources.ResXFileRef
 
@@ -6,10 +7,14 @@ Public Class Form1
     Private _categoriaDAO As ICategoriaDAO
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        Me.CenterToScreen()
     End Sub
 
-    Private Sub btnTelaCategorias_Click(sender As Object, e As EventArgs) Handles btnTelaCategorias.Click
+    Sub LoadHome()
+        Dim formHome As New FormExibirMensal()
+        formHome.Show()
+    End Sub
+    Private Sub btnTelaCategorias_Click(sender As Object, e As EventArgs)
         'Abre o formulario em paralelo com o outro
         'FormCategoria.Show()
 
@@ -23,7 +28,7 @@ Public Class Form1
 
     End Sub
 
-    Private Sub btnSelecionarCategoriaDialog_Click(sender As Object, e As EventArgs) Handles btnSelecionarCategoriaDialog.Click
+    Private Sub btnSelecionarCategoriaDialog_Click(sender As Object, e As EventArgs)
         Dim formSelecionarCategoria As FormSelecionarCategoria = New FormSelecionarCategoria()
         formSelecionarCategoria.ShowDialog()
         Dim resultado = formSelecionarCategoria.result
@@ -34,23 +39,23 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub btnTelaLembretes_Click(sender As Object, e As EventArgs) Handles btnTelaLembretes.Click
+    Private Sub btnTelaLembretes_Click(sender As Object, e As EventArgs)
         Dim formLembrete As New FormLembrete
         Dim result = formLembrete.ShowDialog()
     End Sub
 
-    Private Sub btnTelaMetas_Click(sender As Object, e As EventArgs) Handles btnTelaMetas.Click
+    Private Sub btnTelaMetas_Click(sender As Object, e As EventArgs)
         Dim formMetas As New FormMeta
         Dim result = formMetas.ShowDialog()
     End Sub
 
-    Private Sub btnTarefas_Click(sender As Object, e As EventArgs) Handles btnTarefas.Click
+    Private Sub btnTarefas_Click(sender As Object, e As EventArgs)
         Dim formTarefa As New FormTarefa
         Dim result = formTarefa.ShowDialog()
     End Sub
 
-    Private Sub btnHome_Click(sender As Object, e As EventArgs) Handles btnHome.Click
-        Dim formHome As New FormHome
+    Private Sub btnHome_Click(sender As Object, e As EventArgs)
+        Dim formHome As New FormExibirMensal
         Dim result = formHome.ShowDialog()
     End Sub
 
@@ -59,13 +64,14 @@ Public Class Form1
         Dim result = formSemana.ShowDialog()
     End Sub
 
-    Private Sub BtnRelatorios_Click(sender As Object, e As EventArgs) Handles BtnRelatorios.Click
+    Private Sub BtnRelatorios_Click(sender As Object, e As EventArgs)
         Dim formRelatorio As New FormRelatorioCategoriasMaisRealizadas
         Dim result = formRelatorio.ShowDialog()
     End Sub
 
-    Private Sub btnquantidade_Click(sender As Object, e As EventArgs) Handles btnquantidade.Click
+    Private Sub btnquantidade_Click(sender As Object, e As EventArgs)
         Dim formRelatorio As New FormRelatorioQuantidade
         Dim result = formRelatorio.ShowDialog()
     End Sub
+
 End Class
