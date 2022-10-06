@@ -5,24 +5,6 @@
         MyBase.New(dataInicio, dataFim)
     End Sub
 
-    'Public Function calcularTurnosMaisProdutivos(intervalo As Integer) As Dictionary(Of String, Integer)
-    '
-    ' Dim turnosMaisProdutivos As Dictionary(Of String, Integer) = New Dictionary(Of String, Integer)
-    'Dim tarefasExecutadas As List(Of Tarefa) = getTarefasExecutadas()
-
-    'For Each tarefa As Tarefa In tarefasExecutadas
-    'Dim turno As String = getTurno(tarefa)
-    '
-    'If Not turnosMaisProdutivos.ContainsKey(turno) Then
-    '           turnosMaisProdutivos.Add(turno, 1)
-    'Else
-    '           turnosMaisProdutivos(turno) += 1
-    ' End If
-    '   Next
-
-    ' Return turnosMaisProdutivos
-    'End Function
-
     Public Function calcularSemanasMaisProdutivas(intervalo As Integer) As Dictionary(Of String, Integer)
 
         If intervalo = 1 Then
@@ -30,19 +12,37 @@
         ElseIf intervalo = 2 Then
             Return getMesesMaisProdutivos(intervalo)
         End If
-
+        Return Nothing
     End Function
 
     Public Function calcularTurnosMaisProdutivos(intervalo As Integer) As Dictionary(Of String, Integer)
 
         If intervalo = 0 Then
-            Return Nothing
+            Return getTurnosMaisProdutivos(intervalo)
         ElseIf intervalo = 1 Then
-            Return Nothing
+            Return getTurnosMaisProdutivos(intervalo)
         ElseIf intervalo = 2 Then
-            Return Nothing
+            Return getTurnosMaisProdutivos(intervalo)
         End If
+        Return Nothing
+    End Function
 
+    Public Function getTurnosMaisProdutivos(intervalo As Integer) As Dictionary(Of String, Integer)
+
+        Dim turnosMaisProdutivos As Dictionary(Of String, Integer) = New Dictionary(Of String, Integer)
+        Dim tarefasExecutadas As List(Of Tarefa) = getTarefasExecutadas()
+
+        For Each tarefa As Tarefa In tarefasExecutadas
+            Dim turno As String = getTurno(tarefa)
+
+            If Not turnosMaisProdutivos.ContainsKey(turno) Then
+                turnosMaisProdutivos.Add(turno, 1)
+            Else
+                turnosMaisProdutivos(turno) += 1
+            End If
+        Next
+
+        Return turnosMaisProdutivos
     End Function
 
     Public Function getTurno(tarefa As Tarefa) As String
