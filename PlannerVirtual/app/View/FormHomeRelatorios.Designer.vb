@@ -47,7 +47,7 @@ Partial Class FormHomeRelatorios
         Me.btnMaisRealizadas.Name = "btnMaisRealizadas"
         Me.btnMaisRealizadas.Size = New System.Drawing.Size(215, 60)
         Me.btnMaisRealizadas.TabIndex = 20
-        Me.btnMaisRealizadas.Text = "Mais Realizadas"
+        Me.btnMaisRealizadas.Text = "Categorias Mais Realizadas"
         Me.btnMaisRealizadas.UseVisualStyleBackColor = False
         '
         'Panel1
@@ -122,10 +122,9 @@ Partial Class FormHomeRelatorios
         '
         'PanelCentral
         '
-        Me.PanelCentral.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PanelCentral.Location = New System.Drawing.Point(0, 0)
+        Me.PanelCentral.Location = New System.Drawing.Point(0, 63)
         Me.PanelCentral.Name = "PanelCentral"
-        Me.PanelCentral.Size = New System.Drawing.Size(976, 911)
+        Me.PanelCentral.Size = New System.Drawing.Size(976, 848)
         Me.PanelCentral.TabIndex = 26
         '
         'FormHomeRelatorios

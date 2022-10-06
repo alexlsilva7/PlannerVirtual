@@ -26,7 +26,7 @@
         PanelSelecionadoQuantidade.Location = New Point(btnQuantidade.Location.X, btnQuantidade.Location.Y + btnQuantidade.Size.Height)
         PanelSelecionadoQuantidade.BackColor = Color.LightGray
 
-        'loadForm(New FormRelatorio)
+        loadForm(New FormRelatorioProdutividade)
     End Sub
 
     Private Sub loadForm(form As Form)
@@ -53,7 +53,7 @@
         PanelSelecionadoProdutividade.BackColor = Color.FromArgb(67, 97, 238)
         PanelSelecionadoMaisRealizadas.BackColor = Color.LightGray
         PanelSelecionadoQuantidade.BackColor = Color.LightGray
-        'loadForm(New FormTarefa)
+        loadForm(New FormRelatorioProdutividade)
     End Sub
 
     Private Sub btnMaisRealizadas_Click(sender As Object, e As EventArgs) Handles btnMaisRealizadas.Click
@@ -64,7 +64,7 @@
         PanelSelecionadoMaisRealizadas.BackColor = Color.FromArgb(67, 97, 238)
         PanelSelecionadoProdutividade.BackColor = Color.LightGray
         PanelSelecionadoQuantidade.BackColor = Color.LightGray
-        'loadForm(New FormTarefa)
+        loadForm(New FormRelatorioCategoriasMaisRealizadas)
     End Sub
 
     Private Sub btnQuantidade_Click(sender As Object, e As EventArgs) Handles btnQuantidade.Click
@@ -75,6 +75,6 @@
         PanelSelecionadoQuantidade.BackColor = Color.FromArgb(67, 97, 238)
         PanelSelecionadoProdutividade.BackColor = Color.LightGray
         PanelSelecionadoMaisRealizadas.BackColor = Color.LightGray
-        'loadForm(New FormTarefa)
+        loadForm(New FormRelatorioQuantidade)
     End Sub
 End Class
