@@ -25,6 +25,9 @@ Partial Class FormRelatorioProdutividade
         Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.ChartTurnos = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.lblTipoRelatorio = New System.Windows.Forms.Label()
@@ -37,11 +40,13 @@ Partial Class FormRelatorioProdutividade
         Me.lblSemana = New System.Windows.Forms.Label()
         Me.btnAvancarSemana = New System.Windows.Forms.Button()
         Me.btnVoltarSemana = New System.Windows.Forms.Button()
+        Me.ChartSemanas = New System.Windows.Forms.DataVisualization.Charting.Chart()
         CType(Me.ChartTurnos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.Panel5.SuspendLayout()
         Me.Panel4.SuspendLayout()
+        CType(Me.ChartSemanas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ChartTurnos
@@ -174,11 +179,29 @@ Partial Class FormRelatorioProdutividade
         Me.btnVoltarSemana.Text = "<"
         Me.btnVoltarSemana.UseVisualStyleBackColor = True
         '
+        'ChartSemanas
+        '
+        ChartArea2.Name = "ChartArea1"
+        Me.ChartSemanas.ChartAreas.Add(ChartArea2)
+        Legend2.Name = "Legend1"
+        Me.ChartSemanas.Legends.Add(Legend2)
+        Me.ChartSemanas.Location = New System.Drawing.Point(360, 138)
+        Me.ChartSemanas.Name = "ChartSemanas"
+        Series2.ChartArea = "ChartArea1"
+        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar
+        Series2.Legend = "Legend1"
+        Series2.Name = "Semanas"
+        Me.ChartSemanas.Series.Add(Series2)
+        Me.ChartSemanas.Size = New System.Drawing.Size(428, 300)
+        Me.ChartSemanas.TabIndex = 28
+        Me.ChartSemanas.Text = "Chart1"
+        '
         'FormRelatorioProdutividade
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.ChartSemanas)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.ChartTurnos)
         Me.Name = "FormRelatorioProdutividade"
@@ -189,6 +212,7 @@ Partial Class FormRelatorioProdutividade
         Me.Panel6.ResumeLayout(False)
         Me.Panel5.ResumeLayout(False)
         Me.Panel4.ResumeLayout(False)
+        CType(Me.ChartSemanas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -205,4 +229,5 @@ Partial Class FormRelatorioProdutividade
     Friend WithEvents lblSemana As Label
     Friend WithEvents btnAvancarSemana As Button
     Friend WithEvents btnVoltarSemana As Button
+    Friend WithEvents ChartSemanas As DataVisualization.Charting.Chart
 End Class
