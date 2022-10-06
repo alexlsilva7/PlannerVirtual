@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class FormHome
+Partial Class FormExibirMensal
     Inherits System.Windows.Forms.Form
 
     'Descartar substituições de formulário para limpar a lista de componentes.
@@ -52,14 +52,14 @@ Partial Class FormHome
         Me.Panel3.Controls.Add(Me.Label2)
         Me.Panel3.Controls.Add(Me.Label1)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel3.Location = New System.Drawing.Point(0, 72)
+        Me.Panel3.Location = New System.Drawing.Point(10, 72)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(940, 35)
+        Me.Panel3.Size = New System.Drawing.Size(956, 35)
         Me.Panel3.TabIndex = 4
         '
         'Label5
         '
-        Me.Label5.BackColor = System.Drawing.Color.White
+        Me.Label5.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(807, 3)
         Me.Label5.Name = "Label5"
@@ -70,7 +70,7 @@ Partial Class FormHome
         '
         'Label6
         '
-        Me.Label6.BackColor = System.Drawing.Color.White
+        Me.Label6.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(673, 2)
         Me.Label6.Name = "Label6"
@@ -81,7 +81,7 @@ Partial Class FormHome
         '
         'Label7
         '
-        Me.Label7.BackColor = System.Drawing.Color.White
+        Me.Label7.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.Location = New System.Drawing.Point(539, 2)
         Me.Label7.Name = "Label7"
@@ -92,7 +92,7 @@ Partial Class FormHome
         '
         'Label4
         '
-        Me.Label4.BackColor = System.Drawing.Color.White
+        Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(408, 2)
         Me.Label4.Name = "Label4"
@@ -103,7 +103,7 @@ Partial Class FormHome
         '
         'Label3
         '
-        Me.Label3.BackColor = System.Drawing.Color.White
+        Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(271, 2)
         Me.Label3.Name = "Label3"
@@ -114,7 +114,7 @@ Partial Class FormHome
         '
         'Label2
         '
-        Me.Label2.BackColor = System.Drawing.Color.White
+        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(137, 2)
         Me.Label2.Name = "Label2"
@@ -125,7 +125,7 @@ Partial Class FormHome
         '
         'Label1
         '
-        Me.Label1.BackColor = System.Drawing.Color.White
+        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(-4, 2)
         Me.Label1.Name = "Label1"
@@ -139,9 +139,9 @@ Partial Class FormHome
         Me.Panel1.Controls.Add(Me.lblMonthAndYear)
         Me.Panel1.Controls.Add(Me.Panel2)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Location = New System.Drawing.Point(10, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(940, 72)
+        Me.Panel1.Size = New System.Drawing.Size(956, 72)
         Me.Panel1.TabIndex = 3
         '
         'lblMonthAndYear
@@ -160,60 +160,78 @@ Partial Class FormHome
         Me.Panel2.Controls.Add(Me.btnAvancarMes)
         Me.Panel2.Controls.Add(Me.btnVoltarMes)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel2.Location = New System.Drawing.Point(732, 0)
+        Me.Panel2.Location = New System.Drawing.Point(723, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(208, 72)
+        Me.Panel2.Size = New System.Drawing.Size(233, 72)
         Me.Panel2.TabIndex = 0
         '
         'btnMesAtual
         '
-        Me.btnMesAtual.Location = New System.Drawing.Point(62, 18)
+        Me.btnMesAtual.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.btnMesAtual.FlatAppearance.BorderSize = 0
+        Me.btnMesAtual.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnMesAtual.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMesAtual.Location = New System.Drawing.Point(66, 18)
         Me.btnMesAtual.Name = "btnMesAtual"
         Me.btnMesAtual.Size = New System.Drawing.Size(84, 34)
         Me.btnMesAtual.TabIndex = 2
         Me.btnMesAtual.Text = "Mês Atual"
-        Me.btnMesAtual.UseVisualStyleBackColor = True
+        Me.btnMesAtual.UseVisualStyleBackColor = False
         '
         'btnAvancarMes
         '
-        Me.btnAvancarMes.Location = New System.Drawing.Point(152, 18)
+        Me.btnAvancarMes.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.btnAvancarMes.FlatAppearance.BorderSize = 0
+        Me.btnAvancarMes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAvancarMes.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAvancarMes.Location = New System.Drawing.Point(156, 18)
         Me.btnAvancarMes.Name = "btnAvancarMes"
         Me.btnAvancarMes.Size = New System.Drawing.Size(56, 34)
         Me.btnAvancarMes.TabIndex = 1
         Me.btnAvancarMes.Text = ">"
-        Me.btnAvancarMes.UseVisualStyleBackColor = True
+        Me.btnAvancarMes.UseVisualStyleBackColor = False
         '
         'btnVoltarMes
         '
-        Me.btnVoltarMes.Location = New System.Drawing.Point(0, 18)
+        Me.btnVoltarMes.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.btnVoltarMes.FlatAppearance.BorderSize = 0
+        Me.btnVoltarMes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVoltarMes.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVoltarMes.Location = New System.Drawing.Point(4, 18)
         Me.btnVoltarMes.Name = "btnVoltarMes"
         Me.btnVoltarMes.Size = New System.Drawing.Size(56, 34)
         Me.btnVoltarMes.TabIndex = 0
         Me.btnVoltarMes.Text = "<"
-        Me.btnVoltarMes.UseVisualStyleBackColor = True
+        Me.btnVoltarMes.UseVisualStyleBackColor = False
         '
         'flDays
         '
         Me.flDays.BackColor = System.Drawing.Color.White
         Me.flDays.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.flDays.Location = New System.Drawing.Point(0, 107)
+        Me.flDays.Location = New System.Drawing.Point(10, 107)
+        Me.flDays.MaximumSize = New System.Drawing.Size(940, 637)
+        Me.flDays.MinimumSize = New System.Drawing.Size(940, 637)
         Me.flDays.Name = "flDays"
         Me.flDays.Size = New System.Drawing.Size(940, 637)
         Me.flDays.TabIndex = 5
         '
-        'FormHome
+        'FormExibirMensal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(940, 744)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(976, 783)
+        Me.ControlBox = False
         Me.Controls.Add(Me.flDays)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(956, 783)
+        Me.MaximumSize = New System.Drawing.Size(976, 783)
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(956, 783)
-        Me.Name = "FormHome"
+        Me.MinimumSize = New System.Drawing.Size(976, 783)
+        Me.Name = "FormExibirMensal"
+        Me.Padding = New System.Windows.Forms.Padding(10, 0, 10, 0)
         Me.Text = "FormHome"
         Me.Panel3.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)

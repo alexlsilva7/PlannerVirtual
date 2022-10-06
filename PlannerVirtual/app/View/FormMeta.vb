@@ -63,6 +63,7 @@ Public Class FormMeta
             For Each meta As Meta In lista
                 Console.WriteLine(meta)
                 Dim item = New ListViewItem({meta.id, meta.descricao, meta.categoria.nome, meta.estado.ToString, meta.data})
+                item.ForeColor = meta.categoria.cor
                 listViewSemanais.Items.Add(item)
             Next
         Catch ex As Exception
@@ -81,6 +82,7 @@ Public Class FormMeta
             For Each meta As Meta In lista
                 Console.WriteLine(meta)
                 Dim item = New ListViewItem({meta.id, meta.descricao, meta.categoria.nome, meta.estado.ToString, meta.data})
+                item.ForeColor = meta.categoria.cor
                 ListViewMensais.Items.Add(item)
             Next
         Catch ex As Exception
@@ -99,6 +101,7 @@ Public Class FormMeta
             For Each meta As Meta In lista
                 Console.WriteLine(meta)
                 Dim item = New ListViewItem({meta.id, meta.descricao, meta.categoria.nome, meta.estado.ToString, meta.data})
+                item.ForeColor = meta.categoria.cor
                 ListViewAnuais.Items.Add(item)
             Next
         Catch ex As Exception

@@ -69,12 +69,14 @@ Partial Class FormMeta
         'listViewSemanais
         '
         Me.listViewSemanais.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.id, Me.Descrição, Me.Categoria, Me.Estado, Me.Data})
+        Me.listViewSemanais.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.listViewSemanais.FullRowSelect = True
         Me.listViewSemanais.HideSelection = False
-        Me.listViewSemanais.Location = New System.Drawing.Point(12, 56)
+        Me.listViewSemanais.Location = New System.Drawing.Point(12, 49)
+        Me.listViewSemanais.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.listViewSemanais.MultiSelect = False
         Me.listViewSemanais.Name = "listViewSemanais"
-        Me.listViewSemanais.Size = New System.Drawing.Size(745, 200)
+        Me.listViewSemanais.Size = New System.Drawing.Size(1116, 200)
         Me.listViewSemanais.TabIndex = 1
         Me.listViewSemanais.UseCompatibleStateImageBehavior = False
         Me.listViewSemanais.View = System.Windows.Forms.View.Details
@@ -106,12 +108,14 @@ Partial Class FormMeta
         'ListViewMensais
         '
         Me.ListViewMensais.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader3, Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader4, Me.ColumnHeader5})
+        Me.ListViewMensais.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.ListViewMensais.FullRowSelect = True
         Me.ListViewMensais.HideSelection = False
-        Me.ListViewMensais.Location = New System.Drawing.Point(8, 341)
+        Me.ListViewMensais.Location = New System.Drawing.Point(9, 351)
+        Me.ListViewMensais.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ListViewMensais.MultiSelect = False
         Me.ListViewMensais.Name = "ListViewMensais"
-        Me.ListViewMensais.Size = New System.Drawing.Size(745, 200)
+        Me.ListViewMensais.Size = New System.Drawing.Size(1116, 200)
         Me.ListViewMensais.TabIndex = 3
         Me.ListViewMensais.UseCompatibleStateImageBehavior = False
         Me.ListViewMensais.View = System.Windows.Forms.View.Details
@@ -143,12 +147,14 @@ Partial Class FormMeta
         'ListViewAnuais
         '
         Me.ListViewAnuais.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader8, Me.ColumnHeader6, Me.ColumnHeader7, Me.ColumnHeader9, Me.ColumnHeader10})
+        Me.ListViewAnuais.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.ListViewAnuais.FullRowSelect = True
         Me.ListViewAnuais.HideSelection = False
-        Me.ListViewAnuais.Location = New System.Drawing.Point(8, 660)
+        Me.ListViewAnuais.Location = New System.Drawing.Point(9, 644)
+        Me.ListViewAnuais.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ListViewAnuais.MultiSelect = False
         Me.ListViewAnuais.Name = "ListViewAnuais"
-        Me.ListViewAnuais.Size = New System.Drawing.Size(745, 200)
+        Me.ListViewAnuais.Size = New System.Drawing.Size(1116, 200)
         Me.ListViewAnuais.TabIndex = 5
         Me.ListViewAnuais.UseCompatibleStateImageBehavior = False
         Me.ListViewAnuais.View = System.Windows.Forms.View.Details
@@ -179,202 +185,301 @@ Partial Class FormMeta
         '
         'btnAdicionarMetaSemanal
         '
-        Me.btnAdicionarMetaSemanal.Location = New System.Drawing.Point(12, 262)
+        Me.btnAdicionarMetaSemanal.BackColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(97, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.btnAdicionarMetaSemanal.FlatAppearance.BorderSize = 0
+        Me.btnAdicionarMetaSemanal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAdicionarMetaSemanal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAdicionarMetaSemanal.ForeColor = System.Drawing.Color.White
+        Me.btnAdicionarMetaSemanal.Location = New System.Drawing.Point(11, 257)
+        Me.btnAdicionarMetaSemanal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnAdicionarMetaSemanal.Name = "btnAdicionarMetaSemanal"
-        Me.btnAdicionarMetaSemanal.Size = New System.Drawing.Size(107, 23)
+        Me.btnAdicionarMetaSemanal.Size = New System.Drawing.Size(160, 28)
         Me.btnAdicionarMetaSemanal.TabIndex = 7
         Me.btnAdicionarMetaSemanal.Text = "Adicionar"
-        Me.btnAdicionarMetaSemanal.UseVisualStyleBackColor = True
+        Me.btnAdicionarMetaSemanal.UseVisualStyleBackColor = False
         '
         'btnApagarSemanal
         '
-        Me.btnApagarSemanal.Location = New System.Drawing.Point(233, 262)
+        Me.btnApagarSemanal.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.btnApagarSemanal.FlatAppearance.BorderSize = 0
+        Me.btnApagarSemanal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnApagarSemanal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnApagarSemanal.Location = New System.Drawing.Point(343, 257)
+        Me.btnApagarSemanal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnApagarSemanal.Name = "btnApagarSemanal"
-        Me.btnApagarSemanal.Size = New System.Drawing.Size(155, 23)
+        Me.btnApagarSemanal.Size = New System.Drawing.Size(232, 28)
         Me.btnApagarSemanal.TabIndex = 10
         Me.btnApagarSemanal.Text = "Apagar"
-        Me.btnApagarSemanal.UseVisualStyleBackColor = True
+        Me.btnApagarSemanal.UseVisualStyleBackColor = False
         '
         'btnEditarSemanal
         '
-        Me.btnEditarSemanal.Location = New System.Drawing.Point(125, 262)
+        Me.btnEditarSemanal.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.btnEditarSemanal.FlatAppearance.BorderSize = 0
+        Me.btnEditarSemanal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEditarSemanal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEditarSemanal.Location = New System.Drawing.Point(181, 257)
+        Me.btnEditarSemanal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnEditarSemanal.Name = "btnEditarSemanal"
-        Me.btnEditarSemanal.Size = New System.Drawing.Size(102, 23)
+        Me.btnEditarSemanal.Size = New System.Drawing.Size(153, 28)
         Me.btnEditarSemanal.TabIndex = 8
         Me.btnEditarSemanal.Text = "Editar"
-        Me.btnEditarSemanal.UseVisualStyleBackColor = True
+        Me.btnEditarSemanal.UseVisualStyleBackColor = False
         '
         'btnApagarMensal
         '
-        Me.btnApagarMensal.Location = New System.Drawing.Point(229, 547)
+        Me.btnApagarMensal.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.btnApagarMensal.FlatAppearance.BorderSize = 0
+        Me.btnApagarMensal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnApagarMensal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnApagarMensal.Location = New System.Drawing.Point(343, 559)
+        Me.btnApagarMensal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnApagarMensal.Name = "btnApagarMensal"
-        Me.btnApagarMensal.Size = New System.Drawing.Size(155, 23)
+        Me.btnApagarMensal.Size = New System.Drawing.Size(232, 28)
         Me.btnApagarMensal.TabIndex = 13
         Me.btnApagarMensal.Text = "Apagar"
-        Me.btnApagarMensal.UseVisualStyleBackColor = True
+        Me.btnApagarMensal.UseVisualStyleBackColor = False
         '
         'btnEditarMensal
         '
-        Me.btnEditarMensal.Location = New System.Drawing.Point(120, 547)
+        Me.btnEditarMensal.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.btnEditarMensal.FlatAppearance.BorderSize = 0
+        Me.btnEditarMensal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEditarMensal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEditarMensal.Location = New System.Drawing.Point(179, 559)
+        Me.btnEditarMensal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnEditarMensal.Name = "btnEditarMensal"
-        Me.btnEditarMensal.Size = New System.Drawing.Size(102, 23)
+        Me.btnEditarMensal.Size = New System.Drawing.Size(153, 28)
         Me.btnEditarMensal.TabIndex = 12
         Me.btnEditarMensal.Text = "Editar"
-        Me.btnEditarMensal.UseVisualStyleBackColor = True
+        Me.btnEditarMensal.UseVisualStyleBackColor = False
         '
         'btnAdicionarMetaMensal
         '
-        Me.btnAdicionarMetaMensal.Location = New System.Drawing.Point(7, 547)
+        Me.btnAdicionarMetaMensal.BackColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(97, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.btnAdicionarMetaMensal.FlatAppearance.BorderSize = 0
+        Me.btnAdicionarMetaMensal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAdicionarMetaMensal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAdicionarMetaMensal.ForeColor = System.Drawing.Color.White
+        Me.btnAdicionarMetaMensal.Location = New System.Drawing.Point(9, 559)
+        Me.btnAdicionarMetaMensal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnAdicionarMetaMensal.Name = "btnAdicionarMetaMensal"
-        Me.btnAdicionarMetaMensal.Size = New System.Drawing.Size(107, 23)
+        Me.btnAdicionarMetaMensal.Size = New System.Drawing.Size(160, 28)
         Me.btnAdicionarMetaMensal.TabIndex = 11
         Me.btnAdicionarMetaMensal.Text = "Adicionar"
-        Me.btnAdicionarMetaMensal.UseVisualStyleBackColor = True
+        Me.btnAdicionarMetaMensal.UseVisualStyleBackColor = False
         '
         'btnApagarAnual
         '
-        Me.btnApagarAnual.Location = New System.Drawing.Point(229, 866)
+        Me.btnApagarAnual.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.btnApagarAnual.FlatAppearance.BorderSize = 0
+        Me.btnApagarAnual.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnApagarAnual.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnApagarAnual.Location = New System.Drawing.Point(341, 852)
+        Me.btnApagarAnual.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnApagarAnual.Name = "btnApagarAnual"
-        Me.btnApagarAnual.Size = New System.Drawing.Size(155, 23)
+        Me.btnApagarAnual.Size = New System.Drawing.Size(232, 28)
         Me.btnApagarAnual.TabIndex = 16
         Me.btnApagarAnual.Text = "Apagar"
-        Me.btnApagarAnual.UseVisualStyleBackColor = True
+        Me.btnApagarAnual.UseVisualStyleBackColor = False
         '
         'btnEditarAnual
         '
-        Me.btnEditarAnual.Location = New System.Drawing.Point(121, 866)
+        Me.btnEditarAnual.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.btnEditarAnual.FlatAppearance.BorderSize = 0
+        Me.btnEditarAnual.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEditarAnual.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEditarAnual.Location = New System.Drawing.Point(179, 852)
+        Me.btnEditarAnual.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnEditarAnual.Name = "btnEditarAnual"
-        Me.btnEditarAnual.Size = New System.Drawing.Size(102, 23)
+        Me.btnEditarAnual.Size = New System.Drawing.Size(153, 28)
         Me.btnEditarAnual.TabIndex = 15
         Me.btnEditarAnual.Text = "Editar"
-        Me.btnEditarAnual.UseVisualStyleBackColor = True
+        Me.btnEditarAnual.UseVisualStyleBackColor = False
         '
         'btnAdicionarMetaAnual
         '
-        Me.btnAdicionarMetaAnual.Location = New System.Drawing.Point(8, 866)
+        Me.btnAdicionarMetaAnual.BackColor = System.Drawing.Color.FromArgb(CType(CType(67, Byte), Integer), CType(CType(97, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.btnAdicionarMetaAnual.FlatAppearance.BorderSize = 0
+        Me.btnAdicionarMetaAnual.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAdicionarMetaAnual.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAdicionarMetaAnual.ForeColor = System.Drawing.Color.White
+        Me.btnAdicionarMetaAnual.Location = New System.Drawing.Point(9, 852)
+        Me.btnAdicionarMetaAnual.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnAdicionarMetaAnual.Name = "btnAdicionarMetaAnual"
-        Me.btnAdicionarMetaAnual.Size = New System.Drawing.Size(107, 23)
+        Me.btnAdicionarMetaAnual.Size = New System.Drawing.Size(160, 28)
         Me.btnAdicionarMetaAnual.TabIndex = 14
         Me.btnAdicionarMetaAnual.Text = "Adicionar"
-        Me.btnAdicionarMetaAnual.UseVisualStyleBackColor = True
+        Me.btnAdicionarMetaAnual.UseVisualStyleBackColor = False
         '
         'btnSemanaAtual
         '
-        Me.btnSemanaAtual.Location = New System.Drawing.Point(195, 27)
+        Me.btnSemanaAtual.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.btnSemanaAtual.FlatAppearance.BorderSize = 0
+        Me.btnSemanaAtual.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSemanaAtual.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSemanaAtual.Location = New System.Drawing.Point(286, 13)
+        Me.btnSemanaAtual.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnSemanaAtual.Name = "btnSemanaAtual"
-        Me.btnSemanaAtual.Size = New System.Drawing.Size(65, 23)
+        Me.btnSemanaAtual.Size = New System.Drawing.Size(98, 28)
         Me.btnSemanaAtual.TabIndex = 35
         Me.btnSemanaAtual.Text = "Atual"
-        Me.btnSemanaAtual.UseVisualStyleBackColor = True
+        Me.btnSemanaAtual.UseVisualStyleBackColor = False
         '
         'btnAvancarSemana
         '
-        Me.btnAvancarSemana.Location = New System.Drawing.Point(464, 27)
+        Me.btnAvancarSemana.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.btnAvancarSemana.FlatAppearance.BorderSize = 0
+        Me.btnAvancarSemana.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAvancarSemana.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAvancarSemana.Location = New System.Drawing.Point(690, 13)
+        Me.btnAvancarSemana.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnAvancarSemana.Name = "btnAvancarSemana"
-        Me.btnAvancarSemana.Size = New System.Drawing.Size(35, 23)
+        Me.btnAvancarSemana.Size = New System.Drawing.Size(52, 28)
         Me.btnAvancarSemana.TabIndex = 34
         Me.btnAvancarSemana.Text = ">"
-        Me.btnAvancarSemana.UseVisualStyleBackColor = True
+        Me.btnAvancarSemana.UseVisualStyleBackColor = False
         '
         'lblSemana
         '
         Me.lblSemana.AutoSize = True
-        Me.lblSemana.Location = New System.Drawing.Point(321, 34)
+        Me.lblSemana.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSemana.Location = New System.Drawing.Point(476, 22)
+        Me.lblSemana.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblSemana.Name = "lblSemana"
-        Me.lblSemana.Size = New System.Drawing.Size(46, 13)
+        Me.lblSemana.Size = New System.Drawing.Size(64, 16)
         Me.lblSemana.TabIndex = 33
         Me.lblSemana.Text = "Semana"
         Me.lblSemana.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'btnVoltarSemana
         '
-        Me.btnVoltarSemana.Location = New System.Drawing.Point(280, 27)
+        Me.btnVoltarSemana.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.btnVoltarSemana.FlatAppearance.BorderSize = 0
+        Me.btnVoltarSemana.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVoltarSemana.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVoltarSemana.Location = New System.Drawing.Point(414, 13)
+        Me.btnVoltarSemana.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnVoltarSemana.Name = "btnVoltarSemana"
-        Me.btnVoltarSemana.Size = New System.Drawing.Size(35, 23)
+        Me.btnVoltarSemana.Size = New System.Drawing.Size(52, 28)
         Me.btnVoltarSemana.TabIndex = 31
         Me.btnVoltarSemana.Text = "<"
-        Me.btnVoltarSemana.UseVisualStyleBackColor = True
+        Me.btnVoltarSemana.UseVisualStyleBackColor = False
         '
         'btnAnoAtual
         '
-        Me.btnAnoAtual.Location = New System.Drawing.Point(195, 631)
+        Me.btnAnoAtual.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.btnAnoAtual.FlatAppearance.BorderSize = 0
+        Me.btnAnoAtual.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAnoAtual.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAnoAtual.Location = New System.Drawing.Point(289, 609)
+        Me.btnAnoAtual.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnAnoAtual.Name = "btnAnoAtual"
-        Me.btnAnoAtual.Size = New System.Drawing.Size(65, 23)
+        Me.btnAnoAtual.Size = New System.Drawing.Size(98, 28)
         Me.btnAnoAtual.TabIndex = 46
         Me.btnAnoAtual.Text = "Atual"
-        Me.btnAnoAtual.UseVisualStyleBackColor = True
+        Me.btnAnoAtual.UseVisualStyleBackColor = False
         '
         'btnAvancarAno
         '
-        Me.btnAvancarAno.Location = New System.Drawing.Point(462, 631)
+        Me.btnAvancarAno.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.btnAvancarAno.FlatAppearance.BorderSize = 0
+        Me.btnAvancarAno.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAvancarAno.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAvancarAno.Location = New System.Drawing.Point(693, 607)
+        Me.btnAvancarAno.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnAvancarAno.Name = "btnAvancarAno"
-        Me.btnAvancarAno.Size = New System.Drawing.Size(35, 23)
+        Me.btnAvancarAno.Size = New System.Drawing.Size(52, 28)
         Me.btnAvancarAno.TabIndex = 45
         Me.btnAvancarAno.Text = ">"
-        Me.btnAvancarAno.UseVisualStyleBackColor = True
+        Me.btnAvancarAno.UseVisualStyleBackColor = False
         '
         'lblAno
         '
         Me.lblAno.AutoSize = True
-        Me.lblAno.Location = New System.Drawing.Point(317, 636)
+        Me.lblAno.Location = New System.Drawing.Point(473, 615)
+        Me.lblAno.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblAno.Name = "lblAno"
-        Me.lblAno.Size = New System.Drawing.Size(26, 13)
+        Me.lblAno.Size = New System.Drawing.Size(34, 16)
         Me.lblAno.TabIndex = 44
         Me.lblAno.Text = "Ano"
         Me.lblAno.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'btnVoltarAno
         '
-        Me.btnVoltarAno.Location = New System.Drawing.Point(276, 631)
+        Me.btnVoltarAno.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.btnVoltarAno.FlatAppearance.BorderSize = 0
+        Me.btnVoltarAno.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVoltarAno.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVoltarAno.Location = New System.Drawing.Point(411, 609)
+        Me.btnVoltarAno.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnVoltarAno.Name = "btnVoltarAno"
-        Me.btnVoltarAno.Size = New System.Drawing.Size(35, 23)
+        Me.btnVoltarAno.Size = New System.Drawing.Size(52, 28)
         Me.btnVoltarAno.TabIndex = 43
         Me.btnVoltarAno.Text = "<"
-        Me.btnVoltarAno.UseVisualStyleBackColor = True
+        Me.btnVoltarAno.UseVisualStyleBackColor = False
         '
         'btnMesAtual
         '
-        Me.btnMesAtual.Location = New System.Drawing.Point(195, 312)
+        Me.btnMesAtual.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.btnMesAtual.FlatAppearance.BorderSize = 0
+        Me.btnMesAtual.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnMesAtual.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMesAtual.Location = New System.Drawing.Point(289, 315)
+        Me.btnMesAtual.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnMesAtual.Name = "btnMesAtual"
-        Me.btnMesAtual.Size = New System.Drawing.Size(65, 23)
+        Me.btnMesAtual.Size = New System.Drawing.Size(98, 28)
         Me.btnMesAtual.TabIndex = 50
         Me.btnMesAtual.Text = "Atual"
-        Me.btnMesAtual.UseVisualStyleBackColor = True
+        Me.btnMesAtual.UseVisualStyleBackColor = False
         '
         'btnAvancarMes
         '
-        Me.btnAvancarMes.Location = New System.Drawing.Point(464, 312)
+        Me.btnAvancarMes.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.btnAvancarMes.FlatAppearance.BorderSize = 0
+        Me.btnAvancarMes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAvancarMes.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAvancarMes.Location = New System.Drawing.Point(693, 315)
+        Me.btnAvancarMes.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnAvancarMes.Name = "btnAvancarMes"
-        Me.btnAvancarMes.Size = New System.Drawing.Size(35, 23)
+        Me.btnAvancarMes.Size = New System.Drawing.Size(52, 28)
         Me.btnAvancarMes.TabIndex = 49
         Me.btnAvancarMes.Text = ">"
-        Me.btnAvancarMes.UseVisualStyleBackColor = True
+        Me.btnAvancarMes.UseVisualStyleBackColor = False
         '
         'lblMes
         '
         Me.lblMes.AutoSize = True
-        Me.lblMes.Location = New System.Drawing.Point(317, 317)
+        Me.lblMes.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMes.Location = New System.Drawing.Point(473, 321)
+        Me.lblMes.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblMes.Name = "lblMes"
-        Me.lblMes.Size = New System.Drawing.Size(27, 13)
+        Me.lblMes.Size = New System.Drawing.Size(36, 16)
         Me.lblMes.TabIndex = 48
         Me.lblMes.Text = "Mês"
         Me.lblMes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'btnVoltarMes
         '
-        Me.btnVoltarMes.Location = New System.Drawing.Point(276, 312)
+        Me.btnVoltarMes.BackColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.btnVoltarMes.FlatAppearance.BorderSize = 0
+        Me.btnVoltarMes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVoltarMes.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVoltarMes.Location = New System.Drawing.Point(411, 315)
+        Me.btnVoltarMes.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnVoltarMes.Name = "btnVoltarMes"
-        Me.btnVoltarMes.Size = New System.Drawing.Size(35, 23)
+        Me.btnVoltarMes.Size = New System.Drawing.Size(52, 28)
         Me.btnVoltarMes.TabIndex = 47
         Me.btnVoltarMes.Text = "<"
-        Me.btnVoltarMes.UseVisualStyleBackColor = True
+        Me.btnVoltarMes.UseVisualStyleBackColor = False
         '
         'Label7
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.Label7.Location = New System.Drawing.Point(8, 633)
+        Me.Label7.Location = New System.Drawing.Point(5, 609)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(135, 24)
         Me.Label7.TabIndex = 51
@@ -385,7 +490,8 @@ Partial Class FormMeta
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.Label3.Location = New System.Drawing.Point(8, 314)
+        Me.Label3.Location = New System.Drawing.Point(5, 315)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(148, 24)
         Me.Label3.TabIndex = 52
@@ -396,7 +502,8 @@ Partial Class FormMeta
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.Label1.Location = New System.Drawing.Point(12, 29)
+        Me.Label1.Location = New System.Drawing.Point(7, 13)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(162, 24)
         Me.Label1.TabIndex = 53
@@ -404,9 +511,11 @@ Partial Class FormMeta
         '
         'FormMeta
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(775, 907)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(1440, 911)
+        Me.ControlBox = False
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label7)
@@ -434,6 +543,9 @@ Partial Class FormMeta
         Me.Controls.Add(Me.ListViewAnuais)
         Me.Controls.Add(Me.ListViewMensais)
         Me.Controls.Add(Me.listViewSemanais)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "FormMeta"
         Me.Text = "FormMeta"
         Me.ResumeLayout(False)
