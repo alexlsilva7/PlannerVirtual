@@ -199,10 +199,16 @@
     <Compile Include="app\View\Home\FormExibicaoSemanal.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="app\View\Home\FormHome.Designer.vb">
-      <DependentUpon>FormHome.vb</DependentUpon>
+    <Compile Include="app\View\Home\FormExibirMensal.Designer.vb">
+      <DependentUpon>FormExibirMensal.vb</DependentUpon>
     </Compile>
-    <Compile Include="app\View\Home\FormHome.vb">
+    <Compile Include="app\View\Home\FormExibirMensal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="app\View\Home\FormHomePage.Designer.vb">
+      <DependentUpon>FormHomePage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="app\View\Home\FormHomePage.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.vb">
@@ -216,6 +222,7 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -271,8 +278,11 @@
     <EmbeddedResource Include="app\View\Home\FormExibicaoSemanal.resx">
       <DependentUpon>FormExibicaoSemanal.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="app\View\Home\FormHome.resx">
-      <DependentUpon>FormHome.vb</DependentUpon>
+    <EmbeddedResource Include="app\View\Home\FormExibirMensal.resx">
+      <DependentUpon>FormExibirMensal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="app\View\Home\FormHomePage.resx">
+      <DependentUpon>FormHomePage.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
@@ -297,6 +307,9 @@
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\Assets\PLPlanner_logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.116.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.116.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
