@@ -42,13 +42,38 @@ Public Class FormCategoria
 
     Private Sub btnApagar_Click(sender As Object, e As EventArgs) Handles btnApagar.Click
         If listviewCategorias.SelectedItems.Count > 0 Then
-            Dim nome As String = listviewCategorias.SelectedItems(0).Text
-            Try
-                _categoriaDAO.deletar(nome)
-                carregaDados()
-            Catch ex As Exception
-                MsgBox("Erro ao apagar categoria: " & ex.ToString)
-            End Try
+            'verifica se alguma tarefa ou meta está usando a categoria
+            Dim listaTarefas As List(Of Tarefa) = TarefaDAO.getSingletonObject.listar()
+            Dim listaMetas As List(Of Meta) = MetaDAO.getSingletonObject.listar()
+
+            Dim tarefaUsandoCategoria As Boolean = False
+            Dim metaUsandoCategoria As Boolean = False
+
+            Dim nomeCategoria As String = listviewCategorias.SelectedItems(0).Text
+
+            For Each tarefa As Tarefa In listaTarefas
+                If tarefa.categoria.nome = nomeCategoria Then
+                    tarefaUsandoCategoria = True
+                    Exit For
+                End If
+            Next
+
+
+            For Each meta As Meta In listaMetas
+                If meta.categoria.nome = nomeCategoria Then
+                    metaUsandoCategoria = True
+                    Exit For
+                End If
+            Next
+
+            If tarefaUsandoCategoria Or metaUsandoCategoria Then
+                MessageBox.Show("Não é possível apagar a categoria " & nomeCategoria & " pois ela está sendo usada por uma tarefa ou meta.")
+            Else
+                If MessageBox.Show("Tem certeza que deseja apagar a categoria " & nomeCategoria & "?", "Atenção", MessageBoxButtons.YesNo) = DialogResult.Yes Then
+                    _categoriaDAO.deletar(nomeCategoria)
+                    carregaDados()
+                End If
+            End If
         Else
             MsgBox("Selecione uma categoria para poder apagar!")
         End If
