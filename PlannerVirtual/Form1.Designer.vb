@@ -23,10 +23,12 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.btnSemana = New System.Windows.Forms.Button()
+
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+
         Me.SuspendLayout()
         '
         'btnSemana
@@ -85,16 +87,27 @@ Partial Class Form1
         Me.Label1.Text = "carregando..."
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'btnProdutividade
+        '
+        Me.btnProdutividade.Location = New System.Drawing.Point(514, 103)
+        Me.btnProdutividade.Name = "btnProdutividade"
+        Me.btnProdutividade.Size = New System.Drawing.Size(108, 85)
+        Me.btnProdutividade.TabIndex = 8
+        Me.btnProdutividade.Text = "RelatorioProd"
+        Me.btnProdutividade.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(444, 157)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
+
         Me.Controls.Add(Me.btnSemana)
         Me.Name = "Form1"
         Me.Text = "Form1"
@@ -103,8 +116,10 @@ Partial Class Form1
 
     End Sub
     Friend WithEvents btnSemana As Button
+
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label1 As Label
+
 End Class

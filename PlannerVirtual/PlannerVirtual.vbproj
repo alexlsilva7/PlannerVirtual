@@ -68,6 +68,7 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -113,6 +114,7 @@
     <Compile Include="app\Models\Meta.vb" />
     <Compile Include="app\Models\Relatorio\Relatorio.vb" />
     <Compile Include="app\Models\Relatorio\RelatorioMaisRealizadas.vb" />
+    <Compile Include="app\Models\Relatorio\RelatorioProdutividade.vb" />
     <Compile Include="app\Models\Relatorio\RelatorioQuantidade.vb" />
     <Compile Include="app\Models\Tarefa.vb" />
     <Compile Include="app\View\Dialog\FormAdicionarLembrete.Designer.vb">
@@ -185,6 +187,12 @@
       <DependentUpon>FormLembrete.vb</DependentUpon>
     </Compile>
     <Compile Include="app\View\FormLembrete.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="app\View\FormRelatorioProdutividade.Designer.vb">
+      <DependentUpon>FormRelatorioProdutividade.vb</DependentUpon>
+    </Compile>
+    <Compile Include="app\View\FormRelatorioProdutividade.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="app\View\FormRelatorioQuantidade.designer.vb">
@@ -283,6 +291,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="app\View\FormMeta.resx">
       <DependentUpon>FormMeta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="app\View\FormRelatorioProdutividade.resx">
+      <DependentUpon>FormRelatorioProdutividade.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="app\View\FormRelatorioQuantidade.resx">
       <DependentUpon>FormRelatorioQuantidade.vb</DependentUpon>
